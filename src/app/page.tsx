@@ -169,7 +169,7 @@ const Home: React.FC = () => {
         <section className="text-white">
           <div className="grid w-full justify-center md:max-w-screen-xl px-8 md:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-[6rem] lg:grid-cols-12">
             <div className="md:mr-auto place-self-center lg:col-span-6">
-              <div className="grid gap-8">
+              <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
                 <div>
                   <h1 className="max-w-2xl mb-4 text-6xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl dark:text-white">
                     Cyber
@@ -200,7 +200,8 @@ const Home: React.FC = () => {
                           .map((digit, index) => (
                             <div
                               key={`day-${index}`}
-                              className="text-7xl font-normal text-white border border-white rounded-lg p-[0.6rem] py-0 w-16"
+                              style={{ fontFamily: "Gabarito" }}
+                              className="text-8xl  font-normal text-white border border-white rounded-lg w-16 h-24 flex items-center justify-center"
                             >
                               {digit}
                             </div>
@@ -225,7 +226,8 @@ const Home: React.FC = () => {
                           .map((digit, index) => (
                             <div
                               key={`hour-${index}`}
-                              className="text-7xl font-normal text-white border border-white rounded-lg p-[0.6rem] py-0 w-16"
+                              style={{ fontFamily: "Gabarito" }}
+                              className="text-8xl font-normal text-white border border-white rounded-lg w-16 h-24 flex items-center justify-center"
                             >
                               {digit}
                             </div>
@@ -254,7 +256,8 @@ const Home: React.FC = () => {
                             .map((digit, index) => (
                               <div
                                 key={`minute-${index}`}
-                                className="text-7xl font-normal text-white border border-white rounded-lg p-[0.6rem] py-0 w-16"
+                                style={{ fontFamily: "Gabarito" }}
+                                className="text-8xl  font-normal text-white border border-white rounded-lg w-16 h-24 flex items-center justify-center"
                               >
                                 {digit}
                               </div>
@@ -842,7 +845,5 @@ const Home: React.FC = () => {
     </>
   );
 };
-
-// <!-- Updated for TSX stack -->
 
 export default Home;
