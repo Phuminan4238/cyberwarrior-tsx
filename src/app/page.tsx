@@ -4,12 +4,13 @@ import React, { useState, useEffect } from "react";
 import backgroundImg from "./assets/background.png";
 import cpeLogo from "./assets/cpe-logo.png";
 import kmuttLogo from "./assets/kmutt-logo.png";
-import kmuttLogo2 from "./assets/kmutt-logo.png";
+import kmuttLogo2 from "./assets/kmutt-logo-02.png";
 import policeLogo from "./assets/police-logo.png";
 import policeLogo2 from "./assets/police-logo-02.png";
 import sponsorlogo from "./assets/sponsor-logo.png";
 import cyberlogo from "./assets/cyber-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faTrophy, faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Define the type for timeLeft
@@ -129,20 +130,31 @@ const Home: React.FC = () => {
           >
             <ul className="gap-5 text-lg font-thai font-bold flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700">
               <li>
-                <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                  เกี่ยวกับโครงการ
-                </span>
+                <a href="#about">
+                  <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                    เกี่ยวกับโครงการ
+                  </span>
+                </a>
               </li>
               <li>
-                <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white mmd:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                  ติดต่อ
-                </span>
+                <a href="#reward">
+                  <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                    รางวัล
+                  </span>
+                </a>
               </li>
               <li>
+                <a href="#contact">
+                  <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white mmd:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                    ติดต่อ
+                  </span>
+                </a>
+              </li>
+              {/* <li>
                 <span className="block py-2 px-4 border-2 border-white rounded-2xl text-lg text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600">
                   สมัครเข้าร่วม
                 </span>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -257,7 +269,7 @@ const Home: React.FC = () => {
 
                   <div className="mt-6 md:mt-10 mb-3 text-center text-white uppercase font-thai pt-4 px-10 md:px-14 py-4 border-l-2 border-r-2 border-white rounded-[26px]">
                     <span className="text-lg md:text-[1.4rem] font-normal">
-                      <p>สมัครเข้าแข่งขันพร้อมกัน</p>
+                      <p>สมัครเข้าแข่งขันพร้อมกัน ตั้งแต่</p>
                     </span>
                     <p className="text-[1.6rem] font-bold pt-2">
                       12 พฤษภาคม 2025
@@ -321,21 +333,6 @@ const Home: React.FC = () => {
                 {/* Hidden for accessibility */}
               </button>
 
-              {/* Logo 4 */}
-              <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
-                style={{
-                  backgroundImage: `url(${cpeLogo.src})`,
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  height: "64px", // Adjust as needed
-                }}
-              >
-                <span className="sr-only">CPE Logo</span>{" "}
-                {/* Hidden for accessibility */}
-              </button>
-
               {/* Logo 5 */}
               <button
                 className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
@@ -348,6 +345,21 @@ const Home: React.FC = () => {
                 }}
               >
                 <span className="sr-only">KMUTT Logo 2</span>{" "}
+                {/* Hidden for accessibility */}
+              </button>
+
+              {/* Logo 4 */}
+              <button
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                style={{
+                  backgroundImage: `url(${cpeLogo.src})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  height: "64px", // Adjust as needed
+                }}
+              >
+                <span className="sr-only">CPE Logo</span>{" "}
                 {/* Hidden for accessibility */}
               </button>
             </div>
@@ -380,7 +392,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="text-white pt-4  md:pt-0">
+        <section id="about" className="text-white pt-4  md:pt-0">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-8 mx-auto md:gap-8 xl:gap-0 md:pt-[6rem] md:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
             <div className="lg:col-span-12">
@@ -434,17 +446,17 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  {/* <FontAwesomeIcon
-                  icon={faStarRegular}
-                  className="text-white p-1 pr-3"
-                /> */}
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-white p-1 pr-3"
+                  />
                   ประกาศรายชื่อผู้มีสิทธิ์เข้าแข่งขัน
                 </span>
               </div>
 
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  1 มิถุนายน 2025
+                  2 มิถุนายน 2025
                 </span>
               </div>
             </div>
@@ -454,17 +466,17 @@ const Home: React.FC = () => {
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   {" "}
-                  {/* <FontAwesomeIcon
-                  icon={faStarRegular}
-                  className="text-white p-1 pr-3"
-                /> */}
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-white p-1 pr-3"
+                  />
                   ปฐมนิเทศ และ workshop 1
                 </span>
               </div>
 
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  2 - 6 มิถุนายน 2025
+                  6 มิถุนายน 2025
                 </span>
               </div>
             </div>
@@ -473,17 +485,17 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  {/* <FontAwesomeIcon
-                  icon={faStarRegular}
-                  className="text-white p-1 pr-3"
-                /> */}
-                  ปฐมนิเทศ และ workshop 1
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-white p-1 pr-3"
+                  />
+                  Workshop 2
                 </span>
               </div>
 
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  23 - 27 มิถุนายน 2025
+                  28 มิถุนายน 2025
                 </span>
               </div>
             </div>
@@ -492,11 +504,11 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  {/* <FontAwesomeIcon
-                  icon={faStarRegular}
-                  className="text-white p-1 pr-3"
-                /> */}
-                  ส่งข้อเสนอโครงการ
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-white p-1 pr-3"
+                  />
+                  นำส่งข้อเสนอโครงการ
                 </span>
               </div>
 
@@ -511,11 +523,11 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  {/* <FontAwesomeIcon
-                  icon={faStarRegular}
-                  className="text-white p-1 pr-3"
-                /> */}
-                  ประกาศผลผู้ผ่านเข้ารอบสุดท้าย
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-white p-1 pr-3"
+                  />
+                  ประกาศผลรายชื่อผู้ผ่านเข้ารอบ
                 </span>
               </div>
 
@@ -530,10 +542,10 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  {/* <FontAwesomeIcon
-                  icon={faStarRegular}
-                  className="text-white p-1 pr-3"
-                /> */}
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-white p-1 pr-3"
+                  />
                   Hackathon & Pitching Day
                 </span>
               </div>
@@ -559,44 +571,65 @@ const Home: React.FC = () => {
           </section>
 
           <section className="text-white">
-            <div className="grid grid-cols-7 gap-4 max-w-screen-xl px-4 mx-auto lg:gap-4 xl:gap-4">
+            <div className="grid grid-cols-4 gap-4 max-w-screen-xl px-4 mx-auto lg:gap-4 xl:gap-4">
               {[
-                { title: "รับสมัคร", date: "12-31 พฤษภาคม 2025" },
+                {
+                  title: "รับสมัคร",
+                  date: "12-31 พฤษภาคม 2025",
+                  label: "online",
+                },
                 {
                   title: "ประกาศรายชื่อผู้มีสิทธิ์เข้าแข่งขัน",
-                  date: "1 มิถุนายน 2025",
+                  date: "2 มิถุนายน 2025",
+                  label: "online",
                 },
                 {
                   title: "ปฐมนิเทศ และ workshop 1",
-                  date: "2 - 6 มิถุนายน 2025",
+                  date: "6 มิถุนายน 2025",
+                  label: "อาคารสัมมนา บช.สอท.*",
                 },
                 {
-                  title: "ปฐมนิเทศ และ workshop 2",
-                  date: "23 - 27 มิถุนายน 2025",
+                  title: "กิจกรรม workshop 2",
+                  date: "28 มิถุนายน 2025",
+                  label: "online",
                 },
-                { title: "ส่งข้อเสนอโครงการ", date: "4 กรกฎาคม 2025" },
                 {
-                  title: "ประกาศผลผู้ผ่านเข้ารอบสุดท้าย",
+                  title: "ส่งข้อเสนอโครงการ",
+                  date: "4 กรกฎาคม 2025",
+                  label: "online",
+                },
+                {
+                  title: "ประกาศผลผู้ผ่านเข้ารอบ",
                   date: "8 กรกฎาคม 2025",
+                  label: "online",
                 },
                 {
-                  title: "Hackathon & Pitching Day",
-                  date: "19 - 21 กรกฎาคม 2025",
+                  title: "Hackathon",
+                  date: "19 - 20 กรกฎาคม 2025",
+                  label: "อาคารการเรียนรู้ LX KMUTT",
+                },
+                {
+                  title: "Pitching Day",
+                  date: "21 กรกฏาคม",
+                  label: "SCBX NEXT TECH @SiamParagon",
                 },
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center justify-center font-thai gap-2 p-2 h-[140px] rounded-2xl border border-white bg-gradient-to-b from-[#2F65AF66] to-[#0032D266]"
+                  className="flex flex-col items-center justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white bg-gradient-to-b from-[#2F65AF66] to-[#0032D266]"
                 >
-                  {/* <FontAwesomeIcon
-                    icon={faStarRegular}
-                    className="text-white p-1"
-                  /> */}
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-white p-1 pr-3"
+                  />
                   <span className="text-lg font-normal text-center">
                     {item.title}
                   </span>
                   <span className="text-sm font-normal text-center">
                     {item.date}
+                  </span>
+                  <span className="text-sm font-normal text-center">
+                    {item.label}
                   </span>
                 </div>
               ))}
@@ -618,16 +651,11 @@ const Home: React.FC = () => {
               <div className="col-span-12 flex items-center gap-2 font-thai">
                 <li></li>
                 <span className="text-md md:text-lg font-normal">
-                  สัญชาติไทย
+                  นักศึกษาระดับอุดมศึกษา ป.ตรี ป.โท ป.เอก
+                  และสถานศึกษาอยู่ในประเทศไทย
                 </span>
               </div>
 
-              <div className="col-span-12 flex items-center gap-2 font-thai">
-                <li></li>
-                <span className="text-md md:text-lg font-normal">
-                  นักศึกษาที่กำลังศึกษาในระดับอุดมศึกษา และพำนักอยู่ในประเทศไทย
-                </span>
-              </div>
               <div className="col-span-12 flex items-center gap-2 font-thai">
                 <li></li>
                 <span className="text-md md:text-lg font-normal">
@@ -645,7 +673,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="text-white">
+        <section className="text-white" id="reward">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto lg:gap-4  lg:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
             <div className="lg:col-span-12">
@@ -668,7 +696,7 @@ const Home: React.FC = () => {
 
               <div className="md:col-span-4 flex flex-col md:flex-row items-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  100,000 บาท จำนวน 1 รางวัล พร้อมโล่เกียรติยศ
+                  100,000 บาท จำนวน 1 รางวัล
                 </span>
               </div>
             </div>
@@ -688,7 +716,7 @@ const Home: React.FC = () => {
 
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  50,000 บาท จำนวน 1 รางวัล พร้อมโล่เกียรติยศ
+                  50,000 บาท จำนวน 1 รางวัล
                 </span>
               </div>
             </div>
@@ -708,7 +736,47 @@ const Home: React.FC = () => {
 
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  30,000 บาท จำนวน 1 รางวัล พร้อมโล่เกียรติยศ
+                  30,000 บาท จำนวน 1 รางวัล
+                </span>
+              </div>
+            </div>
+
+            {/* ด้านล่าง (รับสมัคร + วันที่) */}
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0  mb-4 md:mb-0">
+              <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
+                <i className="fas fa-star text-yellow-400"></i>
+                <span className="text-md md:text-lg font-normal">
+                  <FontAwesomeIcon
+                    icon={faTrophy}
+                    className="text-white p-1 pr-3"
+                  />
+                  รางวัลชมเชย
+                </span>
+              </div>
+
+              <div className="col-span-4 flex items-center justify-start font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  10,000 บาท จำนวน 7 รางวัล
+                </span>
+              </div>
+            </div>
+
+            {/* ด้านล่าง (รับสมัคร + วันที่) */}
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0  mb-4 md:mb-0">
+              <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
+                <i className="fas fa-star text-yellow-400"></i>
+                <span className="text-md md:text-lg font-normal">
+                  <FontAwesomeIcon
+                    icon={faTrophy}
+                    className="text-white p-1 pr-3"
+                  />
+                  รางวัลชม Popular Vote
+                </span>
+              </div>
+
+              <div className="col-span-4 flex items-center justify-start font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  จำนวน 1 รางวัล
                 </span>
               </div>
             </div>
@@ -724,45 +792,10 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
-          <div
-            className="relative bg-cover bg-initial bg-no-repeat bg-bottom rounded-xl border-l-2 border-r-2 border-white rounded-[26px] grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-xl px-6 md:px-6 py-8 mx-auto md:gap-8"
-            style={{ backgroundImage: `url(${backgroundImg.src})` }}
-          >
-            <div className="absolute inset-0 bg-[rgba(10,29,58,0.1)]" />
-            {/* Left Column */}
-            <div className="lg:col-span-3 flex items-center justify-center">
-              <h4 className="max-w-2xl text-xl font-th text-center font-bold uppercase tracking-tight leading-none md:text-2xl">
-                สมัครรับข่าวสารการแข่งขัน
-              </h4>
-            </div>
-
-            {/* Middle Column */}
-            <div className="lg:col-span-7 flex items-center justify-center">
-              <div className="w-full flex flex-col md:flex-row items-center gap-4">
-                <input
-                  type="email"
-                  placeholder="กรอก E-mail ของคุณ"
-                  className="w-full md:w-full px-4 py-2 rounded-lg bg-transparent border border-gray-300 font-thai text-white placeholder:text-gray-300 z-10"
-                />
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="lg:col-span-2 flex items-center justify-center">
-              <button
-                style={{
-                  backgroundImage: `url(${backgroundImg.src})`,
-                }}
-                className="w-[149px] h-[45.938px] flex justify-center items-center px-6 gap-2 rounded-lg font-thai font-bold bg-cover"
-              >
-                ติดตาม
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
+        <section
+          className="text-white pt-8 md:pt-12 px-10 md:px-4"
+          id="contact"
+        >
           <div className="grid max-w-screen-xl py-2 mx-auto lg:gap-4 justify-center md:justify-start">
             <div className="relative rounded-xl border-l-2 border-r-2 border-white rounded-[26px] gap-2 max-w-fit px-4 md:px-4 py-4 ml-0 md:gap-8">
               {/* Left Column */}
@@ -772,9 +805,12 @@ const Home: React.FC = () => {
                 </h4>
                 <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
                   E-mail:
-                  <span className="text-blue-400 pl-2 pt-2">
+                  <a
+                    href="mailto:cyberwarrior2025@kmutt.ac.th"
+                    className="text-blue-400 pl-2 pt-2 hover:underline"
+                  >
                     cyberwarrior2025@kmutt.ac.th
-                  </span>
+                  </a>
                 </h4>
               </div>
             </div>

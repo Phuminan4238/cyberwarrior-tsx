@@ -32,3 +32,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-th); /* Default Thai font */
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Force hide Next.js toast notification */
+.nextjs-toast {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
