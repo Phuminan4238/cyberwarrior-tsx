@@ -40,12 +40,18 @@ const Home: React.FC = () => {
     return timeLeft;
   };
 
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null); // Initialize as null for CSR
   const [isOpen, setIsOpen] = useState(false); // This is the isOpen state
   const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false); // For client-side rendering check
 
   // Function to toggle the menu state
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    // Set mounted to true after the component has mounted on the client
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -59,12 +65,17 @@ const Home: React.FC = () => {
   }, []); // Empty dependency array to run once on mount
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+    if (mounted) {
+      const timer = setInterval(() => {
+        setTimeLeft(calculateTimeLeft());
+      }, 1000);
 
-    return () => clearInterval(timer);
-  }, []);
+      return () => clearInterval(timer);
+    }
+  }, [mounted]);
+
+  // If not mounted (server-side), don't render anything to avoid hydration mismatch
+  if (!mounted) return null;
 
   return (
     <>
@@ -171,7 +182,7 @@ const Home: React.FC = () => {
                     {/* Days - Only for larger screens */}
                     <div className="flex flex-col items-center">
                       <div className="flex space-x-1 gap-3">
-                        {String(timeLeft.days || "00")
+                        {String(timeLeft?.days || "00")
                           .padStart(2, "0")
                           .split("")
                           .map((digit, index) => (
@@ -196,7 +207,7 @@ const Home: React.FC = () => {
                     {/* Hours */}
                     <div className="flex flex-col items-center">
                       <div className="flex space-x-1 gap-3">
-                        {String(timeLeft.hours || "00")
+                        {String(timeLeft?.hours || "00")
                           .padStart(2, "0")
                           .split("")
                           .map((digit, index) => (
@@ -225,7 +236,7 @@ const Home: React.FC = () => {
                     {!isMobile && (
                       <div className="flex flex-col items-center">
                         <div className="flex space-x-1 gap-3">
-                          {String(timeLeft.minutes || "00")
+                          {String(timeLeft?.minutes || "00")
                             .padStart(2, "0")
                             .split("")
                             .map((digit, index) => (
