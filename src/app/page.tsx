@@ -575,7 +575,7 @@ const Home: React.FC = () => {
           </section>
 
           <section className="text-white">
-            <div className="grid grid-cols-4 gap-4 max-w-screen-xl px-4 mx-auto lg:gap-4 xl:gap-4">
+            <div className="grid grid-cols-5 gap-4 max-w-screen-xl px-4 mx-auto lg:gap-4 xl:gap-4">
               {[
                 {
                   title: "รับสมัคร",
@@ -637,6 +637,8 @@ const Home: React.FC = () => {
                   </span>
                 </div>
               ))}
+            </div>
+            <div className="max-w-screen-xl px-4 pt-8 mx-auto">
               <span className="text-md md:text-lg font-normal">
                 * สถานที่อาจมีการเปลี่ยนแปลง
               </span>
