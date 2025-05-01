@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "student-visa",
+  title: "cyberwarrior",
   description: "kmutt student visa",
 };
 
