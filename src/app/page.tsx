@@ -10,7 +10,7 @@ import policeLogo2 from "./assets/police-logo-02.png";
 import sponsorlogo from "./assets/sponsor-logo.png";
 import cyberlogo from "./assets/cyber-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { faTrophy, faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Define the type for timeLeft
 interface TimeLeft {
@@ -415,10 +415,10 @@ const Home: React.FC = () => {
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   {" "}
-                  {/* <FontAwesomeIcon
-                  icon={faStarRegular}
-                  className="text-white p-1 pr-3"
-                /> */}
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-white p-1 pr-3"
+                  />
                   รับสมัคร
                 </span>
               </div>

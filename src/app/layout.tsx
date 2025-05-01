@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "cyberwarrior",
-  description: "kmutt student visa",
+  description: "cyberwarrior",
 };
 
 export default function RootLayout({
