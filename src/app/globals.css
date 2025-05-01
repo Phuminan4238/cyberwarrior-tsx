@@ -1,0 +1,34 @@
+/* If you use @charset, it must come first, otherwise skip it. */
+
+/* Import Google Fonts first */
+@import url("https://fonts.googleapis.com/css2?family=Gabarito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sarabun&display=swap");
+
+/* Import Tailwind after fonts */
+@import "tailwindcss";
+
+/* Then, define global CSS variables */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --font-en: "Gabarito", sans-serif;
+  --font-th: "IBM Plex Sans Thai", "Sarabun", sans-serif;
+  --font-mono: "Courier New", monospace;
+}
+
+/* Handle dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Global body styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-th); /* Default Thai font */
+}
