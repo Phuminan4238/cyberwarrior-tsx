@@ -272,7 +272,7 @@ const Home: React.FC = () => {
                       <p>สมัครเข้าแข่งขันพร้อมกัน ตั้งแต่</p>
                     </span>
                     <p className="text-[1.6rem] font-bold pt-2">
-                      12 พฤษภาคม 2025
+                      12 ถึง 31 พฤษภาคม 2025
                     </p>
                   </div>
                 </div>
@@ -296,7 +296,7 @@ const Home: React.FC = () => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  height: "64px", // Adjust as needed
+                  height: "80px", // Adjust as needed
                 }}
               >
                 <span className="sr-only">Police Logo 2</span>{" "}
@@ -311,7 +311,8 @@ const Home: React.FC = () => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  height: "64px", // Adjust as needed
+                  backgroundPosition: "center",
+                  height: "80px", // Adjust as needed
                 }}
               >
                 <span className="sr-only">Police Logo</span>{" "}
@@ -326,7 +327,8 @@ const Home: React.FC = () => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  height: "64px", // Adjust as needed
+                  backgroundPosition: "center",
+                  height: "80px", // Adjust as needed
                 }}
               >
                 <span className="sr-only">KMUTT Logo</span>{" "}
@@ -341,7 +343,8 @@ const Home: React.FC = () => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  height: "64px", // Adjust as needed
+                  backgroundPosition: "center",
+                  height: "80px", // Adjust as needed
                 }}
               >
                 <span className="sr-only">KMUTT Logo 2</span>{" "}
@@ -356,7 +359,8 @@ const Home: React.FC = () => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  height: "64px", // Adjust as needed
+                  backgroundPosition: "center",
+                  height: "80px", // Adjust as needed
                 }}
               >
                 <span className="sr-only">CPE Logo</span>{" "}
@@ -380,7 +384,7 @@ const Home: React.FC = () => {
                   backgroundSize: "contain", // Ensures the image fits within the container
                   backgroundRepeat: "no-repeat", // Prevents image repetition
                   backgroundPosition: "center", // Centers the image
-                  height: "80px", // Adjust the height as needed
+                  height: "120px", // Adjust the height as needed
                   width: "100px", // Adjust the width as needed
                 }}
               >
@@ -633,6 +637,9 @@ const Home: React.FC = () => {
                   </span>
                 </div>
               ))}
+              <span className="text-md md:text-lg font-normal">
+                * สถานที่อาจมีการเปลี่ยนแปลง
+              </span>
             </div>
           </section>
         </div>
