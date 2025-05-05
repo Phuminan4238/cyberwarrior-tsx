@@ -1,12 +1,15 @@
-import React from "react";
-import "../index.css";
+"use client";
+
+import React, { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import backgroundImg from "../assets/background.png";
+import cyberlogo from "../assets/cyber-logo.png";
 
 const Footer = () => {
   return (
     <div
       className="relative bg-cover bg-no-repeat bg-bottom flex items-center justify-center px-12 py-4 md:py-8"
-      style={{ backgroundImage: `url(${backgroundImg})` }}
+      style={{ backgroundImage: `url(${backgroundImg.src})` }}
     >
       <div className="absolute inset-0 bg-[rgba(10,29,58,0.1)] z-0" />
       <p className="text-white text-center z-10 text-sm md:text-lg font-thai">

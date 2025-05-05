@@ -1,7 +1,10 @@
+"use client";
+
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
+import { useRouter } from "next/router"; // Import Next.js router
+import Link from "next/link"; // Import Link component for navigation
 import backgroundImg from "../assets/background.png";
-import cyberLogo from "../assets/cyber-logo.png";
+import cyberlogo from "../assets/cyber-logo.png";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,23 +14,23 @@ const NavBar = () => {
   return (
     <nav
       className="relative bg-cover bg-initial border-gray-200"
-      style={{ backgroundImage: `url(${backgroundImg})` }}
+      style={{ backgroundImage: `url(${backgroundImg.src})` }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-[rgba(10,29,58,0.5)] backdrop-blur-sm z-0" />
 
       {/* Main navbar content */}
-      <div className="relative z-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 md:px-0 py-2">
-        <Link to="/">
+      <div className="relative z-10 max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-[3rem] py-2">
+        {/* Logo Div */}
+        <Link href="/">
           <img
-            src={cyberLogo}
-            alt="Cyber Warrior 2025 Logo"
-            className="h-20 w-auto"
+            src={cyberlogo.src}
+            alt="Cyber Logo"
+            className="h-20 w-auto object-contain"
           />
         </Link>
-
         <button
-          onClick={toggleMenu}
+          onClick={() => setIsOpen(!isOpen)}
           type="button"
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
@@ -57,27 +60,32 @@ const NavBar = () => {
         >
           <ul className="gap-5 text-lg font-thai font-bold flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700">
             <li>
-              <Link
-                // to="/about"
-                className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-              >
-                เกี่ยวกับโครงการ
-              </Link>
+              <a href="#about">
+                <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  เกี่ยวกับโครงการ
+                </span>
+              </a>
             </li>
             <li>
-              <Link
-                // to="/contact"
-                className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:hover:text-orange-600 md:p-0 dark:text-white mmd:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-              >
-                ติดต่อ
-              </Link>
+              <a href="#reward">
+                <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  รางวัล
+                </span>
+              </a>
             </li>
             <li>
-              <Link
-                // to="/registration"
-                className="block py-1 px-4 border-2 border-white rounded-2xl text-lg text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600"
-              >
-                สมัครเข้าร่วม
+              <a href="#contact">
+                <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white mmd:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  ติดต่อ
+                </span>
+              </a>
+            </li>
+            <li>
+              {/* Use Link here for navigation to apply.tsx */}
+              <Link href="/apply">
+                <span className="block py-2 px-4 border-2 border-white rounded-2xl text-lg text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600">
+                  สมัครเข้าร่วม
+                </span>
               </Link>
             </li>
           </ul>

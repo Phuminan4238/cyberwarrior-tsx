@@ -10,7 +10,6 @@ import policeLogo2 from "./assets/police-logo-02.png";
 import sponsorlogo from "./assets/sponsor-logo.png";
 import cyberlogo from "./assets/cyber-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faTrophy, faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Define the type for timeLeft
@@ -80,86 +79,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      {/* NavBar component pasted directly here */}
-      <nav
-        className="relative bg-cover bg-initial border-gray-200"
-        style={{ backgroundImage: `url(${backgroundImg.src})` }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[rgba(10,29,58,0.5)] backdrop-blur-sm z-0" />
-
-        {/* Main navbar content */}
-        <div className="relative z-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 md:px-0 py-2">
-          {/* Logo Div */}
-          <img
-            src={cyberlogo.src}
-            alt="Cyber Logo"
-            className="h-20 w-auto object-contain"
-          />
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
-            aria-expanded={isOpen ? "true" : "false"}
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-
-          <div
-            className={`${
-              isOpen ? "block" : "hidden"
-            } w-full md:block md:w-auto`}
-            id="navbar-default"
-          >
-            <ul className="gap-5 text-lg font-thai font-bold flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700">
-              <li>
-                <a href="#about">
-                  <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                    เกี่ยวกับโครงการ
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#reward">
-                  <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                    รางวัล
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#contact">
-                  <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white mmd:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                    ติดต่อ
-                  </span>
-                </a>
-              </li>
-              {/* <li>
-                <span className="block py-2 px-4 border-2 border-white rounded-2xl text-lg text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600">
-                  สมัครเข้าร่วม
-                </span>
-              </li> */}
-            </ul>
-          </div>
-        </div>
-      </nav>
-
       <div
         className="w-full min-h-screen bg-cover bg-initial bg-no-repeat "
         style={{
@@ -314,7 +233,6 @@ const Home: React.FC = () => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  backgroundPosition: "center",
                   height: "80px", // Adjust as needed
                 }}
               >
@@ -329,7 +247,6 @@ const Home: React.FC = () => {
                   backgroundImage: `url(${kmuttLogo.src})`,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
                   backgroundPosition: "center",
                   height: "80px", // Adjust as needed
                 }}
@@ -346,7 +263,6 @@ const Home: React.FC = () => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  backgroundPosition: "center",
                   height: "80px", // Adjust as needed
                 }}
               >
@@ -361,7 +277,6 @@ const Home: React.FC = () => {
                   backgroundImage: `url(${cpeLogo.src})`,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
                   backgroundPosition: "center",
                   height: "80px", // Adjust as needed
                 }}
@@ -430,7 +345,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* ด้านล่าง (รับสมัคร + วันที่) */}
-            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 pt-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 pt-4 lg:col-span-12 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   {" "}
@@ -804,12 +719,45 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
+          <div
+            className="relative bg-cover bg-initial bg-no-repeat bg-bottom rounded-xl border-l-2 border-r-2 border-white rounded-[26px] grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-xl px-6 md:px-6 py-8 mx-auto md:gap-8"
+            style={{ backgroundImage: `url(${backgroundImg.src})` }}
+          >
+            <div className="absolute inset-0 bg-[rgba(10,29,58,0.1)]" />
+            {/* Left Column */}
+            <div className="lg:col-span-3 flex items-center justify-center">
+              <h4 className="max-w-2xl text-xl font-thai text-center font-bold uppercase tracking-tight leading-none md:text-2xl">
+                สมัครรับข่าวสารการแข่งขัน
+              </h4>
+            </div>
+
+            {/* Middle Column */}
+            <div className="lg:col-span-7 flex items-center justify-center">
+              <div className="w-full flex flex-col md:flex-row items-center gap-4">
+                <input
+                  type="email"
+                  placeholder="กรอก E-mail ของคุณ"
+                  className="w-full md:w-full px-4 py-2 rounded-lg bg-transparent border border-gray-300 font-thai text-white placeholder:text-gray-300 z-10"
+                />
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="lg:col-span-2 flex items-center justify-center">
+              <button className="text-lg w-[149px] h-[45.938px] flex justify-center items-center px-6 gap-2 font-thai font-bold rounded-[12px]  bg-gradient-to-r from-[#0032D2] to-[#FF4C00] hover:opacity-90 transition-all">
+                ติดตาม
+              </button>
+            </div>
+          </div>
+        </section>
+
         <section
           className="text-white pt-8 md:pt-12 px-10 md:px-4"
           id="contact"
         >
           <div className="grid max-w-screen-xl py-2 mx-auto lg:gap-4 justify-center md:justify-start">
-            <div className="relative rounded-xl border-l-2 border-r-2 border-white rounded-[26px] gap-2 max-w-fit px-4 md:px-4 py-4 ml-0 md:gap-8">
+            <div className="relative rounded-xl border-l-2 border-r-2 border-white  gap-2 max-w-fit px-4 md:px-4 py-4 ml-0 md:gap-8">
               {/* Left Column */}
               <div className="flex flex-col items-start justify-start gap-4">
                 <h4 className="text-md font-thai text-start font-bold uppercase tracking-tight leading-none md:text-xl">
@@ -830,17 +778,6 @@ const Home: React.FC = () => {
         </section>
 
         <section className="h-20 py-10"></section>
-      </div>
-
-      <div
-        className="relative bg-cover bg-no-repeat bg-bottom flex items-center justify-center px-12 py-4 md:py-8"
-        style={{ backgroundImage: `url(${backgroundImg.src})` }}
-      >
-        <div className="absolute inset-0 bg-[rgba(10,29,58,0.1)] z-0" />
-        <p className="text-white text-center z-10 text-sm md:text-lg font-thai">
-          made in CPE KMUTT{" "}
-          <span className="block md:inline">© 2025 All rights reserved</span>
-        </p>
       </div>
     </>
   );
