@@ -66,13 +66,13 @@ const NavBar = () => {
                 </span>
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#reward">
                 <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white md:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                   รางวัล
                 </span>
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="#contact">
                 <span className="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-600 md:p-0 dark:text-white mmd:hover:text-orange-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
@@ -82,11 +82,11 @@ const NavBar = () => {
             </li>
             <li>
               {/* Use Link here for navigation to apply.tsx */}
-              <Link href="/apply">
+              {/* <Link href="/apply">
                 <span className="block py-2 px-4 border-2 border-white rounded-2xl text-lg text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600">
                   สมัครเข้าร่วม
                 </span>
-              </Link>
+              </Link> */}
             </li>
           </ul>
         </div>

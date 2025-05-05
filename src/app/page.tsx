@@ -719,20 +719,19 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
+        {/* subscribe  */}
+        {/* <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
           <div
             className="relative bg-cover bg-initial bg-no-repeat bg-bottom rounded-xl border-l-2 border-r-2 border-white rounded-[26px] grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-xl px-6 md:px-6 py-8 mx-auto md:gap-8"
             style={{ backgroundImage: `url(${backgroundImg.src})` }}
           >
             <div className="absolute inset-0 bg-[rgba(10,29,58,0.1)]" />
-            {/* Left Column */}
             <div className="lg:col-span-3 flex items-center justify-center">
               <h4 className="max-w-2xl text-xl font-thai text-center font-bold uppercase tracking-tight leading-none md:text-2xl">
                 สมัครรับข่าวสารการแข่งขัน
               </h4>
             </div>
 
-            {/* Middle Column */}
             <div className="lg:col-span-7 flex items-center justify-center">
               <div className="w-full flex flex-col md:flex-row items-center gap-4">
                 <input
@@ -743,14 +742,13 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column */}
             <div className="lg:col-span-2 flex items-center justify-center">
               <button className="text-lg w-[149px] h-[45.938px] flex justify-center items-center px-6 gap-2 font-thai font-bold rounded-[12px]  bg-gradient-to-r from-[#0032D2] to-[#FF4C00] hover:opacity-90 transition-all">
                 ติดตาม
               </button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section
           className="text-white pt-8 md:pt-12 px-10 md:px-4"
@@ -758,7 +756,6 @@ const Home: React.FC = () => {
         >
           <div className="grid max-w-screen-xl py-2 mx-auto lg:gap-4 justify-center md:justify-start">
             <div className="relative rounded-xl border-l-2 border-r-2 border-white  gap-2 max-w-fit px-4 md:px-4 py-4 ml-0 md:gap-8">
-              {/* Left Column */}
               <div className="flex flex-col items-start justify-start gap-4">
                 <h4 className="text-md font-thai text-start font-bold uppercase tracking-tight leading-none md:text-xl">
                   ติดต่อสอบถาม
