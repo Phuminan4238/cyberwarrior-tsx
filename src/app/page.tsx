@@ -617,7 +617,7 @@ const Home: React.FC = () => {
                     icon={faTrophy}
                     className="text-white p-1 pr-3"
                   />
-                  รางวัลชนะเลิศอันดับ 1
+                  รางวัลชนะเลิศ
                 </span>
               </div>
 
@@ -637,7 +637,7 @@ const Home: React.FC = () => {
                     icon={faTrophy}
                     className="text-white p-1 pr-3"
                   />
-                  รางวัลชนะเลิศอันดับ 2
+                  รางวัลรองชนะเลิศอันดับ 1
                 </span>
               </div>
 
@@ -657,7 +657,7 @@ const Home: React.FC = () => {
                     icon={faTrophy}
                     className="text-white p-1 pr-3"
                   />
-                  รางวัลชนะเลิศอันดับ 3
+                  รางวัลรองชนะเลิศอันดับ 2
                 </span>
               </div>
 
@@ -677,7 +677,7 @@ const Home: React.FC = () => {
                     icon={faTrophy}
                     className="text-white p-1 pr-3"
                   />
-                  รางวัลชมเชย
+                  รางวัล ชมเชย
                 </span>
               </div>
 
