@@ -139,7 +139,7 @@ export default function TeamMemberForm({ index, onChange }) {
             </label>
             <input
               type="text"
-              className="w-full border border-gray-300 text-lg rounded-lg p-2.5"
+              className="w-full text-gray-900 border border-gray-300 text-lg rounded-lg p-2.5"
               placeholder="เช่น วิทยาการคอมพิวเตอร์"
               onChange={(e) => handleChange("major", e.target.value)}
               required
@@ -155,7 +155,7 @@ export default function TeamMemberForm({ index, onChange }) {
           </label>
           <input
             type="text"
-            className="w-full border border-gray-300 text-lg rounded-lg p-2.5"
+            className="w-full text-gray-900 border border-gray-300 text-lg rounded-lg p-2.5"
             onChange={(e) => handleChange("organization", e.target.value)}
             required
           />
@@ -170,7 +170,7 @@ export default function TeamMemberForm({ index, onChange }) {
             </label>
             <input
               type="email"
-              className="w-full border border-gray-300 text-lg rounded-lg p-2.5"
+              className="w-full text-gray-900  border border-gray-300 text-lg rounded-lg p-2.5"
               placeholder="example@email.com"
               onChange={(e) => handleChange("email", e.target.value)}
               required
@@ -186,7 +186,7 @@ export default function TeamMemberForm({ index, onChange }) {
               inputMode="numeric"
               pattern="\d{10}"
               maxLength={10}
-              className="w-full border border-gray-300 text-lg rounded-lg p-2.5"
+              className="w-full text-gray-900 border border-gray-300 text-lg rounded-lg p-2.5"
               placeholder="08xxxxxxxx"
               onInput={(e) => {
                 e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10); // only digits, max 10
@@ -335,7 +335,7 @@ export default function TeamMemberForm({ index, onChange }) {
               </label>
               <input
                 type="text"
-                className="w-full border border-gray-300 text-lg rounded-lg p-2.5"
+                className="w-full text-gray-900 border border-gray-300 text-lg rounded-lg p-2.5"
                 onChange={(e) => handleChange("github", e.target.value)}
               />
             </div>
