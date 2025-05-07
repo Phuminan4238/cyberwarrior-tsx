@@ -297,27 +297,28 @@ export default function TeamMemberForm({ index, onChange }) {
             หนังสือยินยอมจากอาจารย์ที่ปรึกษา
             <span className="text-gray-500 text-sm">{""} (optional)</span>
           </label>
+
           <div className="flex items-center gap-4 mt-4">
             <div className="flex-[5]">
               <input
                 type="file"
-                accept="image/*"
-                onChange={handleResumeChange}
-                id={`resume-${index}`}
+                accept="image/*, .pdf"
+                onChange={handleAdvisorLetterChange}
+                id={`advisorLetter${index}`}
                 className="hidden"
               />
               <div
-                id={`fileName-resume-${index}`}
+                id={`fileName-advisorLetter-${index}`}
                 className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
               >
-                {resumeFileName}
+                {advisorLetterName}
               </div>
             </div>
             <div className="flex-[1]">
               <button
                 type="button"
                 onClick={() =>
-                  document.getElementById(`resume-${index}`).click()
+                  document.getElementById(`advisorLetter${index}`)?.click()
                 }
                 className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700"
               >
@@ -354,22 +355,22 @@ export default function TeamMemberForm({ index, onChange }) {
                   <input
                     type="file"
                     accept=".pdf"
-                    onChange={handleAdvisorLetterChange}
-                    id={`advisorLetter-${index}`}
+                    onChange={handleResumeChange}
+                    id={`resume-${index}`}
                     className="hidden"
                   />
                   <div
-                    id={`fileName-advisorLetter-${index}`}
+                    id={`fileName-resume-${index}`}
                     className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
                   >
-                    {advisorLetterName}
+                    {resumeFileName}
                   </div>
                 </div>
                 <div className="flex-[1]">
                   <button
                     type="button"
                     onClick={() =>
-                      document.getElementById(`advisorLetter-${index}`).click()
+                      document.getElementById(`resume-${index}`).click()
                     }
                     className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700"
                   >
