@@ -21,6 +21,48 @@ interface TimeLeft {
 }
 
 const Home: React.FC = () => {
+  // Subscription
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async () => {
+    if (!email) {
+      setMessage("กรุณากรอกอีเมล");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await fetch("https://cyberwarrior2025.io/api/subscribes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data: { email } }),
+      });
+
+      const data = await res.json();
+      console.log("✅ Response:", data);
+
+      if (!res.ok) {
+        setMessage(
+          "เกิดข้อผิดพลาด: " + (data.error?.message || "ไม่สามารถสมัครได้")
+        );
+        return;
+      }
+
+      setMessage("สมัครรับข่าวสารสำเร็จ ✅");
+      setEmail("");
+    } catch (err) {
+      console.error("❌ Network error:", err);
+      setMessage("ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const calculateTimeLeft = (): TimeLeft => {
     const targetDate = new Date("2025-05-12T00:00:00"); // Target date
     const now = new Date();
@@ -720,35 +762,47 @@ const Home: React.FC = () => {
         </section>
 
         {/* subscribe  */}
-        {/* <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
+        <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
           <div
             className="relative bg-cover bg-initial bg-no-repeat bg-bottom rounded-xl border-l-2 border-r-2 border-white rounded-[26px] grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-xl px-6 md:px-6 py-8 mx-auto md:gap-8"
             style={{ backgroundImage: `url(${backgroundImg.src})` }}
           >
             <div className="absolute inset-0 bg-[rgba(10,29,58,0.1)]" />
-            <div className="lg:col-span-3 flex items-center justify-center">
+            <div className="lg:col-span-3 flex items-center justify-center z-10">
               <h4 className="max-w-2xl text-xl font-thai text-center font-bold uppercase tracking-tight leading-none md:text-2xl">
                 สมัครรับข่าวสารการแข่งขัน
               </h4>
             </div>
 
-            <div className="lg:col-span-7 flex items-center justify-center">
+            <div className="lg:col-span-7 flex items-center justify-center z-10">
               <div className="w-full flex flex-col md:flex-row items-center gap-4">
                 <input
                   type="email"
-                  placeholder="กรอก E-mail ของคุณ"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="กรอกอีเมลของคุณ"
                   className="w-full md:w-full px-4 py-2 rounded-lg bg-transparent border border-gray-300 font-thai text-white placeholder:text-gray-300 z-10"
                 />
               </div>
             </div>
 
-            <div className="lg:col-span-2 flex items-center justify-center">
-              <button className="text-lg w-[149px] h-[45.938px] flex justify-center items-center px-6 gap-2 font-thai font-bold rounded-[12px]  bg-gradient-to-r from-[#0032D2] to-[#FF4C00] hover:opacity-90 transition-all">
-                ติดตาม
+            <div className="lg:col-span-2 flex items-center justify-center z-10">
+              <button
+                onClick={handleSubscribe}
+                disabled={loading}
+                className="text-lg w-[149px] h-[45.938px] flex justify-center items-center px-6 gap-2 font-thai font-bold rounded-[12px] bg-gradient-to-r from-[#0032D2] to-[#FF4C00] hover:opacity-90 transition-all"
+              >
+                {loading ? "กำลังส่ง..." : "ติดตาม"}
               </button>
             </div>
+
+            {message && (
+              <div className="col-span-full text-center text-sm mt-2 z-10">
+                {message}
+              </div>
+            )}
           </div>
-        </section> */}
+        </section>
 
         <section
           className="text-white pt-8 md:pt-12 px-10 md:px-4"

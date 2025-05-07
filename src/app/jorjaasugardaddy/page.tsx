@@ -132,14 +132,15 @@ const ApplyPage: React.FC = () => {
       const result = await response.json();
       console.log("✅ Submitted:", result);
       alert("ส่งข้อมูลเรียบร้อยแล้ว");
+
+      // Show "Thank You" modal after successful form submission
+      setShowModal(false); // Close the main form modal
+      setShowThankYouModal(true); // Show the "Thank You" modal
     } catch (error) {
       console.error("❌ Error submitting:", error);
       alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
     }
   };
-
-  // const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
 
   //   const data = {
   //     data: {
@@ -178,7 +179,6 @@ const ApplyPage: React.FC = () => {
   //     alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
   //   }
   // };
-
   const [members, setMembers] = useState([
     { name: "" },
     { name: "" },
@@ -850,6 +850,8 @@ const ApplyPage: React.FC = () => {
               </div>
             </form>
           </section>
+
+          <section className="h-20 md:h-40 py-10"></section>
         </div>
       )}
     </>
