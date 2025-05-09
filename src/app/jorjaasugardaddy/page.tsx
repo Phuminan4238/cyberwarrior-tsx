@@ -822,7 +822,7 @@ const ApplyPage: React.FC = () => {
                   </div>
 
                   <p className="text-md text-red-500 mt-4">
-                    คำที่เหลือ: {Math.max(maxWords - wordCount, 0)} คำ
+                    คำที่เหลือ: {Math.max(maxWords - wordCount, 0)} ตัวอักษร
                   </p>
                 </div>
 
@@ -910,7 +910,8 @@ const ApplyPage: React.FC = () => {
 
                   <p className="text-md text-red-500 mt-4">
                     คำที่เหลือ:{" "}
-                    {Math.max(maxExpectationWords - expectationWordCount, 0)} คำ
+                    {Math.max(maxExpectationWords - expectationWordCount, 0)}{" "}
+                    ตัวอักษร
                   </p>
                 </div>
 
