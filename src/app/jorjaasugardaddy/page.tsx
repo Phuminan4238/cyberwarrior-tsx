@@ -791,7 +791,7 @@ const ApplyPage: React.FC = () => {
                               placeholder="โปรดระบุ"
                               value={otherInterest}
                               onChange={(e) => setOtherInterest(e.target.value)}
-                              className="ml-2 border border-gray-300 rounded px-2 py-1 text-md w-140 md:ml-10"
+                              className="ml-2 border border-gray-300 rounded px-2 py-1 text-md w-140 md:ml-10 text-gray-900"
                             />
                           )}
                       </div>
@@ -869,7 +869,7 @@ const ApplyPage: React.FC = () => {
                               onChange={(e) =>
                                 setOtherExpertise(e.target.value)
                               }
-                              className="ml-2 border border-gray-300 rounded px-2 py-1 text-md w-140 md:ml-10"
+                              className="ml-2 border border-gray-300 rounded px-2 py-1 text-md w-140 md:ml-10 text-gray-900"
                             />
                           )}
                       </label>
