@@ -21,6 +21,9 @@ const ApplyPage: React.FC = () => {
 
   // Section: หัวข้อที่สนใจ
   const [selectedInterest, setSelectedInterest] = useState<string[]>([]);
+  const [otherInterest, setOtherInterest] = useState("");
+  const [otherExpertise, setOtherExpertise] = useState("");
+
   const interestItems = [
     {
       id: 1,
@@ -56,93 +59,97 @@ const ApplyPage: React.FC = () => {
     {
       id: 2,
       label: "Ethical Hacking / Penetration Testing",
-      value: "thical Hacking / Penetration Testing",
+      value: "Ethical Hacking / Penetration Testing",
     },
     {
       id: 3,
       label: "Programming (Python, JS, etc.)",
       value: "Programming (Python, JS, etc.)",
     },
-    { id: 4, label: "AI / Machine Learning", value: "ai_ml" },
+    { id: 4, label: "AI / Machine Learning", value: "AI / Machine Learning" },
     { id: 5, label: "Blockchain / Web3", value: "Blockchain / Web3" },
     { id: 6, label: "Cloud / DevOps", value: "Cloud / DevOps" },
     { id: 7, label: "อื่นๆ", value: "อื่นๆ" },
   ];
 
-  const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  // const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
 
-    // Validate required fields
-    if (
-      !teamName ||
-      !inspiration ||
-      !expectation ||
-      selectedInterest.length === 0 ||
-      selectedExpertise.length === 0
-    ) {
-      alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-      return;
-    }
+  //   // Validate required fields
+  //   if (
+  //     !teamName ||
+  //     !inspiration ||
+  //     !expectation ||
+  //     selectedInterest.length === 0 ||
+  //     selectedExpertise.length === 0
+  //   ) {
+  //     alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+  //     return;
+  //   }
 
-    // Validate required fields for each team member
-    const memberErrors = members.some((member) => {
-      return (
-        !member.name ||
-        !member.studentId ||
-        !member.studentCert ||
-        !member.email ||
-        !member.phone
-      );
-    });
+  //   // ✅ Format interest before submission
+  // const formattedInterests = selectedInterest.map((item) =>
+  //   item === "อื่น ๆ" ? otherInterest.trim() : item
+  // );
 
-    if (memberErrors) {
-      alert("กรุณากรอกข้อมูลสมาชิกทีมให้ครบถ้วน"); // "Please complete the team member details."
-      return;
-    }
+  //   // Validate required fields for each team member
+  //   const memberErrors = members.some((member) => {
+  //     return (
+  //       !member.name ||
+  //       !member.studentId ||
+  //       !member.studentCert ||
+  //       !member.email ||
+  //       !member.phone
+  //     );
+  //   });
 
-    const data = {
-      data: {
-        teamName,
-        inspiration,
-        expectation,
-        interests: selectedInterest.join(","),
-        expertises: selectedExpertise.join(","),
-        members: members.map((member) => ({
-          ...member,
-          studentId: member.studentId?.id || null,
-          studentCert: member.studentCert?.id || null,
-          resume: member.resume?.id || null,
-          advisorLetter: member.advisorLetter?.id || null,
-        })),
-      },
-    };
-
-    try {
-      const response = await fetch(
-        "https://cyberwarrior2025.io/api/forms?&populate=members.studentId&populate=members.studentCert&populate=members.resume&populate=members.advisorLetter",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-
-      const result = await response.json();
-      console.log("✅ Submitted:", result);
-      alert("ส่งข้อมูลเรียบร้อยแล้ว");
-
-      // Show "Thank You" modal after successful form submission
-      setShowModal(false); // Close the main form modal
-      setShowThankYouModal(true); // Show the "Thank You" modal
-    } catch (error) {
-      console.error("❌ Error submitting:", error);
-      alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
-    }
-  };
+  //   if (memberErrors) {
+  //     alert("กรุณากรอกข้อมูลสมาชิกทีมให้ครบถ้วน"); // "Please complete the team member details."
+  //     return;
+  //   }
 
   //   const data = {
+  //     data: {
+  //       teamName,
+  //       inspiration,
+  //       expectation,
+  //       interests: selectedInterest.join(",\n"),
+  //       expertises: selectedExpertise.join(",\n"),
+  //       members: members.map((member) => ({
+  //         ...member,
+  //         studentId: member.studentId?.id || null,
+  //         studentCert: member.studentCert?.id || null,
+  //         resume: member.resume?.id || null,
+  //         advisorLetter: member.advisorLetter?.id || null,
+  //       })),
+  //     },
+  //   };
+
+  //   try {
+  //     const response = await fetch(
+  //       "https://cyberwarrior2025.io/api/forms?&populate=members.studentId&populate=members.studentCert&populate=members.resume&populate=members.advisorLetter",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(data),
+  //       }
+  //     );
+
+  //     const result = await response.json();
+  //     console.log("✅ Submitted:", result);
+  //     alert("ส่งข้อมูลเรียบร้อยแล้ว");
+
+  //     // Show "Thank You" modal after successful form submission
+  //     setShowModal(false); // Close the main form modal
+  //     setShowThankYouModal(true); // Show the "Thank You" modal
+  //   } catch (error) {
+  //     console.error("❌ Error submitting:", error);
+  //     alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
+  //   }
+  // };
+
   //     data: {
   //       teamName,
   //       inspiration,
@@ -179,12 +186,92 @@ const ApplyPage: React.FC = () => {
   //     alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
   //   }
   // };
+
+  const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (
+      !teamName ||
+      !inspiration ||
+      !expectation ||
+      selectedInterest.length === 0 ||
+      selectedExpertise.length === 0
+    ) {
+      alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      return;
+    }
+
+    // Validate members
+    const memberErrors = members.some((member) => {
+      return (
+        !member.name ||
+        !member.studentId ||
+        !member.studentCert ||
+        !member.email ||
+        !member.phone
+      );
+    });
+
+    if (memberErrors) {
+      alert("กรุณากรอกข้อมูลสมาชิกทีมให้ครบถ้วน");
+      return;
+    }
+
+    // ✅ Replace "อื่น ๆ" with user input
+    const formattedInterests = selectedInterest.map((item) =>
+      item === "อื่น ๆ" ? otherInterest.trim() : item
+    );
+
+    const formattedExpertises = selectedExpertise.map((item) =>
+      item === "อื่นๆ" ? otherExpertise.trim() : item
+    );
+
+    const data = {
+      data: {
+        teamName,
+        inspiration,
+        expectation,
+        interests: formattedInterests.join(",\n"),
+        expertises: selectedExpertise.join(",\n"),
+        members: members.map((member) => ({
+          ...member,
+          studentId: member.studentId?.id || null,
+          studentCert: member.studentCert?.id || null,
+          resume: member.resume?.id || null,
+          advisorLetter: member.advisorLetter?.id || null,
+        })),
+      },
+    };
+
+    try {
+      const response = await fetch(
+        "https://cyberwarrior2025.io/api/forms?...",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      const result = await response.json();
+      alert("ส่งข้อมูลเรียบร้อยแล้ว");
+      setShowModal(false);
+      setShowThankYouModal(true);
+    } catch (error) {
+      console.error("❌ Error:", error);
+      alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
+    }
+  };
+
   const [members, setMembers] = useState([
     { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
+    // { name: "" },
+    // { name: "" },
+    // { name: "" },
+    // { name: "" },
   ]);
 
   const handleMemberChange = (index: number, data: any) => {
@@ -264,15 +351,73 @@ const ApplyPage: React.FC = () => {
 
   const handleToggle = (
     value: string,
-    selected: string[],
-    setSelected: React.Dispatch<React.SetStateAction<string[]>>
+    selectedList: string[],
+    setSelectedList: React.Dispatch<React.SetStateAction<string[]>>
   ) => {
-    setSelected((prevSelected) =>
-      prevSelected.includes(value)
-        ? prevSelected.filter((item) => item !== value)
-        : [...prevSelected, value]
-    );
+    if (selectedList.includes(value)) {
+      setSelectedList(selectedList.filter((item) => item !== value));
+    } else {
+      setSelectedList([...selectedList, value]);
+    }
   };
+
+  // 300 คำ หรือ 2000 ตัวอักษร
+
+  const maxWords = 2000;
+  const maxChars = 2000;
+
+  // Function to handle the input change and count words/characters
+  const handleChange = (e) => {
+    let text = e.target.value;
+
+    // Count characters
+    const charCount = text.length;
+
+    // Count "words" as characters without spaces (for Thai language)
+    const words = text.trim().replace(/\s+/g, "").length;
+
+    // Limit to 300 words (characters for this approach)
+    if (words > maxWords) {
+      text = text.slice(0, maxWords);
+    }
+
+    // Limit to 1800 characters
+    if (charCount > maxChars) {
+      text = text.slice(0, maxChars);
+    }
+
+    setInspiration(text);
+  };
+
+  // Count words (characters without spaces) and characters
+  const wordCount = inspiration.trim().replace(/\s+/g, "").length;
+  const charCount = inspiration.length;
+
+  const maxExpectationChars = 700;
+  const maxExpectationWords = 700;
+  // const maxExpectationChars = 700;
+
+  const handleExpectationChange = (e) => {
+    let text = e.target.value;
+
+    const words = text.trim().replace(/\s+/g, "").length; // "Words" = non-space characters
+    const chars = text.length;
+
+    // Limit to 100 "words" (characters without spaces)
+    if (words > maxExpectationWords) {
+      text = text.replace(/\s+/g, "").slice(0, maxExpectationWords);
+    }
+
+    // Limit to 700 characters
+    if (chars > maxExpectationChars) {
+      text = text.slice(0, maxExpectationChars);
+    }
+
+    setExpectation(text);
+  };
+
+  const expectationWordCount = expectation.trim().replace(/\s+/g, "").length;
+  const expectationCharCount = expectation.length;
 
   return (
     <>
@@ -325,7 +470,7 @@ const ApplyPage: React.FC = () => {
                   {/* Center Column */}
                   <div className="col-span-1 text-center">
                     <span className="text-black text-xl md:text-2xl font-bold font-thai pb-2 border-b-3 border-orange-500">
-                      ข้อมูลผู้สมัคร
+                      ข้อกำหนดและเงื่อนไขในการแข่งขัน
                     </span>
                   </div>
 
@@ -337,22 +482,30 @@ const ApplyPage: React.FC = () => {
                     ผู้สมัครและผู้เข้าร่วมโครงการตกลงและรับทราบว่าการเก็บรวบรวม
                     ใช้ และเปิดเผยข้อมูลส่วนบุคคลดังกล่าวข้างต้นเป็นไป
                     เพื่อวัตถุประสงค์ ดังต่อไปนี้
-                    <br />
                     <br></br>
-                    ก. เพื่อจัดทำฐานข้อมูลของผู้สมัครและผู้เข้าร่วมโครงการ
-                    <br />
-                    ข.
+                    <br></br>
+                    1. เพื่อจัดทำฐานข้อมูลของผู้สมัครและผู้เข้าร่วมโครงการ
+                    เพื่อวัตถุประสงค์ ดังต่อไปนี้
+                    <br></br>
+                    2.
                     เพื่อใช้ในการติดต่อสื่อสารทั้งในระหว่างและภายหลังจากการเข้าร่วมโครงการ
-                    <br />
-                    ค. เพื่อแจ้งข้อมูลข่าวสารและเสนอสิทธิประโยชน์ต่างๆ
-                    ของโครงการ
-                    <br />
-                    ง.
+                    เพื่อวัตถุประสงค์ ดังต่อไปนี้
+                    <br></br>
+                    3. เพื่อแจ้งข้อมูลข่าวสารและเสนอสิทธิประโยชน์ต่างๆ
+                    ของโครงการ เพื่อวัตถุประสงค์ ดังต่อไปนี้
+                    <br></br>
+                    4.
                     เพื่อวิเคราะห์และประมวลข้อมูลเชิงสถิติของผู้สมัครและผู้เข้าร่วมโครงการ
-                    <br />
-                    จ. เพื่อใช้ในการเผยแพร่ โฆษณา/ประชาสัมพันธ์บนหนังสือ เอกสาร
-                    เว็บไซต์ หรือ ช่องทางการสื่อสารต่าง ๆ ของบริษัท ผู้จัดงาน
+                    เพื่อวัตถุประสงค์ ดังต่อไปนี้
+                    <br></br>
+                    5. เพื่อใช้ในการเผยแพร่ โฆษณา/ประชาสัมพันธ์บนหนังสือ เอกสาร
+                    เว็บไซต์ หรือ ช่องทางการสื่อสารต่าง ๆ ของผู้จัดงาน
                     องค์กรพันธมิตร สื่อมวลชน และ/หรือโซเชียลมีเดีย
+                    ทั้งนี้รวมถึงขออนุญาตใช้ภาพ เสียง
+                    และวิดิโอในการประชาสัมพันธ์ เพื่อวัตถุประสงค์ ดังต่อไปนี้
+                    <br></br>
+                    6. เพื่อใช้ข้อมูลติดต่อของผู้สมัครเพื่อลงทะเบียนในระบบสมาชิก
+                    oneKMUTT ให้อัตโนมัติ
                   </p>
                   <br></br>
                   <div className="flex justify-center">
@@ -394,7 +547,85 @@ const ApplyPage: React.FC = () => {
                 </div>
               </div>
             </form>
+
+            <div className="max-w-screen-sm mx-[4rem] md:mx-auto md:max-w-screen-md mt-[3rem] p-[2rem]  md:pt-[2rem]  bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 dark:text-gray-400 ">
+              {/* Logo 1 */}
+              <button
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                style={{
+                  backgroundImage: `url(${policeLogo2.src})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  height: "40px", // Adjust as needed
+                }}
+              >
+                <span className="sr-only">Police Logo 2</span>{" "}
+                {/* Hidden for accessibility */}
+              </button>
+
+              {/* Logo 2 */}
+              <button
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                style={{
+                  backgroundImage: `url(${policeLogo.src})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  height: "40px", // Adjust as needed
+                }}
+              >
+                <span className="sr-only">Police Logo</span>{" "}
+                {/* Hidden for accessibility */}
+              </button>
+
+              {/* Logo 3 */}
+              <button
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                style={{
+                  backgroundImage: `url(${kmuttLogo.src})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  height: "40px", // Adjust as needed
+                }}
+              >
+                <span className="sr-only">KMUTT Logo</span>{" "}
+                {/* Hidden for accessibility */}
+              </button>
+
+              {/* Logo 5 */}
+              <button
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                style={{
+                  backgroundImage: `url(${kmuttLogo2.src})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  height: "40px", // Adjust as needed
+                }}
+              >
+                <span className="sr-only">KMUTT Logo 2</span>{" "}
+                {/* Hidden for accessibility */}
+              </button>
+
+              {/* Logo 4 */}
+              <button
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                style={{
+                  backgroundImage: `url(${cpeLogo.src})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  height: "40px", // Adjust as needed
+                }}
+              >
+                <span className="sr-only">CPE Logo</span>{" "}
+                {/* Hidden for accessibility */}
+              </button>
+            </div>
           </section>
+          <section className="h-20 md:h-60 py-20"></section>
         </div>
       )}
 
@@ -534,7 +765,7 @@ const ApplyPage: React.FC = () => {
                   </label>
                   <div className="space-y-2 pt-2">
                     {interestItems.map((item) => (
-                      <label
+                      <div
                         key={item.id}
                         className="flex items-center space-x-2"
                       >
@@ -552,7 +783,18 @@ const ApplyPage: React.FC = () => {
                           className="w-4 h-4"
                         />
                         <span className="text-lg text-black">{item.label}</span>
-                      </label>
+
+                        {item.value === "อื่น ๆ" &&
+                          selectedInterest.includes("อื่น ๆ") && (
+                            <input
+                              type="text"
+                              placeholder="โปรดระบุ"
+                              value={otherInterest}
+                              onChange={(e) => setOtherInterest(e.target.value)}
+                              className="ml-2 border border-gray-300 rounded px-2 py-1 text-md w-140 md:ml-10"
+                            />
+                          )}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -562,9 +804,10 @@ const ApplyPage: React.FC = () => {
                   <label className="block mb-2 text-lg font-bold text-gray-900">
                     แรงบันดาลใจและเป้าหมายในการเข้าร่วมการแข่งขัน
                   </label>
-                  <p className="text-lg text-gray-500 mb-2">
-                    (ความยาวไม่เกิน 300 คำ)
+                  <p className="text-md text-gray-500 mb-2">
+                    (ความยาวไม่เกิน 300 คำ หรือ 2000 ตัวอักษร)
                   </p>
+
                   <div
                     className="flex flex-col items-start w-full"
                     style={{ maxHeight: "300px" }}
@@ -572,12 +815,15 @@ const ApplyPage: React.FC = () => {
                     <textarea
                       name="inspiration"
                       value={inspiration}
-                      onChange={(e) => setInspiration(e.target.value)}
+                      onChange={handleChange}
                       rows={10}
-                      maxLength={300 * 6} // approx. 300 Thai words ~1800 characters
-                      className="w-full text-black border border-gray-300 rounded-xl  resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full text-black border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 p-4"
                     />
                   </div>
+
+                  <p className="text-md text-red-500 mt-4">
+                    คำที่เหลือ: {Math.max(maxWords - wordCount, 0)} คำ
+                  </p>
                 </div>
 
                 {/*  ข้อมูลความเชี่ยวชาญ */}
@@ -609,9 +855,23 @@ const ApplyPage: React.FC = () => {
                               setSelectedExpertise
                             )
                           }
-                          className="w-4 h-4 pr-4"
+                          className="w-4 h-4"
                         />
                         <span className="text-lg text-black">{item.label}</span>
+
+                        {/* ✅ Show input next to "อื่นๆ" */}
+                        {item.value === "อื่นๆ" &&
+                          selectedExpertise.includes("อื่นๆ") && (
+                            <input
+                              type="text"
+                              placeholder="โปรดระบุ"
+                              value={otherExpertise}
+                              onChange={(e) =>
+                                setOtherExpertise(e.target.value)
+                              }
+                              className="ml-2 border border-gray-300 rounded px-2 py-1 text-md w-140 md:ml-10"
+                            />
+                          )}
                       </label>
                     ))}
                   </div>
@@ -625,27 +885,33 @@ const ApplyPage: React.FC = () => {
                     </label>
                     <div className="flex-grow h-px bg-blue-600" />
                   </div>
+
                   <p className="text-lg text-gray-700 mb-2">
                     เช่น: อยากได้เครือข่าย / อยากพัฒนาทักษะ /
                     อยากทำงานร่วมกับหน่วยงานด้านความมั่นคง /
                     อยากพัฒนาเป็นโปรดักต์จริง
-                    <span className="text-gray-500 text-lg">
-                      {""} (ความยาวไม่เกิน 100 คำ)
-                    </span>
                   </p>
+                  <span className="text-gray-500 text-md">
+                    {" "}
+                    (ความยาวไม่เกิน 100 คำ หรือ 700 ตัวอักษร)
+                  </span>
                   <div
-                    className="flex flex-col items-start w-full"
+                    className="flex flex-col items-start w-full mt-2"
                     style={{ maxHeight: "200px" }}
                   >
                     <textarea
                       name="expectation"
                       value={expectation}
-                      onChange={(e) => setExpectation(e.target.value)}
+                      onChange={handleExpectationChange}
                       rows={10}
-                      maxLength={100 * 6}
-                      className="w-full text-black border border-gray-300 rounded-xl  resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full text-black border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 p-4"
                     />
                   </div>
+
+                  <p className="text-md text-red-500 mt-4">
+                    คำที่เหลือ:{" "}
+                    {Math.max(maxExpectationWords - expectationWordCount, 0)} คำ
+                  </p>
                 </div>
 
                 {/* Submit Button  */}
@@ -657,7 +923,7 @@ const ApplyPage: React.FC = () => {
                         <button
                           type="submit"
                           onClick={handleSubmitForm}
-                          className="px-6 py-2 font-bold text-transparent border-2 border-blue-700 bg-clip-text bg-gradient-to-r from-[#0032D2] to-[#FF4C00] rounded-[12px] gradient-border"
+                          className="px-6 py-2 font-bold text-transparent border-2 border-blue-700 bg-clip-text bg-gradient-to-r from-[#0032D2] to-[#FF4C00] rounded-[12px] gradient-border cursor-pointer"
                         >
                           ส่งข้อมูลใบสมัคร
                         </button>

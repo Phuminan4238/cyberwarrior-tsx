@@ -81,7 +81,8 @@ export default function TeamMemberForm({ index, onChange }) {
                 เลือก
               </option>
               <option value="mr">นาย</option>
-              <option value="ms">นางสาว</option>
+              <option value="mrs">นาง</option>
+              <option value="miss">นางสาว</option>
             </select>
           </div>
           <div className="col-span-5">
@@ -120,7 +121,7 @@ export default function TeamMemberForm({ index, onChange }) {
               <span className="text-red-500"> * {""}</span>
             </label>
             <select
-              className="w-full text-black border border-gray-300 text-lg rounded-lg p-2.5"
+              className="w-full text-black border border-gray-300 text-lg rounded-lg p-2.5 pr-10" // <- added pr-10
               onChange={(e) => handleChange("education", e.target.value)}
               defaultValue=""
               required
@@ -130,6 +131,7 @@ export default function TeamMemberForm({ index, onChange }) {
               </option>
               <option value="bachelor">ปริญญาตรี</option>
               <option value="master">ปริญญาโท</option>
+              <option value="doctor">ปริญญญาเอก</option>
             </select>
           </div>
           <div className="col-span-8">
@@ -240,7 +242,7 @@ export default function TeamMemberForm({ index, onChange }) {
                   onClick={() =>
                     document.getElementById(`studentId-${index}`).click()
                   }
-                  className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700"
+                  className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700 cursor-pointer"
                 >
                   Browse
                 </button>
@@ -282,7 +284,7 @@ export default function TeamMemberForm({ index, onChange }) {
                 onClick={() =>
                   document.getElementById(`studentCert-${index}`).click()
                 }
-                className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700"
+                className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700 cursor-pointer"
               >
                 Browse
               </button>
@@ -320,7 +322,7 @@ export default function TeamMemberForm({ index, onChange }) {
                 onClick={() =>
                   document.getElementById(`advisorLetter${index}`)?.click()
                 }
-                className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700"
+                className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700 cursor-pointer"
               >
                 Browse
               </button>
@@ -372,7 +374,7 @@ export default function TeamMemberForm({ index, onChange }) {
                     onClick={() =>
                       document.getElementById(`resume-${index}`).click()
                     }
-                    className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700"
+                    className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700 cursor-pointer"
                   >
                     Browse
                   </button>
