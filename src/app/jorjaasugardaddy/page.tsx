@@ -530,7 +530,7 @@ const ApplyPage: React.FC = () => {
                       <div className="flex justify-center mt-4">
                         <button
                           onClick={handleAccept}
-                          className={`px-6 py-2 font-bold ${
+                          className={`cursor-pointer px-6 py-2 font-bold ${
                             acceptedTerms ? "text-orange-500" : "text-gray-400"
                           } font-bold border-2 ${
                             acceptedTerms
