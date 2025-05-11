@@ -216,7 +216,13 @@ const ApplyPage: React.FC = () => {
     }
   };
 
-  const [members, setMembers] = useState([{ name: "" }]);
+  const [members, setMembers] = useState([
+    { name: "" },
+    { name: "" },
+    { name: "" },
+    { name: "" },
+    { name: "" },
+  ]);
 
   const handleMemberChange = (index: number, data: any) => {
     const updated = [...members];
