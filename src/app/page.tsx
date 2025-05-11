@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import backgroundImg from "./assets/background.png";
 import cpeLogo from "./assets/cpe-logo.png";
 import kmuttLogo from "./assets/kmutt-logo.png";
@@ -10,7 +11,11 @@ import policeLogo2 from "./assets/police-logo-02.png";
 import sponsorlogo from "./assets/sponsor-logo.png";
 import cyberlogo from "./assets/cyber-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrophy, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrophy,
+  faStar,
+  faAsterisk,
+} from "@fortawesome/free-solid-svg-icons";
 
 // Define the type for timeLeft
 interface TimeLeft {
@@ -127,8 +132,8 @@ const Home: React.FC = () => {
           backgroundImage: `url(${backgroundImg.src})`,
         }}
       >
-        <section className="text-white">
-          <div className="grid w-full justify-center md:max-w-screen-xl px-8 md:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-[6rem] lg:grid-cols-12">
+        <section className="text-white py-[2rem] lg:pt-[6rem] lg:pb-[3rem]">
+          <div className="grid w-full justify-center md:max-w-screen-xl px-8 md:px-4  mx-auto lg:gap-8 xl:gap-0  lg:grid-cols-12">
             <div className="md:mr-auto place-self-center lg:col-span-6">
               <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
                 <div>
@@ -148,9 +153,38 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            <div className="lg:mt-0 lg:col-span-6 lg:flex pt-6 md:pt-0">
+            <div className="lg:mt-0 lg:col-span-6 lg:flex  md:pt-0">
               <div className="lg:mt-0 lg:col-span-6 lg:flex">
-                <div className="flex flex-col items-center justify-end ">
+                <div className="flex flex-col items-center justify-end gap-4">
+                  <div className="mt-6 md:mt-0 mb-3 text-center text-white uppercase font-thai pt-4 px-10 md:px-14 py-4 border-l-2 border-r-2 border-white rounded-[26px]">
+                    <span className="text-lg md:text-[1.4rem] font-normal">
+                      <p>เปิดรับสมัคร แล้ววันนี้ !</p>
+                    </span>
+                    <p className="text-[1.6rem] font-bold pt-2">
+                      12 ถึง 31 พฤษภาคม 2025
+                    </p>
+                  </div>
+
+                  <div className="grid  items-center pt-2">
+                    <div className="flex items-center space-x-2 justify-start"></div>
+                    <div className="col-span-1 text-center">
+                      <span className="text-black text-xl md:text-xl font-bold font-thai ">
+                        <div className="">
+                          <Link href="/regis">
+                            <span className="py-2 px-18 font-bold text-white border-2 border-white bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer">
+                              สมัครเข้าร่วมแข่งขัน
+                            </span>
+                          </Link>
+                        </div>
+                      </span>
+                    </div>
+                    <div></div>
+                  </div>
+
+                  <div className="flex items-center pt-7 pb-6 text-xl">
+                    เหลือเวลา
+                  </div>
+
                   <div className="flex items-center space-x-4 text-center ">
                     {/* Days - Only for larger screens */}
                     <div className="flex flex-col items-center">
@@ -229,15 +263,6 @@ const Home: React.FC = () => {
                         </div>
                       </div>
                     )}
-                  </div>
-
-                  <div className="mt-6 md:mt-10 mb-3 text-center text-white uppercase font-thai pt-4 px-10 md:px-14 py-4 border-l-2 border-r-2 border-white rounded-[26px]">
-                    <span className="text-lg md:text-[1.4rem] font-normal">
-                      <p>สมัครเข้าแข่งขันพร้อมกัน ตั้งแต่</p>
-                    </span>
-                    <p className="text-[1.6rem] font-bold pt-2">
-                      12 ถึง 31 พฤษภาคม 2025
-                    </p>
                   </div>
                 </div>
               </div>
@@ -356,8 +381,8 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section id="about" className="text-white pt-4  md:pt-0">
-          <div className="grid max-w-screen-xl px-10 md:px-4 py-8 mx-auto md:gap-8 xl:gap-0 md:pt-[6rem] md:grid-cols-12">
+        <section id="about" className="text-white   md:pt-0">
+          <div className="grid max-w-screen-xl px-10 md:px-4 py-8 mx-auto md:gap-8 xl:gap-0 pt-[4rem] md:pt-[6rem] md:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
             <div className="lg:col-span-12">
               <h4 className="max-w-2xl text-[1.6rem] mb-4 font-thai text-start font-bold uppercase tracking-tight leading-none md:text-3xl xl:text-3xl">
@@ -366,7 +391,7 @@ const Home: React.FC = () => {
               <h4 className="max-w-2xl text-xl font-thai text-start font-bold uppercase tracking-tight leading-none md:text-2xl ">
                 เป้าหมายของการแข่งขัน
               </h4>
-              <p className="font-thai text-md md:text-xl pt-4">
+              <p className="font-thai text-md md:text-xl pt-4 md:pt-6">
                 มุ่งค้นหาองค์ความรู้และนวัตกรรมที่สามารถนำมาสนับสนุนภารกิจในการป้องกันและปราบปรามอาชญากรรมทางเทคโนโลยี
                 <br></br>
                 พร้อมทั้งสร้างเครือข่ายนักศึกษาที่มีศักยภาพด้านเทคโนโลยี
@@ -378,7 +403,7 @@ const Home: React.FC = () => {
         </section>
 
         <section className="text-white">
-          <div className="grid max-w-screen-xl px-10 md:px-4 py-4 md:py-8 mx-auto md:gap-8 xl:gap-0  md:grid-cols-12">
+          <div className="grid max-w-screen-xl px-10 md:px-4 md:py-2  mx-auto md:gap-8 xl:gap-0  md:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
             <div className="lg:col-span-12">
               <h4 className="max-w-2xl text-xl font-thai text-start font-bold uppercase tracking-tight leading-none md:text-2xl">
@@ -387,8 +412,8 @@ const Home: React.FC = () => {
             </div>
 
             {/* ด้านล่าง (รับสมัคร + วันที่) */}
-            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 pt-4 lg:col-span-12 md:mt-4 mb-4 md:mb-0">
-              <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-2 pt-4 lg:col-span-12  mb-4 md:mb-0">
+              <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center  font-thai">
                 <span className="text-md md:text-lg font-normal">
                   {" "}
                   <FontAwesomeIcon
@@ -399,15 +424,19 @@ const Home: React.FC = () => {
                 </span>
               </div>
 
-              <div className="col-span-4 flex items-center justify-start font-thai">
+              <div className="col-span-4 flex items-start justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
                   12-31 พฤษภาคม 2025
                 </span>
               </div>
+
+              <div className=" md:hidden col-span-4 flex items-start justify-start font-thai">
+                <span className=" text-md md:text-lg font-normal">Online</span>
+              </div>
             </div>
 
             {/* Repeat the same layout for the next section */}
-            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-2 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   <FontAwesomeIcon
@@ -423,10 +452,14 @@ const Home: React.FC = () => {
                   2 มิถุนายน 2025
                 </span>
               </div>
+
+              <div className=" md:hidden col-span-4 flex items-start justify-start font-thai">
+                <span className=" text-md md:text-lg font-normal">Online</span>
+              </div>
             </div>
 
             {/* Repeat the same layout for the next section */}
-            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-2 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   {" "}
@@ -443,10 +476,16 @@ const Home: React.FC = () => {
                   6 มิถุนายน 2025
                 </span>
               </div>
+
+              <div className=" md:hidden col-span-4 flex items-start justify-start font-thai">
+                <span className=" text-md md:text-lg font-normal">
+                  ห้องฟีนิกซ์ 1-4 อาคารศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี
+                </span>
+              </div>
             </div>
 
             {/* Repeat the same layout for the next section */}
-            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-2 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   <FontAwesomeIcon
@@ -462,10 +501,14 @@ const Home: React.FC = () => {
                   28 มิถุนายน 2025
                 </span>
               </div>
+
+              <div className=" md:hidden col-span-4 flex items-start justify-start font-thai">
+                <span className=" text-md md:text-lg font-normal">Online</span>
+              </div>
             </div>
 
             {/* Repeat the same layout for the next section */}
-            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-2 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   <FontAwesomeIcon
@@ -481,10 +524,14 @@ const Home: React.FC = () => {
                   4 กรกฎาคม 2025
                 </span>
               </div>
+
+              <div className=" md:hidden col-span-4 flex items-start justify-start font-thai">
+                <span className=" text-md md:text-lg font-normal">Online</span>
+              </div>
             </div>
 
             {/* Repeat the same layout for the next section */}
-            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-2 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   <FontAwesomeIcon
@@ -500,10 +547,14 @@ const Home: React.FC = () => {
                   8 กรกฎาคม 2025
                 </span>
               </div>
+
+              <div className=" md:hidden col-span-4 flex items-start justify-start font-thai">
+                <span className=" text-md md:text-lg font-normal ">Online</span>
+              </div>
             </div>
 
             {/* Repeat the same layout for the next section */}
-            <div className="grid grid-cols-1 md:grid-cols-8 gap-4 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
+            <div className="grid grid-cols-1 md:grid-cols-8 gap-2 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
                   <FontAwesomeIcon
@@ -517,6 +568,12 @@ const Home: React.FC = () => {
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
                   19 - 21 กรกฎาคม 2025
+                </span>
+              </div>
+
+              <div className=" md:hidden col-span-4 flex items-start justify-start font-thai">
+                <span className=" text-md md:text-lg font-normal">
+                  อาคารการเรียนรู้ LX KMUTT
                 </span>
               </div>
             </div>
@@ -535,7 +592,7 @@ const Home: React.FC = () => {
           </section>
 
           <section className="text-white">
-            <div className="grid grid-cols-5 gap-4 max-w-screen-xl px-4 mx-auto lg:gap-4 xl:gap-4">
+            <div className="grid grid-cols-8 gap-4 max-w-screen-xl px-4 mx-auto lg:gap-4 xl:gap-4">
               {[
                 {
                   title: "รับสมัคร",
@@ -550,7 +607,7 @@ const Home: React.FC = () => {
                 {
                   title: "ปฐมนิเทศ และ workshop 1",
                   date: "6 มิถุนายน 2025",
-                  label: "อาคารสัมมนา บช.สอท.*",
+                  label: "ห้องฟีนิกซ์ 1-4 IMPACT",
                 },
                 {
                   title: "กิจกรรม workshop 2",
@@ -580,7 +637,7 @@ const Home: React.FC = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white bg-gradient-to-b from-[#2F65AF66] to-[#0032D266]"
+                  className="flex flex-col justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white bg-gradient-to-b from-[#2F65AF66] to-[#0032D266]"
                 >
                   <FontAwesomeIcon
                     icon={faStar}
@@ -589,16 +646,16 @@ const Home: React.FC = () => {
                   <span className="text-lg font-normal text-center">
                     {item.title}
                   </span>
-                  <span className="text-sm font-normal text-center">
+                  <span className="text-sm font-normal text-start">
                     {item.date}
                   </span>
-                  <span className="text-sm font-normal text-center">
+                  <span className="text-sm font-normal text-start">
                     {item.label}
                   </span>
                 </div>
               ))}
             </div>
-            <div className="max-w-screen-xl px-4 pt-8 mx-auto">
+            <div className="max-w-screen-xl px-4 pt-4 mx-auto">
               <span className="text-md md:text-lg font-normal">
                 * สถานที่อาจมีการเปลี่ยนแปลง
               </span>
@@ -607,7 +664,7 @@ const Home: React.FC = () => {
         </div>
 
         <section className="text-white">
-          <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto lg:gap-8 xl:gap-0 md:pt-[4rem] md:pb-[2rem] lg:grid-cols-12">
+          <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto   pt-[2rem]  lg:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
             <div className="lg:col-span-12">
               <h4 className="max-w-2xl text-xl font-thai text-start font-bold uppercase tracking-tight  md:text-2xl">
@@ -616,7 +673,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* ด้านล่าง (รับสมัคร + วันที่) */}
-            <div className="grid grid-cols-8 gap-4 lg:col-span-12 mt-8 mb-4">
+            <div className="grid grid-cols-8 gap-2 lg:col-span-12 mt-4  mb-4">
               <div className="col-span-12 flex items-center gap-2 font-thai">
                 <li></li>
                 <span className="text-md md:text-lg font-normal">
@@ -642,8 +699,33 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        <section className="text-white">
+          <div className="grid max-w-screen-xl px-10 md:px-4  mx-auto lg:gap-8 xl:gap-0  lg:grid-cols-12">
+            <div className="lg:col-span-12">
+              <h4 className="max-w-2xl text-xl font-thai text-start font-bold uppercase tracking-tight  md:text-2xl">
+                สิทธิ์ในผลงาน
+              </h4>
+            </div>
+
+            <div className="grid grid-cols-8 gap-4 lg:col-span-12 mt-4 mb-4">
+              <div className="col-span-12 flex items-center gap-2 font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  ผลงานที่พัฒนาขึ้นภายใต้โครงการ Cyber Warrior Hackathon 2025
+                  จะถือเป็นทรัพย์สินทางปัญญาที่มีเจ้าของร่วมระหว่าง
+                  กองบัญชาการตำรวจสืบสวนสอบสวนอาชญากรรมทางเทคโนโลยี (บช.สอท.)
+                  และ ผู้เข้าร่วมโครงการ โดยทั้งสองฝ่ายสามารถนำไปใช้ประโยชน์
+                  รวมถึงเผยแพร่ต่อสาธารณชน เพื่อวัตถุประสงค์ของโครงการ เช่น
+                  การส่งเสริมความรู้ การจัดแสดงผลงาน หรือการพัฒนาเชิงนโยบาย
+                  โดยไม่ละเมิดสิทธิของอีกฝ่าย ทั้งนี้
+                  การนำไปใช้ในเชิงพาณิชย์จะต้องได้รับความยินยอมร่วมกันจากทั้งสองฝ่ายเป็นลายลักษณ์อักษร
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="text-white" id="reward">
-          <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto lg:gap-4  lg:grid-cols-12">
+          <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto lg:gap-4 lg:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
             <div className="lg:col-span-12">
               <h4 className="max-w-2xl text-xl font-thai text-start font-bold uppercase tracking-tight leading-none md:text-2xl">
@@ -665,7 +747,7 @@ const Home: React.FC = () => {
 
               <div className="md:col-span-4 flex flex-col md:flex-row items-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  100,000 บาท จำนวน 1 รางวัล
+                  <span className="font-bold">100,000 </span> บาท จำนวน 1 รางวัล
                 </span>
               </div>
             </div>
@@ -685,7 +767,7 @@ const Home: React.FC = () => {
 
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  50,000 บาท จำนวน 1 รางวัล
+                  <span className="font-bold">50,000 </span> บาท จำนวน 1 รางวัล
                 </span>
               </div>
             </div>
@@ -705,7 +787,7 @@ const Home: React.FC = () => {
 
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  30,000 บาท จำนวน 1 รางวัล
+                  <span className="font-bold">30,000 </span> บาท จำนวน 1 รางวัล
                 </span>
               </div>
             </div>
@@ -736,7 +818,7 @@ const Home: React.FC = () => {
                 <i className="fas fa-star text-yellow-400"></i>
                 <span className="text-md md:text-lg font-normal">
                   <FontAwesomeIcon
-                    icon={faTrophy}
+                    icon={faAsterisk}
                     className="text-white p-1 pr-3"
                   />
                   รางวัลชม Popular Vote
@@ -761,8 +843,68 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        <section className="text-white">
+          <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto lg:gap-8 xl:gap-0  md:pb-[2rem] lg:grid-cols-12">
+            <div className="lg:col-span-12">
+              <h4 className="max-w-2xl text-xl font-thai text-start font-bold uppercase tracking-tight  md:text-2xl">
+                เกณฑ์การให้คะแนนและการตัดสิน
+              </h4>
+            </div>
+
+            {/* ด้านล่าง (รับสมัคร + วันที่) */}
+            <div className="grid grid-cols-8 gap-4 lg:col-span-12 mt-4  mb-4">
+              <div className="col-span-12 flex items-center gap-2 font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  1. แนวคิดและความสอดคล้องกับโจทย
+                </span>
+              </div>
+
+              <div className="col-span-12 flex items-center gap-2 font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  2. ความคิดสร้างสรรค์และนวัตกรรม
+                </span>
+              </div>
+              <div className="col-span-12 flex items-center gap-2 font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  3. ความเป็นไปได้ในการพัฒนาและนำไปใช้จริง
+                </span>
+              </div>
+              <div className="col-span-12 flex items-center gap-2 font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  4. ผลกระทบและประโยชน์ต่อกลุ่มเป้าหมาย
+                </span>
+              </div>
+              <div className="col-span-12 flex items-center gap-2 font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  5. การนำเสนอและการสื่อสาร
+                </span>
+              </div>
+              <div className="col-span-8 flex items-center justify-start font-thai">
+                <span className="text-md md:text-lg font-normal">
+                  ** หมายเหตุ: การตัดสินของคณะกรรมการถือเป็นที่สิ้นสุด
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="grid  items-center py-8 ">
+          <div className="flex items-center space-x-2 justify-start"></div>
+          <div className="col-span-1 text-center">
+            <span className="text-black text-xl md:text-2xl font-bold font-thai pt-[1.5rem]">
+              <div className="">
+                <Link href="/regis">
+                  <span className="py-4 px-14 font-bold text-white border-2 border-white bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer">
+                    สมัครเข้าร่วมแข่งขัน
+                  </span>
+                </Link>
+              </div>
+            </span>
+          </div>
+          <div></div>
+        </div>
         {/* subscribe  */}
-        <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
+        {/* <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
           <div
             className="relative bg-cover bg-initial bg-no-repeat bg-bottom rounded-xl border-l-2 border-r-2 border-white rounded-[26px] grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-xl px-6 md:px-6 py-8 mx-auto md:gap-8"
             style={{ backgroundImage: `url(${backgroundImg.src})` }}
@@ -802,10 +944,10 @@ const Home: React.FC = () => {
               </div>
             )}
           </div>
-        </section>
+        </section> */}
 
         <section
-          className="text-white pt-8 md:pt-12 px-10 md:px-4"
+          className="text-white pt-12 md:pt-16 px-10 md:px-4"
           id="contact"
         >
           <div className="grid max-w-screen-xl py-2 mx-auto lg:gap-4 justify-center md:justify-start">
@@ -815,7 +957,7 @@ const Home: React.FC = () => {
                   ติดต่อสอบถาม
                 </h4>
                 <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
-                  E-mail:
+                  E-mail :
                   <a
                     href="mailto:cyberwarrior2025@kmutt.ac.th"
                     className="text-blue-400 pl-2 pt-2 hover:underline"
@@ -823,12 +965,37 @@ const Home: React.FC = () => {
                     cyberwarrior2025@kmutt.ac.th
                   </a>
                 </h4>
+                <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
+                  เบอร์โทร :
+                  <a
+                    href="mailto:cyberwarrior2025@kmutt.ac.th"
+                    className="text-blue-400 pl-2 pt-2 hover:underline"
+                  ></a>
+                </h4>
+                <h4 className="text-md tracking-tight leading-none md:text-xl">
+                  คุณภิรดา บินรามัน (ดา)
+                  <a
+                    href="mailto:cyberwarrior2025@kmutt.ac.th"
+                    className="text-blue-400 pl-2 pt-2 hover:underline"
+                  >
+                    02-470-9630 , 095-241-5393
+                  </a>
+                </h4>
+                <h4 className="text-md tracking-tight leading-none md:text-xl">
+                  คุณภัทรานิษฐ์ ปิตินันท์พงศ์ (โบว์)
+                  <a
+                    href="mailto:cyberwarrior2025@kmutt.ac.th"
+                    className="text-blue-400 pl-2 pt-2 hover:underline"
+                  >
+                    02-470-9387
+                  </a>
+                </h4>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="h-20 py-10"></section>
+        <section className="h-40 py-20"></section>
       </div>
     </>
   );

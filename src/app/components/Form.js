@@ -66,13 +66,13 @@ export default function TeamMemberForm({ index, onChange }) {
         {/* Personal Info */}
         <div className="grid md:grid-cols-12 gap-4">
           <div className="col-span-2">
-            <label className="block mb-2 text-lg font-medium text-gray-900">
+            <label className="block mb-2 text-md font-medium text-gray-900">
               คำนำหน้า
               <span className="text-red-500"> * {""}</span>
             </label>
 
             <select
-              className="w-full border text-black border-gray-300 text-lg rounded-lg p-2.5"
+              className="w-full border text-black border-gray-300 text-md rounded-lg p-2.5"
               onChange={(e) => handleChange("prefix", e.target.value)}
               defaultValue=""
               required
@@ -86,26 +86,26 @@ export default function TeamMemberForm({ index, onChange }) {
             </select>
           </div>
           <div className="col-span-5">
-            <label className="block mb-2 text-lg font-medium text-gray-900">
+            <label className="block mb-2 text-md font-medium text-gray-900">
               ชื่อ
               <span className="text-red-500"> * {""}</span>
             </label>
             <input
               type="text"
-              className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-white px-4 py-2.5"
+              className="block w-full text-md text-gray-900 border border-gray-300 rounded-lg bg-white px-4 py-2.5"
               placeholder="กรอกชื่อ"
               onChange={(e) => handleChange("name", e.target.value)}
               required
             />
           </div>
           <div className="col-span-5">
-            <label className="block mb-2 text-lg font-medium text-gray-900">
+            <label className="block mb-2 text-md font-medium text-gray-900">
               นามสกุล
               <span className="text-red-500"> * {""}</span>
             </label>
             <input
               type="text"
-              className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-white px-4 py-2.5"
+              className="block w-full text-md text-gray-900 border border-gray-300 rounded-lg bg-white px-4 py-2.5"
               placeholder="กรอกนามสกุล"
               onChange={(e) => handleChange("surname", e.target.value)}
               required
@@ -116,12 +116,12 @@ export default function TeamMemberForm({ index, onChange }) {
         {/* Education */}
         <div className="grid md:grid-cols-12 gap-4">
           <div className="col-span-4">
-            <label className="block mb-2 text-lg font-medium text-gray-900">
+            <label className="block mb-2 text-md font-medium text-gray-900">
               ระดับการศึกษาปัจจุบัน
               <span className="text-red-500"> * {""}</span>
             </label>
             <select
-              className="w-full text-black border border-gray-300 text-lg rounded-lg p-2.5 pr-10" // <- added pr-10
+              className="w-full text-black border border-gray-300 text-md rounded-md p-2.5 pr-10" // <- added pr-10
               onChange={(e) => handleChange("education", e.target.value)}
               defaultValue=""
               required
@@ -135,13 +135,13 @@ export default function TeamMemberForm({ index, onChange }) {
             </select>
           </div>
           <div className="col-span-8">
-            <label className="block mb-2 text-lg font-medium text-gray-900">
+            <label className="block mb-2 text-md font-medium text-gray-900">
               สาขาวิชา
               <span className="text-red-500"> * {""}</span>
             </label>
             <input
               type="text"
-              className="w-full text-gray-900 border border-gray-300 text-lg rounded-lg p-2.5"
+              className="w-full text-gray-900 border border-gray-300 text-md rounded-lg p-2.5"
               placeholder="เช่น วิทยาการคอมพิวเตอร์"
               onChange={(e) => handleChange("major", e.target.value)}
               required
@@ -151,13 +151,13 @@ export default function TeamMemberForm({ index, onChange }) {
 
         {/* Organization */}
         <div>
-          <label className="block mb-2 text-lg font-medium text-gray-900">
+          <label className="block mb-2 text-md font-medium text-gray-900">
             ชื่อหน่วยงาน/องค์กร/หรือสถาบันการศึกษา
             <span className="text-red-500"> * {""}</span>
           </label>
           <input
             type="text"
-            className="w-full text-gray-900 border border-gray-300 text-lg rounded-lg p-2.5"
+            className="w-full text-gray-900 border border-gray-300 text-md rounded-lg p-2.5"
             onChange={(e) => handleChange("organization", e.target.value)}
             required
           />
@@ -166,20 +166,20 @@ export default function TeamMemberForm({ index, onChange }) {
         {/* Email and Phone */}
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block mb-2 text-lg font-medium text-gray-900">
+            <label className="block mb-2 text-md font-medium text-gray-900">
               E-mail
               <span className="text-red-500"> * {""}</span>
             </label>
             <input
               type="email"
-              className="w-full text-gray-900  border border-gray-300 text-lg rounded-lg p-2.5"
+              className="w-full text-gray-900  border border-gray-300 text-md rounded-lg p-2.5"
               placeholder="example@email.com"
               onChange={(e) => handleChange("email", e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block mb-2 text-lg font-medium text-gray-900">
+            <label className="block mb-2 text-md font-medium text-gray-900">
               เบอร์โทรติดต่อ
               <span className="text-red-500"> * {""}</span>
             </label>
@@ -188,7 +188,7 @@ export default function TeamMemberForm({ index, onChange }) {
               inputMode="numeric"
               pattern="\d{10}"
               maxLength={10}
-              className="w-full text-gray-900 border border-gray-300 text-lg rounded-lg p-2.5"
+              className="w-full text-gray-900 border border-gray-300 text-md rounded-lg p-2.5"
               placeholder="08xxxxxxxx"
               onInput={(e) => {
                 e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10); // only digits, max 10
@@ -229,7 +229,7 @@ export default function TeamMemberForm({ index, onChange }) {
                 />
                 <div
                   id={`fileName-studentId-${index}`}
-                  className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
+                  className="block w-full text-md text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
                 >
                   {fileName && fileName.length > 20
                     ? fileName.slice(0, 20) + "..." // Limit to 20 characters and add ellipsis
@@ -364,7 +364,7 @@ export default function TeamMemberForm({ index, onChange }) {
                   />
                   <div
                     id={`fileName-resume-${index}`}
-                    className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
+                    className="block w-full text-md text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
                   >
                     {resumeFileName && resumeFileName.length > 20
                       ? resumeFileName.slice(0, 20) + "..."

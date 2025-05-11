@@ -216,13 +216,7 @@ const ApplyPage: React.FC = () => {
     }
   };
 
-  const [members, setMembers] = useState([
-    { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
-  ]);
+  const [members, setMembers] = useState([{ name: "" }]);
 
   const handleMemberChange = (index: number, data: any) => {
     const updated = [...members];
@@ -284,6 +278,14 @@ const ApplyPage: React.FC = () => {
   const handleAccept = () => {
     setAcceptedTerms(true);
     setShowModal(false); // Close modal when user accepts
+
+    // Wait a short delay to ensure modal has closed before scrolling
+    setTimeout(() => {
+      const element = document.getElementById("start");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300); // Adjust delay if needed
   };
 
   const handleHome = () => {
@@ -319,7 +321,6 @@ const ApplyPage: React.FC = () => {
   };
 
   // 300 คำ หรือ 2000 ตัวอักษร
-
   const maxWords = 2000;
   const maxChars = 2000;
 
@@ -602,7 +603,7 @@ const ApplyPage: React.FC = () => {
             backgroundImage: `url(${backgroundImg.src})`,
           }}
         >
-          <section className="text-white">
+          <section className="text-white" id="start">
             <div className="grid w-full justify-center md:max-w-screen-xl px-8 md:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-[2rem]">
               <div className=" place-self-center ">
                 <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
@@ -696,7 +697,7 @@ const ApplyPage: React.FC = () => {
                     type="text"
                     value={teamName}
                     onChange={(e) => setTeamName(e.target.value)}
-                    className="w-full border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5"
+                    className="w-full border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5"
                     placeholder="กรอกชื่อทีม"
                   />
                 </div>
@@ -726,7 +727,7 @@ const ApplyPage: React.FC = () => {
 
                 {/* Interest  */}
                 <div>
-                  <label className="block mb-2 text-lg font-bold text-gray-900">
+                  <label className="block mb-2 md:text-lg font-bold text-gray-900">
                     หัวข้อที่สนใจ (เลือกได้มากกว่า 1 ข้อ)
                     <span className="text-red-500"> * {""}</span>
                   </label>
@@ -735,7 +736,7 @@ const ApplyPage: React.FC = () => {
                     {interestItems.map((item) => (
                       <label
                         key={item.id}
-                        className="flex items-start md:text-lg font-thai text-black text-left"
+                        className="flex items-start md:text-md font-thai text-black text-left"
                       >
                         <input
                           type="checkbox"
@@ -750,10 +751,10 @@ const ApplyPage: React.FC = () => {
                           }
                           className="peer hidden"
                         />
-                        <span className="w-6 h-6 mt-1 border border-[#0032D2] rounded-sm mr-3 flex-shrink-0 flex items-center justify-center text-[#0032D2] text-sm peer-checked:before:content-['✓'] peer-checked:before:text-[#0032D2] peer-checked:before:font-bold"></span>
+                        <span className="w-6 h-6  border border-[#0032D2] rounded-sm mr-3 flex-shrink-0 flex items-center justify-center text-[#0032D2] text-sm peer-checked:before:content-['✓'] peer-checked:before:text-[#0032D2] peer-checked:before:font-bold"></span>
 
                         <div>
-                          <span className="text-lg text-black">
+                          <span className="text-md text-black">
                             {item.label}
                           </span>
 
@@ -766,7 +767,7 @@ const ApplyPage: React.FC = () => {
                                 onChange={(e) =>
                                   setOtherInterest(e.target.value)
                                 }
-                                className="ml-4 border border-gray-300 rounded px-2 py-1 text-md w-100 md:w-140 md:ml-10 text-gray-900 mt-2"
+                                className="ml-4 border border-gray-300 rounded px-2 py-1 text-md w-100 md:w-140 md:ml-10 text-gray-900 "
                               />
                             )}
                         </div>
@@ -777,7 +778,7 @@ const ApplyPage: React.FC = () => {
 
                 {/* แรงบันดาลใจ  */}
                 <div>
-                  <label className="block mb-2 text-lg font-bold text-gray-900">
+                  <label className="block mb-2 md:text-lg font-bold text-gray-900">
                     แรงบันดาลใจและเป้าหมายในการเข้าร่วมการแข่งขัน{" "}
                     <span className="text-red-500"> * {""}</span>
                   </label>
@@ -820,7 +821,7 @@ const ApplyPage: React.FC = () => {
                     {expertiseItems.map((item) => (
                       <label
                         key={item.id}
-                        className="flex items-start md:text-lg font-thai text-black text-left"
+                        className="flex items-start md:text-md font-thai text-black text-left"
                       >
                         <input
                           type="checkbox"
@@ -835,9 +836,9 @@ const ApplyPage: React.FC = () => {
                           }
                           className="peer hidden"
                         />
-                        <span className="w-6 h-6 mt-1 border border-[#0032D2] rounded-sm mr-3 flex-shrink-0 flex items-center justify-center text-[#0032D2] text-sm peer-checked:before:content-['✓'] peer-checked:before:text-[#0032D2] peer-checked:before:font-bold"></span>
+                        <span className="w-6 h-6  border border-[#0032D2] rounded-sm mr-3 flex-shrink-0 flex items-center justify-center text-[#0032D2] text-sm peer-checked:before:content-['✓'] peer-checked:before:text-[#0032D2] peer-checked:before:font-bold"></span>
                         <div>
-                          <span className="text-lg text-black">
+                          <span className="text-md text-black">
                             {item.label}
                           </span>
 
@@ -900,7 +901,7 @@ const ApplyPage: React.FC = () => {
                 </div>
                 {/* Checkbox Above Submit Button */}
                 <div className="flex flex-col items-center mt-10 mb-4 space-y-4 w-full">
-                  <div className="w-full max-w-3xl">
+                  <div className="w-full ">
                     <label className="flex items-start md:text-lg font-thai text-black text-left w-full">
                       <input
                         type="checkbox"
@@ -912,7 +913,7 @@ const ApplyPage: React.FC = () => {
                       <span>
                         ข้าพเจ้าขอรับรองว่าข้อมูลทั้งหมดที่ได้กรอกเป็นความจริงและได้ตรวจสอบความถูกต้องเรียบร้อยแล้ว
                         พร้อมทั้งรับทราบและยินยอมว่าหากปรากฏภายหลังว่าข้อมูลใดเป็นเท็จ
-                        คณะผู้จัดงานมีสิทธิ์ดำเนินการตามข้อกำหนดและเงื่อนไขของการแข่งขันโดยไม่จำเป็นต้องแจ้งให้ทราบล่วงหน้า"
+                        คณะผู้จัดงานมีสิทธิ์ดำเนินการตามข้อกำหนดและเงื่อนไขของการแข่งขันโดยไม่จำเป็นต้องแจ้งให้ทราบล่วงหน้า
                       </span>
                     </label>
                   </div>
@@ -970,7 +971,7 @@ const ApplyPage: React.FC = () => {
                   <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/30 bg-opacity-60 backdrop-blur-sm">
                     <div className="bg-white px-8 py-6 rounded-xl shadow-xl flex flex-col items-center space-y-4 animate-fade-in">
                       <svg
-                        className="animate-spin h-10 w-10 text-blue-600"
+                        className="animate-spin h-10 w-10 text-orange-500"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -993,6 +994,9 @@ const ApplyPage: React.FC = () => {
                         กำลังส่งข้อมูล...
                       </p>
                       <p className="text-sm text-gray-500">กรุณารอสักครู่</p>
+                      <p className="text-sm text-red-500">
+                        * โปรดอย่า refresh หน้าจอ
+                      </p>
                     </div>
                   </div>
                 )}
