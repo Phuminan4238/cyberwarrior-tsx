@@ -216,10 +216,7 @@ const ApplyPage: React.FC = () => {
     }
   };
 
-  const [members, setMembers] = useState([
-    { name: "" },
-  
-  ]);
+  const [members, setMembers] = useState([{ name: "" }]);
 
   const handleMemberChange = (index: number, data: any) => {
     const updated = [...members];
@@ -659,14 +656,14 @@ const ApplyPage: React.FC = () => {
                       d="M15 19l-7-7 7-7"
                     />
                   </svg>
-                  <span className="text-[#FF4C00] text-lg font-medium font-thai">
+                  <span className="text-[#FF4C00] md:text-lg font-medium font-thai">
                     เงื่อนไขการสมัคร
                   </span>
                 </div>
 
                 {/* Center Column */}
                 <div className="col-span-1 text-center">
-                  <span className="text-black text-xl md:text-2xl font-bold font-thai pb-2 border-b-3 border-orange-500">
+                  <span className="text-black text-lg md:text-2xl font-bold font-thai pb-2 border-b-3 border-orange-500">
                     ข้อมูลผู้สมัคร
                   </span>
                 </div>
