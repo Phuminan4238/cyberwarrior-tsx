@@ -950,8 +950,8 @@ const Home: React.FC = () => {
           className="text-white pt-12 md:pt-16 px-10 md:px-4"
           id="contact"
         >
-          <div className="grid max-w-screen-xl py-2 mx-auto lg:gap-4 justify-center md:justify-start">
-            <div className="relative rounded-xl border-l-2 border-r-2 border-white  gap-2 max-w-fit px-4 md:px-4 py-4 ml-0 md:gap-8">
+          <div className="flex max-w-screen-xl py-2 mx-auto justify-center md:justify-start">
+            <div className="relative rounded-xl border-l-2 border-r-2 border-white gap-2 w-fit md:w-[800px] px-4 py-4 md:gap-8">
               <div className="flex flex-col items-start justify-start gap-4">
                 <h4 className="text-md font-thai text-start font-bold uppercase tracking-tight leading-none md:text-xl">
                   ติดต่อสอบถาม
@@ -968,23 +968,19 @@ const Home: React.FC = () => {
                 <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
                   เบอร์โทร :
                   <a
-                    href="mailto:cyberwarrior2025@kmutt.ac.th"
-                    className="text-blue-400 pl-2 pt-2 hover:underline"
-                  ></a>
-                </h4>
-                <h4 className="text-md tracking-tight leading-none md:text-xl">
-                  คุณภิรดา บินรามัน (ดา)
-                  <a
-                    href="mailto:cyberwarrior2025@kmutt.ac.th"
+                    href="tel:024709630"
                     className="text-blue-400 pl-2 pt-2 hover:underline"
                   >
                     02-470-9630 , 095-241-5393
                   </a>
                 </h4>
                 <h4 className="text-md tracking-tight leading-none md:text-xl">
+                  คุณภิรดา บินรามัน (ดา)
+                </h4>
+                <h4 className="text-md tracking-tight leading-none md:text-xl">
                   คุณภัทรานิษฐ์ ปิตินันท์พงศ์ (โบว์)
                   <a
-                    href="mailto:cyberwarrior2025@kmutt.ac.th"
+                    href="tel:024709387"
                     className="text-blue-400 pl-2 pt-2 hover:underline"
                   >
                     02-470-9387
