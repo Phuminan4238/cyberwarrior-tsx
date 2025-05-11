@@ -72,181 +72,128 @@ const ApplyPage: React.FC = () => {
     { id: 7, label: "อื่นๆ", value: "อื่นๆ" },
   ];
 
-  // const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   // Validate required fields
-  //   if (
-  //     !teamName ||
-  //     !inspiration ||
-  //     !expectation ||
-  //     selectedInterest.length === 0 ||
-  //     selectedExpertise.length === 0
-  //   ) {
-  //     alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-  //     return;
-  //   }
-
-  //   // ✅ Format interest before submission
-  // const formattedInterests = selectedInterest.map((item) =>
-  //   item === "อื่น ๆ" ? otherInterest.trim() : item
-  // );
-
-  //   // Validate required fields for each team member
-  //   const memberErrors = members.some((member) => {
-  //     return (
-  //       !member.name ||
-  //       !member.studentId ||
-  //       !member.studentCert ||
-  //       !member.email ||
-  //       !member.phone
-  //     );
-  //   });
-
-  //   if (memberErrors) {
-  //     alert("กรุณากรอกข้อมูลสมาชิกทีมให้ครบถ้วน"); // "Please complete the team member details."
-  //     return;
-  //   }
-
-  //   const data = {
-  //     data: {
-  //       teamName,
-  //       inspiration,
-  //       expectation,
-  //       interests: selectedInterest.join(",\n"),
-  //       expertises: selectedExpertise.join(",\n"),
-  //       members: members.map((member) => ({
-  //         ...member,
-  //         studentId: member.studentId?.id || null,
-  //         studentCert: member.studentCert?.id || null,
-  //         resume: member.resume?.id || null,
-  //         advisorLetter: member.advisorLetter?.id || null,
-  //       })),
-  //     },
-  //   };
-
-  //   try {
-  //     const response = await fetch(
-  //       "https://cyberwarrior2025.io/api/forms?&populate=members.studentId&populate=members.studentCert&populate=members.resume&populate=members.advisorLetter",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(data),
-  //       }
-  //     );
-
-  //     const result = await response.json();
-  //     console.log("✅ Submitted:", result);
-  //     alert("ส่งข้อมูลเรียบร้อยแล้ว");
-
-  //     // Show "Thank You" modal after successful form submission
-  //     setShowModal(false); // Close the main form modal
-  //     setShowThankYouModal(true); // Show the "Thank You" modal
-  //   } catch (error) {
-  //     console.error("❌ Error submitting:", error);
-  //     alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
-  //   }
-  // };
-
-  //     data: {
-  //       teamName,
-  //       inspiration,
-  //       expectation,
-  //       interests: selectedInterest.join(","),
-  //       expertises: selectedExpertise.join(","),
-  //       members: members.map((member) => ({
-  //         ...member,
-  //         studentId: member.studentId?.id || null,
-  //         studentCert: member.studentCert?.id || null,
-  //         resume: member.resume?.id || null,
-  //         advisorLetter: member.advisorLetter?.id || null,
-  //       })),
-  //     },
-  //   };
-
-  //   try {
-  //     const response = await fetch(
-  //       "https://cyberwarrior2025.io/api/forms?&populate=members.studentId&populate=members.studentCert&populate=members.resume&populate=members.advisorLetter",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(data),
-  //       }
-  //     );
-
-  //     const result = await response.json();
-  //     console.log("✅ Submitted:", result);
-  //     alert("ส่งข้อมูลเรียบร้อยแล้ว");
-  //   } catch (error) {
-  //     console.error("❌ Error submitting:", error);
-  //     alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
-  //   }
-  // };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorText, setErrorText] = useState("");
+  const [submittedTeamName, setSubmittedTeamName] = useState("");
 
   const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Basic validation
-    if (
-      !teamName ||
-      !inspiration ||
-      !expectation ||
-      selectedInterest.length === 0 ||
-      selectedExpertise.length === 0
-    ) {
-      alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-      return;
-    }
-
-    // Validate members
-    const memberErrors = members.some((member) => {
-      return (
-        !member.name ||
-        !member.studentId ||
-        !member.studentCert ||
-        !member.email ||
-        !member.phone
-      );
-    });
-
-    if (memberErrors) {
-      alert("กรุณากรอกข้อมูลสมาชิกทีมให้ครบถ้วน");
-      return;
-    }
-
-    // ✅ Replace "อื่น ๆ" with user input
-    const formattedInterests = selectedInterest.map((item) =>
-      item === "อื่น ๆ" ? otherInterest.trim() : item
-    );
-
-    const formattedExpertises = selectedExpertise.map((item) =>
-      item === "อื่นๆ" ? otherExpertise.trim() : item
-    );
-
-    const data = {
-      data: {
-        teamName,
-        inspiration,
-        expectation,
-        interests: formattedInterests.join(",\n"),
-        expertises: selectedExpertise.join(",\n"),
-        members: members.map((member) => ({
-          ...member,
-          studentId: member.studentId?.id || null,
-          studentCert: member.studentCert?.id || null,
-          resume: member.resume?.id || null,
-          advisorLetter: member.advisorLetter?.id || null,
-        })),
-      },
-    };
+    setIsSubmitting(true);
 
     try {
+      const errorMessages: string[] = [];
+      const memberErrors: string[] = [];
+
+      // General required fields
+      if (!teamName) errorMessages.push("ชื่อทีม");
+      if (!inspiration)
+        errorMessages.push("แรงบันดาลใจและเป้าหมายในการเข้าร่วมการแข่งขัน");
+      if (!expectation) errorMessages.push("ความคาดหวังจากกิจกรรมนี้");
+      if (selectedInterest.length === 0) errorMessages.push("หัวข้อที่สนใจ");
+      if (selectedExpertise.length === 0) {
+        errorMessages.push(
+          "ความเชี่ยวชาญหรือประสบการณ์ความสามารถทางด้านไซเบอร์หรือเทคโนโลยี"
+        );
+      }
+
+      // Member-specific validation
+      members.forEach((member, index) => {
+        const errors: string[] = [];
+
+        if (!member.prefix) errors.push("คำนำหน้า");
+        if (!member.name) errors.push("ชื่อ");
+        if (!member.surname) errors.push("นามสกุล");
+        if (!member.education) errors.push("ระดับการศึกษาปัจจุบัน");
+        if (!member.major) errors.push("สาขาวิชา");
+        if (!member.organization)
+          errors.push("ชื่อหน่วยงาน/องค์กร/หรือสถาบันการศึกษา"); // Changed to avoid duplicate check
+        if (!member.email) {
+          errors.push("E-mail");
+        } else {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(member.email)) {
+            errors.push(
+              "รูปแบบของ E-mail ไม่ถูกต้อง *ตัวอย่าง example@hotmail.com"
+            );
+          }
+        }
+
+        if (!member.phone) {
+          errors.push("เบอร์โทรติดต่อ");
+        } else {
+          const phoneRegex = /^0\d{8,9}$/;
+          if (!phoneRegex.test(member.phone)) {
+            errors.push(
+              "รูปแบบของเบอร์โทรติดต่อ **ต้องขึ้นต้นด้วย 0 และมีจำนวน 10 หลัก"
+            );
+          }
+        }
+        if (!member.studentId)
+          errors.push(
+            "สำเนาบัตร Student ID หรือเอกสารแสดงสถานะนักศึกษาหรือเอกสารอื่นที่เทียบเท่า"
+          );
+        // if (!member.studentCert) errors.push("เอกสารรับรองสถานะนักศึกษา");
+
+        if (errors.length > 0) {
+          memberErrors.push(
+            `สมาชิกคนที่ ${index + 1}\n- ${errors.join("\n- ")}`
+          );
+        }
+      });
+
+      // Build formatted error message for modal
+      let formattedErrorText = "";
+
+      if (errorMessages.length > 0) {
+        formattedErrorText += `ข้อมูลทีม\n- ${errorMessages.join("\n- ")}`;
+      }
+
+      if (memberErrors.length > 0) {
+        if (formattedErrorText) {
+          formattedErrorText += `\n\n────────────────────────────\n\n`;
+        }
+        formattedErrorText += memberErrors.join(
+          `\n\n────────────────────────────\n\n`
+        );
+      }
+
+      // If any error exists, show modal and stop submission
+      if (formattedErrorText) {
+        setErrorText(formattedErrorText);
+        setShowErrorModal(true);
+        return;
+      }
+
+      // Format interests and expertises
+      const formattedInterests = selectedInterest.map((item) =>
+        item === "อื่น ๆ" ? otherInterest.trim() : item
+      );
+      const formattedExpertises = selectedExpertise.map((item) =>
+        item === "อื่นๆ" ? otherExpertise.trim() : item
+      );
+
+      // Format final submission data
+      const data = {
+        data: {
+          teamName,
+          inspiration,
+          expectation,
+          interests: formattedInterests.join(",\n"),
+          expertises: formattedExpertises.join(",\n"),
+          members: members.map((member) => ({
+            ...member,
+            studentId: member.studentId?.id || null,
+            // studentCert: member.studentCert?.id || null,
+            resume: member.resume?.id || null,
+            // advisorLetter: member.advisorLetter?.id || null,
+          })),
+        },
+      };
+
+      // Submit to backend
       const response = await fetch(
-        "https://cyberwarrior2025.io/api/forms?...",
+        "https://cyberwarrior2025.io/api/forms?&populate=members.studentId&populate=members.resume",
         {
           method: "POST",
           headers: {
@@ -260,9 +207,12 @@ const ApplyPage: React.FC = () => {
       alert("ส่งข้อมูลเรียบร้อยแล้ว");
       setShowModal(false);
       setShowThankYouModal(true);
+      setSubmittedTeamName(teamName); // Capture the team name after successful submission
     } catch (error) {
       console.error("❌ Error:", error);
       alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -293,13 +243,13 @@ const ApplyPage: React.FC = () => {
         const studentIdUploaded = await uploadFile(data.studentIdFile);
         updated[index] = { ...updated[index], studentId: studentIdUploaded };
       }
-      if (data.studentCertFile) {
-        const studentCertUploaded = await uploadFile(data.studentCertFile);
-        updated[index] = {
-          ...updated[index],
-          studentCert: studentCertUploaded,
-        };
-      }
+      // if (data.studentCertFile) {
+      //   const studentCertUploaded = await uploadFile(data.studentCertFile);
+      //   updated[index] = {
+      //     ...updated[index],
+      //     studentCert: studentCertUploaded,
+      //   };
+      // }
       if (data.resumeFile) {
         const resumeUploaded = await uploadFile(data.resumeFile);
         updated[index] = {
@@ -307,13 +257,13 @@ const ApplyPage: React.FC = () => {
           resume: resumeUploaded,
         };
       }
-      if (data.advisorLetterFile) {
-        const advisorLetterUploaded = await uploadFile(data.advisorLetterFile);
-        updated[index] = {
-          ...updated[index],
-          advisorLetter: advisorLetterUploaded,
-        };
-      }
+      // if (data.advisorLetterFile) {
+      //   const advisorLetterUploaded = await uploadFile(data.advisorLetterFile);
+      //   updated[index] = {
+      //     ...updated[index],
+      //     advisorLetter: advisorLetterUploaded,
+      //   };
+      // }
 
       // Update other fields
       updated[index] = { ...updated[index], ...data };
@@ -328,10 +278,17 @@ const ApplyPage: React.FC = () => {
   const [showThankYouModal, setShowThankYouModal] = useState(false); // "Thank You" modal
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [confirmedData, setConfirmedData] = useState(false);
+  const [acknowledgedFalseInfo, setAcknowledgedFalseInfo] = useState(false);
 
   const handleAccept = () => {
     setAcceptedTerms(true);
     setShowModal(false); // Close modal when user accepts
+  };
+
+  const handleHome = () => {
+    // Redirect to the home page
+    router.push("/");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -461,55 +418,63 @@ const ApplyPage: React.FC = () => {
           </section>
 
           <section className="text-white  md:m-0">
-            <form className="mgrid w-full justify-center md:max-w-screen-xl p-[2rem] md:p-[3rem] md:pt-[2rem] mx-auto lg:gap-8  bg-white rounded-2xl shadow-lg">
+            <form className="mgrid w-full justify-center md:max-w-screen-xl p-[2rem] md:p-[4rem]  mx-auto lg:gap-8  bg-white rounded-2xl shadow-lg">
               <div className="grid items-center mb-6">
-                <div className="grid grid-cols-3 items-center mb-6">
+                <div className="grid md:grid-cols-3 items-center mb-6">
                   {/* Left Column */}
                   <div className="flex items-center space-x-2 justify-start"></div>
 
                   {/* Center Column */}
                   <div className="col-span-1 text-center">
-                    <span className="text-black text-xl md:text-2xl font-bold font-thai pb-2 border-b-3 border-orange-500">
+                    <span className="text-black text-xl md:text-2xl font-bold font-thai ">
                       ข้อกำหนดและเงื่อนไขในการแข่งขัน
                     </span>
+                    <div className="mx-auto w-[120px] border-t-3 border-orange-500 mt-4"></div>
                   </div>
 
                   {/* Right Column (Empty for spacing) */}
                   <div></div>
                 </div>
-                <div className="text-black space-y-5 pt-4 md:pt-8">
-                  <p className="text-lg mb-4">
+                <div className="text-black space-y-5 pt-4">
+                  <p className="text-sm-7 md:text-lg/8 mb-4 ">
                     ผู้สมัครและผู้เข้าร่วมโครงการตกลงและรับทราบว่าการเก็บรวบรวม
                     ใช้ และเปิดเผยข้อมูลส่วนบุคคลดังกล่าวข้างต้นเป็นไป
                     เพื่อวัตถุประสงค์ ดังต่อไปนี้
                     <br></br>
                     <br></br>
                     1. เพื่อจัดทำฐานข้อมูลของผู้สมัครและผู้เข้าร่วมโครงการ
-                    เพื่อวัตถุประสงค์ ดังต่อไปนี้
                     <br></br>
                     2.
                     เพื่อใช้ในการติดต่อสื่อสารทั้งในระหว่างและภายหลังจากการเข้าร่วมโครงการ
-                    เพื่อวัตถุประสงค์ ดังต่อไปนี้
                     <br></br>
                     3. เพื่อแจ้งข้อมูลข่าวสารและเสนอสิทธิประโยชน์ต่างๆ
-                    ของโครงการ เพื่อวัตถุประสงค์ ดังต่อไปนี้
+                    ของโครงการ
                     <br></br>
                     4.
                     เพื่อวิเคราะห์และประมวลข้อมูลเชิงสถิติของผู้สมัครและผู้เข้าร่วมโครงการ
-                    เพื่อวัตถุประสงค์ ดังต่อไปนี้
                     <br></br>
                     5. เพื่อใช้ในการเผยแพร่ โฆษณา/ประชาสัมพันธ์บนหนังสือ เอกสาร
-                    เว็บไซต์ หรือ ช่องทางการสื่อสารต่าง ๆ ของผู้จัดงาน
-                    องค์กรพันธมิตร สื่อมวลชน และ/หรือโซเชียลมีเดีย
+                    เว็บไซต์ หรือ ช่องทางการสื่อสารต่าง ๆ<br></br>
+                    ของผู้จัดงาน องค์กรพันธมิตร สื่อมวลชน และ/หรือโซเชียลมีเดีย
                     ทั้งนี้รวมถึงขออนุญาตใช้ภาพ เสียง
-                    และวิดิโอในการประชาสัมพันธ์ เพื่อวัตถุประสงค์ ดังต่อไปนี้
+                    และวิดิโอในการประชาสัมพันธ์
                     <br></br>
                     6. เพื่อใช้ข้อมูลติดต่อของผู้สมัครเพื่อลงทะเบียนในระบบสมาชิก
-                    oneKMUTT ให้อัตโนมัติ
+                    <span className="font-bold"> oneKMUTT</span> ให้อัตโนมัติ
+                    <br></br>
+                    7. ข้าพเจ้ารับทราบและยินยอมว่า
+                    ผลงานที่พัฒนาขึ้นภายใต้โครงการ Cyber Warrior Hackathon 2025
+                    จะถือเป็นทรัพย์สินทางปัญญาที่มีเจ้าของร่วมระหว่าง
+                    กองบัญชาการตำรวจสืบสวนสอบสวนอาชญากรรมทางเทคโนโลยี (บช.สอท.)
+                    และผู้เข้าร่วมโครงการ โดยทั้งสองฝ่ายสามารถนำไปใช้ประโยชน์
+                    รวมถึงเผยแพร่ต่อสาธารณชน เพื่อวัตถุประสงค์ของโครงการ เช่น
+                    การส่งเสริมความรู้ การจัดแสดงผลงาน หรือการพัฒนาเชิงนโยบาย
+                    โดยไม่ละเมิดสิทธิของอีกฝ่าย ทั้งนี้
+                    การนำไปใช้ในเชิงพาณิชย์จะต้องได้รับความยินยอมร่วมกันจากทั้งสองฝ่ายเป็นลายลักษณ์อักษร
                   </p>
                   <br></br>
                   <div className="flex justify-center">
-                    <label className="flex items-center text-lg font-thai text-black">
+                    <label className="flex items-center md:text-lg font-thai text-black">
                       <input
                         type="checkbox"
                         checked={acceptedTerms}
@@ -521,14 +486,15 @@ const ApplyPage: React.FC = () => {
                     </label>
                   </div>
 
-                  <div className="col-span-1 text-center mt-[2rem]">
+                  <div className="col-span-1 text-center mt-[1rem]">
                     {/* Orange border line */}
-                    <div className="mx-auto w-[120px] border-t-3 border-orange-500 mb-4"></div>
+                    <div className="mx-auto w-[120px] border-t-3 border-orange-500 mb-6"></div>
 
                     {/* Button */}
                     <span className="text-black text-xl md:text-xl font-bold font-thai">
                       <div className="flex justify-center mt-4">
                         <button
+                          type="button"
                           onClick={handleAccept}
                           className={`cursor-pointer px-6 py-2 font-bold ${
                             acceptedTerms ? "text-orange-500" : "text-gray-400"
@@ -625,7 +591,7 @@ const ApplyPage: React.FC = () => {
               </button>
             </div>
           </section>
-          <section className="h-20 md:h-60 py-20"></section>
+          <section className="h-20 md:h-20 py-20"></section>
         </div>
       )}
 
@@ -762,12 +728,14 @@ const ApplyPage: React.FC = () => {
                 <div>
                   <label className="block mb-2 text-lg font-bold text-gray-900">
                     หัวข้อที่สนใจ (เลือกได้มากกว่า 1 ข้อ)
+                    <span className="text-red-500"> * {""}</span>
                   </label>
-                  <div className="space-y-2 pt-2">
+
+                  <div className="space-y-4 pt-2">
                     {interestItems.map((item) => (
-                      <div
+                      <label
                         key={item.id}
-                        className="flex items-center space-x-2"
+                        className="flex items-start md:text-lg font-thai text-black text-left"
                       >
                         <input
                           type="checkbox"
@@ -780,21 +748,29 @@ const ApplyPage: React.FC = () => {
                               setSelectedInterest
                             )
                           }
-                          className="w-4 h-4"
+                          className="peer hidden"
                         />
-                        <span className="text-lg text-black">{item.label}</span>
+                        <span className="w-6 h-6 mt-1 border border-[#0032D2] rounded-sm mr-3 flex-shrink-0 flex items-center justify-center text-[#0032D2] text-sm peer-checked:before:content-['✓'] peer-checked:before:text-[#0032D2] peer-checked:before:font-bold"></span>
 
-                        {item.value === "อื่น ๆ" &&
-                          selectedInterest.includes("อื่น ๆ") && (
-                            <input
-                              type="text"
-                              placeholder="โปรดระบุ"
-                              value={otherInterest}
-                              onChange={(e) => setOtherInterest(e.target.value)}
-                              className="ml-2 border border-gray-300 rounded px-2 py-1 text-md w-140 md:ml-10 text-gray-900"
-                            />
-                          )}
-                      </div>
+                        <div>
+                          <span className="text-lg text-black">
+                            {item.label}
+                          </span>
+
+                          {item.value === "อื่น ๆ" &&
+                            selectedInterest.includes("อื่น ๆ") && (
+                              <input
+                                type="text"
+                                placeholder="โปรดระบุ"
+                                value={otherInterest}
+                                onChange={(e) =>
+                                  setOtherInterest(e.target.value)
+                                }
+                                className="ml-4 border border-gray-300 rounded px-2 py-1 text-md w-100 md:w-140 md:ml-10 text-gray-900 mt-2"
+                              />
+                            )}
+                        </div>
+                      </label>
                     ))}
                   </div>
                 </div>
@@ -802,7 +778,8 @@ const ApplyPage: React.FC = () => {
                 {/* แรงบันดาลใจ  */}
                 <div>
                   <label className="block mb-2 text-lg font-bold text-gray-900">
-                    แรงบันดาลใจและเป้าหมายในการเข้าร่วมการแข่งขัน
+                    แรงบันดาลใจและเป้าหมายในการเข้าร่วมการแข่งขัน{" "}
+                    <span className="text-red-500"> * {""}</span>
                   </label>
                   <p className="text-md text-gray-500 mb-2">
                     (ความยาวไม่เกิน 300 คำ หรือ 2000 ตัวอักษร)
@@ -822,7 +799,7 @@ const ApplyPage: React.FC = () => {
                   </div>
 
                   <p className="text-md text-red-500 mt-4">
-                    คำที่เหลือ: {Math.max(maxWords - wordCount, 0)} ตัวอักษร
+                    เหลือ: {Math.max(maxWords - wordCount, 0)} ตัวอักษร
                   </p>
                 </div>
 
@@ -837,12 +814,13 @@ const ApplyPage: React.FC = () => {
                 <div>
                   <label className="block mb-2 text-lg font-bold text-gray-900">
                     ความเชี่ยวชาญหรือประสบการณ์ความสามารถทางด้านไซเบอร์หรือเทคโนโลยี
+                    <span className="text-red-500"> * {""}</span>
                   </label>
-                  <div className="space-y-2 pt-2">
+                  <div className="space-y-4 pt-2">
                     {expertiseItems.map((item) => (
                       <label
                         key={item.id}
-                        className="flex items-center space-x-2"
+                        className="flex items-start md:text-lg font-thai text-black text-left"
                       >
                         <input
                           type="checkbox"
@@ -855,38 +833,44 @@ const ApplyPage: React.FC = () => {
                               setSelectedExpertise
                             )
                           }
-                          className="w-4 h-4"
+                          className="peer hidden"
                         />
-                        <span className="text-lg text-black">{item.label}</span>
+                        <span className="w-6 h-6 mt-1 border border-[#0032D2] rounded-sm mr-3 flex-shrink-0 flex items-center justify-center text-[#0032D2] text-sm peer-checked:before:content-['✓'] peer-checked:before:text-[#0032D2] peer-checked:before:font-bold"></span>
+                        <div>
+                          <span className="text-lg text-black">
+                            {item.label}
+                          </span>
 
-                        {/* ✅ Show input next to "อื่นๆ" */}
-                        {item.value === "อื่นๆ" &&
-                          selectedExpertise.includes("อื่นๆ") && (
-                            <input
-                              type="text"
-                              placeholder="โปรดระบุ"
-                              value={otherExpertise}
-                              onChange={(e) =>
-                                setOtherExpertise(e.target.value)
-                              }
-                              className="ml-2 border border-gray-300 rounded px-2 py-1 text-md w-140 md:ml-10 text-gray-900"
-                            />
-                          )}
+                          {/* ✅ Show input next to "อื่นๆ" */}
+                          {item.value === "อื่นๆ" &&
+                            selectedExpertise.includes("อื่นๆ") && (
+                              <input
+                                type="text"
+                                placeholder="โปรดระบุ"
+                                value={otherExpertise}
+                                onChange={(e) =>
+                                  setOtherExpertise(e.target.value)
+                                }
+                                className="ml-4 border border-gray-300 rounded px-2 py-1 text-md w-100 md:w-140 md:ml-10 text-gray-900"
+                              />
+                            )}
+                        </div>
                       </label>
                     ))}
                   </div>
                 </div>
 
                 {/* ความคาดหวัง */}
-                <div>
-                  <div className="flex items-center mb-4">
+                <div className="pt-4 md:pt-2">
+                  <div className="flex items-center mb-4 ">
                     <label className="text-lg font-bold text-gray-900 whitespace-nowrap mr-4 flex-shrink-0">
-                      ความคาดหวังจากกิจกรรมนี้
+                      ความคาดหวังจากกิจกรรมนี้{" "}
+                      <span className="text-red-500"> * {""}</span>
                     </label>
                     <div className="flex-grow h-px bg-blue-600" />
                   </div>
 
-                  <p className="text-lg text-gray-700 mb-2">
+                  <p className="md:text-lg text-gray-700 mb-2">
                     เช่น: อยากได้เครือข่าย / อยากพัฒนาทักษะ /
                     อยากทำงานร่วมกับหน่วยงานด้านความมั่นคง /
                     อยากพัฒนาเป็นโปรดักต์จริง
@@ -909,22 +893,44 @@ const ApplyPage: React.FC = () => {
                   </div>
 
                   <p className="text-md text-red-500 mt-4">
-                    คำที่เหลือ:{" "}
+                    เหลือ:{" "}
                     {Math.max(maxExpectationWords - expectationWordCount, 0)}{" "}
                     ตัวอักษร
                   </p>
                 </div>
+                {/* Checkbox Above Submit Button */}
+                <div className="flex flex-col items-center mt-10 mb-4 space-y-4 w-full">
+                  <div className="w-full max-w-3xl">
+                    <label className="flex items-start md:text-lg font-thai text-black text-left w-full">
+                      <input
+                        type="checkbox"
+                        checked={confirmedData}
+                        onChange={(e) => setConfirmedData(e.target.checked)}
+                        className="peer hidden"
+                      />
+                      <span className="w-6 h-6 mt-1 border border-[#0032D2] rounded-sm mr-3 flex-shrink-0 flex items-center justify-center text-[#0032D2] text-sm peer-checked:before:content-['✓'] peer-checked:before:text-[#0032D2] peer-checked:before:font-bold"></span>
+                      <span>
+                        ข้าพเจ้าขอรับรองว่าข้อมูลทั้งหมดที่ได้กรอกเป็นความจริงและได้ตรวจสอบความถูกต้องเรียบร้อยแล้ว
+                        พร้อมทั้งรับทราบและยินยอมว่าหากปรากฏภายหลังว่าข้อมูลใดเป็นเท็จ
+                        คณะผู้จัดงานมีสิทธิ์ดำเนินการตามข้อกำหนดและเงื่อนไขของการแข่งขันโดยไม่จำเป็นต้องแจ้งให้ทราบล่วงหน้า"
+                      </span>
+                    </label>
+                  </div>
+                </div>
 
-                {/* Submit Button  */}
+                {/* Submit Button */}
                 <div className="grid md:grid-cols-3 items-center mb-6 pt-8">
                   <div className="flex items-center space-x-2 justify-start"></div>
                   <div className="col-span-1 text-center">
                     <span className="text-black text-xl md:text-xl font-bold font-thai pt-[1.5rem] border-t-3 border-orange-500">
-                      <div className="pt-6 border-t-4 border-orange-500">
+                      <div className="">
+                        <div className="mx-auto w-[120px] border-t-3 border-orange-500 mb-4"></div>
                         <button
                           type="submit"
                           onClick={handleSubmitForm}
-                          className="px-6 py-2 font-bold text-transparent border-2 border-blue-700 bg-clip-text bg-gradient-to-r from-[#0032D2] to-[#FF4C00] rounded-[12px] gradient-border cursor-pointer"
+                          disabled={!confirmedData}
+                          className={`px-6 py-2 font-bold text-transparent border-2 border-blue-700 bg-clip-text bg-gradient-to-r from-[#0032D2] to-[#FF4C00] rounded-[12px] gradient-border cursor-pointer
+                  ${!confirmedData ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                           ส่งข้อมูลใบสมัคร
                         </button>
@@ -933,7 +939,63 @@ const ApplyPage: React.FC = () => {
                   </div>
                   <div></div>
                 </div>
-                {/* End Submit button  */}
+                {/* End Submit Button */}
+
+                {showErrorModal && (
+                  <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/30 flex items-center justify-center">
+                    <div className="bg-white w-full max-w-2xl max-h-[80vh] overflow-y-auto p-8 rounded-lg shadow-xl">
+                      <h2 className="text-lg font-bold text-black mb-4">
+                        กรุณากรอกข้อมูลต่อไปนี้ให้ครบถ้วน
+                      </h2>
+                      <pre
+                        className="whitespace-pre-wrap text-sm text-red-600"
+                        style={{ fontFamily: "var(--font-th)" }}
+                      >
+                        {errorText}
+                      </pre>
+                      <div className="mt-8 text-center">
+                        <button
+                          onClick={() => setShowErrorModal(false)}
+                          className="px-6 py-2 font-bold text-transparent border-2 border-blue-700 bg-clip-text bg-gradient-to-r from-[#0032D2] to-[#FF4C00] rounded-[12px] gradient-border cursor-pointer"
+                        >
+                          รับทราบ
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Full-Screen Loading Overlay */}
+                {isSubmitting && (
+                  <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/30 bg-opacity-60 backdrop-blur-sm">
+                    <div className="bg-white px-8 py-6 rounded-xl shadow-xl flex flex-col items-center space-y-4 animate-fade-in">
+                      <svg
+                        className="animate-spin h-10 w-10 text-blue-600"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                        ></path>
+                      </svg>
+                      <p className="text-lg font-semibold text-gray-800">
+                        กำลังส่งข้อมูล...
+                      </p>
+                      <p className="text-sm text-gray-500">กรุณารอสักครู่</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </form>
 
@@ -1050,73 +1112,166 @@ const ApplyPage: React.FC = () => {
               </div>
               <div>
                 <h4 className="max-w-2xl text-[1.6rem] mb-4 font-thai text-center font-bold uppercase tracking-tight leading-none md:text-3xl xl:text-3xl">
-                  ขอบคุณที่เข้าร่วมการแข่งขัน
+                  สมัครเข้าร่วมการแข่งขัน
                 </h4>
               </div>
             </div>
           </section>
 
-          <section className="text-white md:m-0">
-            <form className="mgrid w-full justify-center md:max-w-screen-xl p-[2rem] md:p-[3rem] md:pt-[2rem] mx-auto lg:gap-8 bg-white rounded-2xl shadow-lg">
-              <div className="grid items-center mb-6">
-                <div className="grid grid-cols-3 items-center mb-6">
-                  <div className="flex items-center space-x-2 justify-start"></div>
-                  <div className="col-span-1 text-center">
-                    <span className="text-black text-xl md:text-2xl font-bold font-thai pb-2 border-b-3 border-orange-500">
-                      เราได้รับแบบฟอร์มของคุณแล้ว
-                    </span>
+          {submittedTeamName && (
+            <section className="text-white  md:m-0">
+              <form className="mgrid w-full justify-center md:max-w-screen-xl p-[2rem] md:p-[3rem]  mx-auto lg:gap-8  bg-white rounded-2xl shadow-lg">
+                <div className="grid items-center mb-6">
+                  <div className="grid  items-center mb-6">
+                    {/* Left Column */}
+                    <div className="flex items-center space-x-2 justify-start"></div>
+
+                    {/* Center Column */}
+                    <div className="col-span-1 text-center">
+                      <span className="text-black text-xl md:text-2xl font-bold font-thai ">
+                        เราได้รับข้อมูลการสมัครของคุณแล้ว!
+                      </span>
+                      <div className="mx-auto w-[120px] border-t-3 border-orange-500 mt-4"></div>
+                    </div>
+
+                    {/* Right Column (Empty for spacing) */}
+                    <div></div>
                   </div>
-                  <div></div>
-                </div>
-                <section
-                  className="text-white pt-8 md:pt-12 px-10 md:px-4"
-                  id="contact"
-                >
-                  <div className="grid max-w-screen-xl py-2 mx-auto lg:gap-4 justify-center md:justify-start">
-                    <div className="relative rounded-xl border-l-2 border-r-2 border-white  gap-2 max-w-fit px-4 md:px-4 py-4 ml-0 md:gap-8">
-                      {/* Left Column */}
-                      <div className="flex flex-col items-start justify-start gap-4 text-black">
-                        <h4 className="text-md font-thai text-start font-bold uppercase tracking-tight leading-none md:text-xl">
-                          สอบถามข้อมูลเพิ่มเติม
-                        </h4>
-                        <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
-                          E-mail:
-                          <a
-                            href="mailto:cyberwarrior2025@kmutt.ac.th"
-                            className="text-blue-400 pl-2 pt-2 hover:underline"
+                  <div className="text-black space-y-5 pt-4">
+                    <p className="text-sm-7 md:text-lg/8 mb-4 ">
+                      ขอบคุณที่ลงทะเบียนเข้าร่วม Cyber Warrior Hackathon 2025
+                      <br></br>
+                      <span className="text-2xl font-bold">
+                        ทีมของคุณ :
+                        <span className="text-orange-500">
+                          <strong>
+                            {" "}
+                            {""}
+                            {submittedTeamName}
+                          </strong>
+                        </span>
+                      </span>
+                      <br></br>
+                      <br></br>
+                      ระบบได้บันทึกข้อมูลการสมัครของคุณเรียบร้อยแล้ว
+                      และจะมีอีเมลยืนยันการลงทะเบียนส่งถึงคุณ <br></br> ภายใน 24
+                      ชั่วโมง (ในกรณีที่มีผู้สมัครจำนวนมาก
+                      อาจใช้เวลาเล็กน้อยในการประมวลผล) <br></br>
+                      <br></br>
+                      📢 ประกาศรายชื่อทีมที่ผ่านการคัดเลือก
+                      จะเผยแพร่ผ่านเว็บไซต์อย่างเป็นทางการในวันที่ 2 มิถุนายน
+                      2025
+                      <br></br>
+                      ขอให้โชคดีกับการคัดเลือก แล้วเจอกันในสนามจริงครับ! 💻⚔️
+                      <br></br>
+                      <br></br>
+                      หากมีข้อสงสัยเพิ่มเติม กรุณาติดต่อทีมผู้จัดงานผ่านอีเมล :
+                      <span className="text-blue-700 font-bold">
+                        {" "}
+                        cyberwarrior2025@kmutt.ac.th
+                      </span>
+                    </p>
+                    <br></br>
+
+                    <div className="col-span-1 text-center mt-[1rem]">
+                      {/* Orange border line */}
+                      <div className="mx-auto w-[120px] border-t-3 border-orange-500 mb-6"></div>
+
+                      {/* Button */}
+                      <span className="text-black text-xl md:text-xl font-bold font-thai">
+                        <div className="flex justify-center mt-4">
+                          <button
+                            type="button"
+                            onClick={handleHome}
+                            className="cursor-pointer px-6 py-2 rounded-2xl font-bold border-2 text-orange-500"
                           >
-                            cyberwarrior2025@kmutt.ac.th
-                          </a>
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <div className="text-black space-y-5 pt-4 md:pt-8">
-                  <div className="col-span-1 text-center mt-[2rem]">
-                    <div className="mx-auto w-[120px] border-t-[3px] border-orange-500 mb-4"></div>
-
-                    <div className="flex justify-center mt-4">
-                      <button
-                        onClick={handleGoHome}
-                        className={`px-6 py-2 font-bold ${
-                          acceptedTerms ? "text-orange-500" : "text-gray-400"
-                        } border-2 ${
-                          acceptedTerms
-                            ? "border-orange-500"
-                            : "border-gray-400"
-                        } rounded-[2rem]`}
-                        disabled={!acceptedTerms}
-                      >
-                        กลับหน้าหลัก
-                      </button>
+                            กลับหน้าหลัก
+                          </button>
+                        </div>
+                      </span>
                     </div>
                   </div>
                 </div>
+              </form>
+
+              <div className="max-w-screen-sm mx-[4rem] md:mx-auto md:max-w-screen-md mt-[3rem] p-[2rem]  md:pt-[2rem]  bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 dark:text-gray-400 ">
+                {/* Logo 1 */}
+                <button
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  style={{
+                    backgroundImage: `url(${policeLogo2.src})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    height: "40px", // Adjust as needed
+                  }}
+                >
+                  <span className="sr-only">Police Logo 2</span>{" "}
+                  {/* Hidden for accessibility */}
+                </button>
+
+                {/* Logo 2 */}
+                <button
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  style={{
+                    backgroundImage: `url(${policeLogo.src})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    height: "40px", // Adjust as needed
+                  }}
+                >
+                  <span className="sr-only">Police Logo</span>{" "}
+                  {/* Hidden for accessibility */}
+                </button>
+
+                {/* Logo 3 */}
+                <button
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  style={{
+                    backgroundImage: `url(${kmuttLogo.src})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    height: "40px", // Adjust as needed
+                  }}
+                >
+                  <span className="sr-only">KMUTT Logo</span>{" "}
+                  {/* Hidden for accessibility */}
+                </button>
+
+                {/* Logo 5 */}
+                <button
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  style={{
+                    backgroundImage: `url(${kmuttLogo2.src})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    height: "40px", // Adjust as needed
+                  }}
+                >
+                  <span className="sr-only">KMUTT Logo 2</span>{" "}
+                  {/* Hidden for accessibility */}
+                </button>
+
+                {/* Logo 4 */}
+                <button
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  style={{
+                    backgroundImage: `url(${cpeLogo.src})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    height: "40px", // Adjust as needed
+                  }}
+                >
+                  <span className="sr-only">CPE Logo</span>{" "}
+                  {/* Hidden for accessibility */}
+                </button>
               </div>
-            </form>
-          </section>
+            </section>
+          )}
 
           <section className="h-20 md:h-40 py-10"></section>
         </div>

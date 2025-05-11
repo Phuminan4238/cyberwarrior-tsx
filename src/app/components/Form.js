@@ -24,13 +24,13 @@ export default function TeamMemberForm({ index, onChange }) {
     return true;
   };
 
-  const handleAdvisorLetterChange = (e) => {
-    const file = e.target.files?.[0] || null;
-    if (file && handleFileSizeCheck(file)) {
-      setAdvisorLetterName(file.name);
-      handleChange("advisorLetterFile", file);
-    }
-  };
+  // const handleAdvisorLetterChange = (e) => {
+  //   const file = e.target.files?.[0] || null;
+  //   if (file && handleFileSizeCheck(file)) {
+  //     setAdvisorLetterName(file.name);
+  //     handleChange("advisorLetterFile", file);
+  //   }
+  // };
 
   const handleResumeChange = (e) => {
     const file = e.target.files?.[0] || null;
@@ -48,13 +48,13 @@ export default function TeamMemberForm({ index, onChange }) {
     }
   };
 
-  const handleCertFileChange = (e) => {
-    const file = e.target.files?.[0] || null;
-    if (file && handleFileSizeCheck(file)) {
-      setCertFileName(file.name);
-      handleChange("studentCertFile", file);
-    }
-  };
+  // const handleCertFileChange = (e) => {
+  //   const file = e.target.files?.[0] || null;
+  //   if (file && handleFileSizeCheck(file)) {
+  //     setCertFileName(file.name);
+  //     handleChange("studentCertFile", file);
+  //   }
+  // };
 
   return (
     <div className="mb-8">
@@ -92,7 +92,7 @@ export default function TeamMemberForm({ index, onChange }) {
             </label>
             <input
               type="text"
-              className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
+              className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-white px-4 py-2.5"
               placeholder="กรอกชื่อ"
               onChange={(e) => handleChange("name", e.target.value)}
               required
@@ -105,7 +105,7 @@ export default function TeamMemberForm({ index, onChange }) {
             </label>
             <input
               type="text"
-              className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
+              className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-white px-4 py-2.5"
               placeholder="กรอกนามสกุล"
               onChange={(e) => handleChange("surname", e.target.value)}
               required
@@ -164,7 +164,7 @@ export default function TeamMemberForm({ index, onChange }) {
         </div>
 
         {/* Email and Phone */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <label className="block mb-2 text-lg font-medium text-gray-900">
               E-mail
@@ -210,7 +210,8 @@ export default function TeamMemberForm({ index, onChange }) {
               htmlFor={`studentId-${index}`}
               className="block mb-2 text-md font-medium text-gray-900"
             >
-              สำเนาบัตร Student ID
+              สำเนาบัตร Student ID หรือเอกสารแสดงสถานะนักศึกษา
+              หรือเอกสารอื่นที่เทียบเท่า
               <span className="text-red-500"> * {""}</span>
               <span className="text-gray-500 text-sm">
                 (ไฟล์ภาพ .jpg, .png หรือ ไฟล์ PDF ขนาดไม่เกิน 2MB)
@@ -251,7 +252,7 @@ export default function TeamMemberForm({ index, onChange }) {
           </div>
 
           {/* Student Certificate Upload */}
-          <label
+          {/* <label
             htmlFor={`studentId-${index}`}
             className="block mb-2 text-md font-medium text-gray-900"
           >
@@ -289,18 +290,18 @@ export default function TeamMemberForm({ index, onChange }) {
                 Browse
               </button>
             </div>
-          </div>
+          </div> */}
 
           {/* Advisor Upload  */}
-          <label
+          {/* <label
             htmlFor={`studentId-${index}`}
             className="block mb-2 text-md font-medium text-gray-900"
           >
             หนังสือยินยอมจากอาจารย์ที่ปรึกษา
             <span className="text-gray-500 text-sm">{""} (optional)</span>
-          </label>
+          </label> */}
 
-          <div className="flex items-center gap-4 mt-4">
+          {/* <div className="flex items-center gap-4 mt-4">
             <div className="flex-[5]">
               <input
                 type="file"
@@ -327,7 +328,7 @@ export default function TeamMemberForm({ index, onChange }) {
                 Browse
               </button>
             </div>
-          </div>
+          </div> */}
 
           {/* Github  */}
           <div className="grid md:grid-cols-2 gap-4">
@@ -365,7 +366,9 @@ export default function TeamMemberForm({ index, onChange }) {
                     id={`fileName-resume-${index}`}
                     className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
                   >
-                    {resumeFileName}
+                    {resumeFileName && resumeFileName.length > 20
+                      ? resumeFileName.slice(0, 20) + "..."
+                      : resumeFileName}
                   </div>
                 </div>
                 <div className="flex-[1]">
