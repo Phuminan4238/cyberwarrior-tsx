@@ -393,7 +393,7 @@ const ApplyPage: React.FC = () => {
                 <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
                   <div>
                     <button
-                      className="inline-flex items-center justify-center hover:text-gray-900 dark:hover:text-white"
+                      className="inline-flex items-center justify-center hover:text-gray-900 "
                       style={{
                         backgroundImage: `url(${cyberlogo.src})`, // Using sponsorlogo.src for background image
                         backgroundSize: "contain", // Ensures the image fits within the container
@@ -515,10 +515,10 @@ const ApplyPage: React.FC = () => {
               </div>
             </form>
 
-            <div className="max-w-screen-sm mx-[4rem] md:mx-auto md:max-w-screen-md mt-[3rem] p-[2rem]  md:pt-[2rem]  bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 dark:text-gray-400 ">
+            <div className="max-w-screen-sm mx-[4rem] md:mx-auto md:max-w-screen-md mt-[3rem] p-[2rem]  md:pt-[2rem]  bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 ">
               {/* Logo 1 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${policeLogo2.src})`,
                   backgroundSize: "contain",
@@ -533,7 +533,7 @@ const ApplyPage: React.FC = () => {
 
               {/* Logo 2 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${policeLogo.src})`,
                   backgroundSize: "contain",
@@ -548,7 +548,7 @@ const ApplyPage: React.FC = () => {
 
               {/* Logo 3 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${kmuttLogo.src})`,
                   backgroundSize: "contain",
@@ -563,7 +563,7 @@ const ApplyPage: React.FC = () => {
 
               {/* Logo 5 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${kmuttLogo2.src})`,
                   backgroundSize: "contain",
@@ -578,7 +578,7 @@ const ApplyPage: React.FC = () => {
 
               {/* Logo 4 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${cpeLogo.src})`,
                   backgroundSize: "contain",
@@ -609,7 +609,7 @@ const ApplyPage: React.FC = () => {
                 <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
                   <div>
                     <button
-                      className="inline-flex items-center justify-center hover:text-gray-900 dark:hover:text-white"
+                      className="inline-flex items-center justify-center hover:text-gray-900 "
                       style={{
                         backgroundImage: `url(${cyberlogo.src})`, // Using sponsorlogo.src for background image
                         backgroundSize: "contain", // Ensures the image fits within the container
@@ -1003,10 +1003,10 @@ const ApplyPage: React.FC = () => {
               </div>
             </form>
 
-            <div className="max-w-screen-sm mx-[4rem] md:mx-auto md:max-w-screen-md mt-[3rem] p-[2rem]  md:pt-[2rem]  bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 dark:text-gray-400 ">
+            <div className="max-w-screen-sm mx-[4rem] md:mx-auto md:max-w-screen-md mt-[3rem] p-[2rem]  md:pt-[2rem]  bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 ">
               {/* Logo 1 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${policeLogo2.src})`,
                   backgroundSize: "contain",
@@ -1021,7 +1021,7 @@ const ApplyPage: React.FC = () => {
 
               {/* Logo 2 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${policeLogo.src})`,
                   backgroundSize: "contain",
@@ -1036,7 +1036,7 @@ const ApplyPage: React.FC = () => {
 
               {/* Logo 3 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${kmuttLogo.src})`,
                   backgroundSize: "contain",
@@ -1051,7 +1051,7 @@ const ApplyPage: React.FC = () => {
 
               {/* Logo 5 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${kmuttLogo2.src})`,
                   backgroundSize: "contain",
@@ -1066,7 +1066,7 @@ const ApplyPage: React.FC = () => {
 
               {/* Logo 4 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${cpeLogo.src})`,
                   backgroundSize: "contain",
@@ -1099,7 +1099,7 @@ const ApplyPage: React.FC = () => {
                 <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
                   <div>
                     <button
-                      className="inline-flex items-center justify-center hover:text-gray-900 dark:hover:text-white"
+                      className="inline-flex items-center justify-center hover:text-gray-900 "
                       style={{
                         backgroundImage: `url(${cyberlogo.src})`,
                         backgroundSize: "contain",
@@ -1198,10 +1198,10 @@ const ApplyPage: React.FC = () => {
                 </div>
               </form>
 
-              <div className="max-w-screen-sm mx-[4rem] md:mx-auto md:max-w-screen-md mt-[3rem] p-[2rem]  md:pt-[2rem]  bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 dark:text-gray-400 ">
+              <div className="max-w-screen-sm mx-[4rem] md:mx-auto md:max-w-screen-md mt-[3rem] p-[2rem]  md:pt-[2rem]  bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 ">
                 {/* Logo 1 */}
                 <button
-                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                   style={{
                     backgroundImage: `url(${policeLogo2.src})`,
                     backgroundSize: "contain",
@@ -1216,7 +1216,7 @@ const ApplyPage: React.FC = () => {
 
                 {/* Logo 2 */}
                 <button
-                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                   style={{
                     backgroundImage: `url(${policeLogo.src})`,
                     backgroundSize: "contain",
@@ -1231,7 +1231,7 @@ const ApplyPage: React.FC = () => {
 
                 {/* Logo 3 */}
                 <button
-                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                   style={{
                     backgroundImage: `url(${kmuttLogo.src})`,
                     backgroundSize: "contain",
@@ -1246,7 +1246,7 @@ const ApplyPage: React.FC = () => {
 
                 {/* Logo 5 */}
                 <button
-                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                   style={{
                     backgroundImage: `url(${kmuttLogo2.src})`,
                     backgroundSize: "contain",
@@ -1261,7 +1261,7 @@ const ApplyPage: React.FC = () => {
 
                 {/* Logo 4 */}
                 <button
-                  className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                  className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                   style={{
                     backgroundImage: `url(${cpeLogo.src})`,
                     backgroundSize: "contain",

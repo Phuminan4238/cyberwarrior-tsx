@@ -19,16 +19,16 @@ const Registration = () => {
             <div className="grid  gap-8">
               {/* Left Column */}
               <div>
-                <h1 className="max-w-2xl mb-4 text-2xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+                <h1 className="max-w-2xl mb-4 text-2xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-5xl ">
                   Cyber
                 </h1>
-                <h1 className="max-w-2xl mb-4 text-2xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+                <h1 className="max-w-2xl mb-4 text-2xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-5xl ">
                   Warrior
                 </h1>
-                <h1 className="max-w-2xl mb-4 text-2xl font-normal uppercase tracking-tight leading-none  md:text-5xl xl:text-4xl dark:text-white">
+                <h1 className="max-w-2xl mb-4 text-2xl font-normal uppercase tracking-tight leading-none  md:text-5xl xl:text-4xl ">
                   Hackathon
                 </h1>
-                <h1 className="max-w-2xl mb-0 text-2xl text-right font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+                <h1 className="max-w-2xl mb-0 text-2xl text-right font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-5xl ">
                   2025
                 </h1>
               </div>
@@ -102,7 +102,7 @@ const Registration = () => {
                   id="default-checkbox"
                   type="checkbox"
                   value=""
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500  focus:ring-2 "
                 />
                 <h1 className="max-w-2xl mb-0 text-md font-thai font-normal uppercase tracking-tight leading-none md:text-lg xl:text-lg">
                   ข้าพเจ้าขอยินยอมปฏิบัติตามเงื่อนไขการแข่งขัน
@@ -131,20 +131,20 @@ const Registration = () => {
 
       <section className="">
         <div className="mx-auto max-w-screen-sm px-4 py-8">
-          <div className="bg-white rounded-3xl grid grid-cols-2 gap-8 text-gray-500 md:grid-cols-3 dark:text-gray-400">
-            <button className="inline-flex items-center px-8 py-3 gap-4 flex-shrink-0 justify-center hover:text-gray-900 dark:hover:text-white">
+          <div className="bg-white rounded-3xl grid grid-cols-2 gap-8 text-gray-500 md:grid-cols-3 ">
+            <button className="inline-flex items-center px-8 py-3 gap-4 flex-shrink-0 justify-center hover:text-gray-900 ">
               <img src={policeLogo2} alt="Police Logo" />
             </button>
 
-            <button className="inline-flex items-center px-8 py-3 gap-4 flex-shrink-0 justify-center hover:text-gray-900 dark:hover:text-white">
+            <button className="inline-flex items-center px-8 py-3 gap-4 flex-shrink-0 justify-center hover:text-gray-900 ">
               <img src={policeLogo} alt="Police Logo" />
             </button>
 
-            <button className="inline-flex items-center px-8 py-3 gap-4 flex-shrink-0 justify-center hover:text-gray-900 dark:hover:text-white">
+            <button className="inline-flex items-center px-8 py-3 gap-4 flex-shrink-0 justify-center hover:text-gray-900 ">
               <img src={kmuttLogo} alt="KMUTT Logo" />
             </button>
 
-            <button className="inline-flex items-center px-8 py-3 gap-4 flex-shrink-0 justify-center hover:text-gray-900 dark:hover:text-white">
+            <button className="inline-flex items-center px-8 py-3 gap-4 flex-shrink-0 justify-center hover:text-gray-900 ">
               <img src={cpeLogo} alt="CPE Logo" />
             </button>
           </div>

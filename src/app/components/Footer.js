@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
 import backgroundImg from "../assets/background.png";
-import cyberlogo from "../assets/cyber-logo.png";
 
 const Footer = () => {
   return (

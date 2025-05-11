@@ -137,16 +137,16 @@ const Home: React.FC = () => {
             <div className="md:mr-auto place-self-center lg:col-span-6">
               <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
                 <div>
-                  <h1 className="max-w-2xl mb-4 text-6xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl dark:text-white">
+                  <h1 className="max-w-2xl mb-4 text-6xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
                     Cyber
                   </h1>
-                  <h1 className="max-w-2xl mb-4 text-5xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl dark:text-white">
+                  <h1 className="max-w-2xl mb-4 text-5xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
                     Warrior
                   </h1>
-                  <h1 className="max-w-2xl mb-4 text-5xl font-normal uppercase tracking-tight leading-none  md:text-5xl xl:text-7xl dark:text-white">
+                  <h1 className="max-w-2xl mb-4 text-5xl font-normal uppercase tracking-tight leading-none  md:text-5xl xl:text-7xl ">
                     Hackathon
                   </h1>
-                  <h1 className="max-w-2xl mb-0 text-6xl text-right font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl dark:text-white">
+                  <h1 className="max-w-2xl mb-0 text-6xl text-right font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
                     2025
                   </h1>
                 </div>
@@ -276,10 +276,10 @@ const Home: React.FC = () => {
               โดย
             </h2>
 
-            <div className="bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 dark:text-gray-400 p-6">
+            <div className="bg-white rounded-3xl grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-4 text-gray-500 0 p-6">
               {/* Logo 1 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${policeLogo2.src})`,
                   backgroundSize: "contain",
@@ -294,7 +294,7 @@ const Home: React.FC = () => {
 
               {/* Logo 2 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${policeLogo.src})`,
                   backgroundSize: "contain",
@@ -309,7 +309,7 @@ const Home: React.FC = () => {
 
               {/* Logo 3 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${kmuttLogo.src})`,
                   backgroundSize: "contain",
@@ -324,7 +324,7 @@ const Home: React.FC = () => {
 
               {/* Logo 5 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${kmuttLogo2.src})`,
                   backgroundSize: "contain",
@@ -339,7 +339,7 @@ const Home: React.FC = () => {
 
               {/* Logo 4 */}
               <button
-                className="inline-flex items-center justify-center w-full hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center w-full hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${cpeLogo.src})`,
                   backgroundSize: "contain",
@@ -361,9 +361,9 @@ const Home: React.FC = () => {
               ผู้สนับสนุน
             </h2>
 
-            <div className="inline-block bg-white rounded-3xl px-8 p-4 text-gray-500 dark:text-gray-400">
+            <div className="inline-block bg-white rounded-3xl px-8 p-4 text-gray-500 ">
               <button
-                className="inline-flex items-center justify-center hover:text-gray-900 dark:hover:text-white"
+                className="inline-flex items-center justify-center hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${sponsorlogo.src})`, // Using sponsorlogo.src for background image
                   backgroundSize: "contain", // Ensures the image fits within the container

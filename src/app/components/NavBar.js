@@ -42,7 +42,7 @@ const NavBar = () => {
       style={{ backgroundImage: `url(${backgroundImg.src})` }}
     >
       <div className="absolute inset-0 bg-[rgba(10,29,58,0.5)] backdrop-blur-sm z-0" />
-      <div className="relative z-10 max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-[3rem] py-2">
+      <div className="relative z-10 max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-[2rem] md:px-[3rem] py-2">
         <Link href="/">
           <img
             src={cyberlogo.src}
