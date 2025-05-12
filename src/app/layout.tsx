@@ -1,9 +1,9 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar"; // ✅ import NavBar
 import Footer from "./components/Footer";
-import Script from "next/script"; // ✅ Import Script from next/script
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,25 +38,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* ✅ Google Analytics Script */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-5C60PFFGHC"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-5C60PFFGHC');
-            `,
-          }}
-        />
-
-        <NavBar />
+        <NavBar /> {/* ✅ NavBar added here */}
         {children}
         <Footer />
       </body>

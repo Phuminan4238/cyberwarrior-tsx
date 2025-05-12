@@ -29,6 +29,8 @@ const NavBar = () => {
 
   // ✅ Click handler
   const handleScrollTo = (id) => {
+    if (window.innerWidth < 768) setIsOpen(false); // 👈 Close menu on mobile
+
     if (pathname === "/") {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
@@ -73,9 +75,14 @@ const NavBar = () => {
         </button>
 
         <div
-          className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}
+          className={`
+    w-full md:w-auto
+    transition-all duration-300 ease-in-out overflow-hidden md:overflow-visible
+    ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"} 
+    md:max-h-full md:opacity-100 md:flex pb-4 md:pb-0
+  `}
         >
-          <ul className="gap-5 text-lg font-thai font-bold flex flex-col items-center p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 md:mt-0 md:border-0">
+          <ul className="gap-5 text-lg font-thai font-bold flex flex-col items-center p-4 md:p-0 mt-4 border border-white rounded-2xl md:flex-row md:space-x-8 md:mt-0 md:border-0">
             <li>
               <button
                 onClick={() => handleScrollTo("about")}
@@ -101,7 +108,7 @@ const NavBar = () => {
               </button>
             </li>
             <li className="border-gray-300 rounded-2xl">
-              <Link href="/regis">
+              <Link href="/regis" onClick={() => setIsOpen(false)}>
                 <span className="block py-2 px-4 border-2 border-white rounded-3xl text-lg text-white hover:text-orange-500 hover:border-orange-500">
                   สมัครเข้าร่วม
                 </span>
