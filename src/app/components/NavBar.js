@@ -79,7 +79,7 @@ const NavBar = () => {
             <li>
               <button
                 onClick={() => handleScrollTo("about")}
-                className="block py-2 px-3 text-white hover:text-orange-600"
+                className="block py-2 px-3 text-white hover:text-orange-500"
               >
                 เกี่ยวกับโครงการ
               </button>
@@ -87,7 +87,7 @@ const NavBar = () => {
             <li>
               <button
                 onClick={() => handleScrollTo("reward")}
-                className="block py-2 px-3 text-white hover:text-orange-600"
+                className="block py-2 px-3 text-white hover:text-orange-500"
               >
                 รางวัล
               </button>
@@ -95,14 +95,14 @@ const NavBar = () => {
             <li>
               <button
                 onClick={() => handleScrollTo("contact")}
-                className="block py-2 px-3 text-white hover:text-orange-600"
+                className="block py-2 px-3 text-white hover:text-orange-500"
               >
                 ติดต่อ
               </button>
             </li>
             <li className="border-gray-300 rounded-2xl">
               <Link href="/regis">
-                <span className="block py-2 px-4 border-2 border-white rounded-3xl text-lg text-white hover:text-orange-600">
+                <span className="block py-2 px-4 border-2 border-white rounded-3xl text-lg text-white hover:text-orange-500 hover:border-orange-500">
                   สมัครเข้าร่วม
                 </span>
               </Link>

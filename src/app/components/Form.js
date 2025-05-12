@@ -243,7 +243,7 @@ export default function TeamMemberForm({ index, onChange }) {
                   onClick={() =>
                     document.getElementById(`studentId-${index}`).click()
                   }
-                  className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700 cursor-pointer"
+                  className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700 cursor-pointer transition duration-300 ease-in-out hover:bg-blue-100 dark:hover:bg-blue-500"
                 >
                   Browse
                 </button>
@@ -377,7 +377,7 @@ export default function TeamMemberForm({ index, onChange }) {
                     onClick={() =>
                       document.getElementById(`resume-${index}`).click()
                     }
-                    className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700 cursor-pointer"
+                    className="flex w-full px-4 py-2 justify-center items-center gap-2 rounded-[12px] border-2 text-blue-700 text-md font-bold border-blue-700 cursor-pointer transition duration-300 ease-in-out hover:bg-blue-100 dark:hover:bg-blue-500"
                   >
                     Browse
                   </button>

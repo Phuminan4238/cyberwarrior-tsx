@@ -936,7 +936,7 @@ const ApplyPage: React.FC = () => {
                           type="submit"
                           onClick={handleSubmitForm}
                           disabled={!confirmedData}
-                          className={`px-6 py-2 font-bold text-transparent border-2 border-blue-700 bg-clip-text bg-gradient-to-r from-[#0032D2] to-[#FF4C00] rounded-[12px] gradient-border cursor-pointer
+                          className={`px-6 py-2 font-bold text-transparent border-2 border-blue-700 bg-clip-text bg-gradient-to-r from-[#0032D2] to-[#FF4C00] rounded-[12px] gradient-border cursor-pointer 
                   ${!confirmedData ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                           ส่งข้อมูลใบสมัคร
@@ -950,7 +950,7 @@ const ApplyPage: React.FC = () => {
 
                 {showErrorModal && (
                   <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/30 flex items-center justify-center">
-                    <div className="bg-white w-full max-w-2xl max-h-[80vh] overflow-y-auto p-8 rounded-lg shadow-xl">
+                    <div className="bg-white w-full max-w-2xl max-h-[80vh] overflow-y-auto px-8 pt-8 pb-12 rounded-lg shadow-xl">
                       <h2 className="text-lg font-bold text-black mb-4">
                         กรุณากรอกข้อมูลต่อไปนี้ให้ครบถ้วน
                       </h2>
@@ -960,10 +960,10 @@ const ApplyPage: React.FC = () => {
                       >
                         {errorText}
                       </pre>
-                      <div className="mt-8 text-center">
+                      <div className="mt-12 text-center">
                         <button
                           onClick={() => setShowErrorModal(false)}
-                          className="px-6 py-2 font-bold text-transparent border-2 border-blue-700 bg-clip-text bg-gradient-to-r from-[#0032D2] to-[#FF4C00] rounded-[12px] gradient-border cursor-pointer"
+                          className="px-6 py-2 font-bold  border-2 border-red-500 text-red-500 rounded-[12px] hover:text-white hover:bg-red-500 gradient-border cursor-pointer"
                         >
                           รับทราบ
                         </button>

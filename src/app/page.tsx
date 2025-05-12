@@ -157,21 +157,21 @@ const Home: React.FC = () => {
               <div className="lg:mt-0 lg:col-span-6 lg:flex">
                 <div className="flex flex-col items-center justify-end gap-4">
                   <div className="mt-6 md:mt-0 mb-3 text-center text-white uppercase font-thai pt-4 px-10 md:px-14 py-4 border-l-2 border-r-2 border-white rounded-[26px]">
-                    <span className="text-lg md:text-[1.4rem] font-normal">
-                      <p>เปิดรับสมัคร แล้ววันนี้ !</p>
+                    <span className="md:text-[1.4rem] font-normal">
+                      <p className="text-2xl">เปิดรับสมัคร แล้ววันนี้ !</p>
                     </span>
                     <p className="text-[1.6rem] font-bold pt-2">
                       12 ถึง 31 พฤษภาคม 2025
                     </p>
                   </div>
 
-                  <div className="grid  items-center pt-2">
+                  <div className="grid items-center pt-2">
                     <div className="flex items-center space-x-2 justify-start"></div>
                     <div className="col-span-1 text-center">
-                      <span className="text-black text-xl md:text-xl font-bold font-thai ">
-                        <div className="">
+                      <span className="text-black text-xl md:text-xl font-bold font-thai">
+                        <div>
                           <Link href="/regis">
-                            <span className="py-2 px-18 font-bold text-white border-2 border-white bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer">
+                            <span className="py-2 px-6 font-bold text-white border-2 border-white bg-gradient-to-r from-[#FF4C00] to-[#0032D2] rounded-3xl cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
                               สมัครเข้าร่วมแข่งขัน
                             </span>
                           </Link>
@@ -181,8 +181,8 @@ const Home: React.FC = () => {
                     <div></div>
                   </div>
 
-                  <div className="flex items-center pt-7 pb-6 text-xl">
-                    เหลือเวลา
+                  <div className="flex items-center pt-8 pb-4 text-xl">
+                    เหลือเวลาสมัครเข้าร่วมอีก…
                   </div>
 
                   {/* Time let  */}
@@ -265,9 +265,6 @@ const Home: React.FC = () => {
                       </div>
                     )}
                   </div>
-
-
-                  
                 </div>
               </div>
             </div>
@@ -641,7 +638,7 @@ const Home: React.FC = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white bg-gradient-to-b from-[#2F65AF66] to-[#0032D266]"
+                  className="flex flex-col justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white bg-gradient-to-b from-[#2F65AF66] to-[#0032D266] hover:from-[#FF6A1A] hover:to-[#3355FF]"
                 >
                   <FontAwesomeIcon
                     icon={faStar}
@@ -898,7 +895,7 @@ const Home: React.FC = () => {
             <span className="text-black text-xl md:text-2xl font-bold font-thai pt-[1.5rem]">
               <div className="">
                 <Link href="/regis">
-                  <span className="py-4 px-14 font-bold text-white border-2 border-white bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer">
+                  <span className="py-4 px-14 font-bold text-white border-2 border-white bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
                     สมัครเข้าร่วมแข่งขัน
                   </span>
                 </Link>
@@ -971,15 +968,15 @@ const Home: React.FC = () => {
                 </h4>
                 <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
                   เบอร์โทร :
+                </h4>
+                <h4 className="text-md tracking-tight leading-none md:text-xl">
+                  คุณภิรดา บินรามัน (ดา)
                   <a
                     href="tel:024709630"
                     className="text-blue-400 pl-2 pt-2 hover:underline"
                   >
                     02-470-9630 , 095-241-5393
                   </a>
-                </h4>
-                <h4 className="text-md tracking-tight leading-none md:text-xl">
-                  คุณภิรดา บินรามัน (ดา)
                 </h4>
                 <h4 className="text-md tracking-tight leading-none md:text-xl">
                   คุณภัทรานิษฐ์ ปิตินันท์พงศ์ (โบว์)
