@@ -185,6 +185,7 @@ const Home: React.FC = () => {
                     เหลือเวลา
                   </div>
 
+                  {/* Time let  */}
                   <div className="flex items-center space-x-4 text-center ">
                     {/* Days - Only for larger screens */}
                     <div className="flex flex-col items-center">
@@ -264,6 +265,9 @@ const Home: React.FC = () => {
                       </div>
                     )}
                   </div>
+
+
+                  
                 </div>
               </div>
             </div>
