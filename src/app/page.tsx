@@ -69,7 +69,7 @@ const Home: React.FC = () => {
   };
 
   const calculateTimeLeft = (): TimeLeft => {
-    const targetDate = new Date("2025-05-12T00:00:00"); // Target date
+    const targetDate = new Date("2025-05-31T00:00:00"); // Target date
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 
