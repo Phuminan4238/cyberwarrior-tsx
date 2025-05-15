@@ -218,10 +218,10 @@ const ApplyPage: React.FC = () => {
 
   const [members, setMembers] = useState([
     { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
+    // { name: "" },
+    // { name: "" },
+    // { name: "" },
+    // { name: "" },
   ]);
 
   const handleMemberChange = (index: number, data: any) => {
@@ -1185,7 +1185,7 @@ const ApplyPage: React.FC = () => {
 
                     <div className="col-span-1 text-center mt-[1rem]">
                       {/* Orange border line */}
-                      <div className="mx-auto w-[120px] border-t-3 border-orange-500 mb-6"></div>
+                      <div className="mx-auto w-[120px] border-t-3 border-orange-500 mb-6 hover:bg-orange-500 hover:text-white"></div>
 
                       {/* Button */}
                       <span className="text-black text-xl md:text-xl font-bold font-thai">
