@@ -216,6 +216,7 @@ const ApplyPage: React.FC = () => {
     }
   };
 
+  // Fix member
   const [members, setMembers] = useState([
     { name: "" },
     { name: "" },
