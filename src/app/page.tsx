@@ -9,6 +9,7 @@ import kmuttLogo2 from "./assets/kmutt-logo-02.png";
 import policeLogo from "./assets/police-logo.png";
 import policeLogo2 from "./assets/police-logo-02.png";
 import sponsorlogo from "./assets/sponsor-logo.png";
+import aislogo from "./assets/ais-logo.png";
 import cyberlogo from "./assets/cyber-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -69,7 +70,7 @@ const Home: React.FC = () => {
   };
 
   const calculateTimeLeft = (): TimeLeft => {
-    const targetDate = new Date("2025-05-31T00:00:00"); // Target date
+    const targetDate = new Date("2025-06-01T00:00:00"); // Target date
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 
@@ -364,14 +365,29 @@ const Home: React.FC = () => {
 
             <div className="inline-block bg-white rounded-3xl px-8 p-4 text-gray-500 ">
               <button
-                className="inline-flex items-center justify-center hover:text-gray-900 "
+                className="inline-flex items-center justify-center hover:text-gray-900 mr-4 "
                 style={{
                   backgroundImage: `url(${sponsorlogo.src})`, // Using sponsorlogo.src for background image
                   backgroundSize: "contain", // Ensures the image fits within the container
                   backgroundRepeat: "no-repeat", // Prevents image repetition
                   backgroundPosition: "center", // Centers the image
-                  height: "120px", // Adjust the height as needed
-                  width: "100px", // Adjust the width as needed
+                  height: "140px", // Adjust the height as needed
+                  width: "140px", // Adjust the width as needed
+                }}
+              >
+                {/* You can keep the button content if needed, otherwise just leave the background image */}
+                <span className="sr-only">Sponsor Logo</span>{" "}
+                {/* Hidden text for accessibility */}
+              </button>
+              <button
+                className="inline-flex items-center justify-center hover:text-gray-900 "
+                style={{
+                  backgroundImage: `url(${aislogo.src})`, // Using sponsorlogo.src for background image
+                  backgroundSize: "contain", // Ensures the image fits within the container
+                  backgroundRepeat: "no-repeat", // Prevents image repetition
+                  backgroundPosition: "center", // Centers the image
+                  height: "140px", // Adjust the height as needed
+                  width: "140px", // Adjust the width as needed
                 }}
               >
                 {/* You can keep the button content if needed, otherwise just leave the background image */}
