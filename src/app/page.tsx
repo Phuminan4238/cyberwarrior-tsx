@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import backgroundImg from "./assets/background.png";
 import cpeLogo from "./assets/cpe-logo.png";
+import mountainLogo from "./assets/mountain-logo.png";
 import kmuttLogo from "./assets/kmutt-logo.png";
 import kmuttLogo2 from "./assets/kmutt-logo-02.png";
 import policeLogo from "./assets/police-logo.png";
@@ -17,6 +19,7 @@ import {
   faStar,
   faAsterisk,
 } from "@fortawesome/free-solid-svg-icons";
+import { isRegistrationClosed } from "./utils/time";
 
 // Define the type for timeLeft
 interface TimeLeft {
@@ -133,126 +136,71 @@ const Home: React.FC = () => {
           backgroundImage: `url(${backgroundImg.src})`,
         }}
       >
-        <section className="text-white py-[2rem] lg:pt-[6rem] lg:pb-[3rem]">
-          <div className="grid w-full justify-center md:max-w-screen-xl px-8 md:px-4  mx-auto lg:gap-8 xl:gap-0  lg:grid-cols-12">
-            <div className="md:mr-auto place-self-center lg:col-span-6">
-              <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
-                <div>
-                  <h1 className="max-w-2xl mb-4 text-6xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
-                    Cyber
-                  </h1>
-                  <h1 className="max-w-2xl mb-4 text-5xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
-                    Warrior
-                  </h1>
-                  <h1 className="max-w-2xl mb-4 text-5xl font-normal uppercase tracking-tight leading-none  md:text-5xl xl:text-7xl ">
-                    Hackathon
-                  </h1>
-                  <h1 className="max-w-2xl mb-0 text-6xl text-right font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
-                    2025
-                  </h1>
+        {!isRegistrationClosed() ? (
+          <section className="text-white py-[2rem] lg:pt-[6rem] lg:pb-[3rem]">
+            <div className="grid w-full justify-center md:max-w-screen-xl px-8 md:px-4  mx-auto lg:gap-8 xl:gap-0  lg:grid-cols-12">
+              <div className="md:mr-auto place-self-center lg:col-span-6">
+                <div className="grid gap-8" style={{ fontFamily: "Gabarito" }}>
+                  <div>
+                    <h1 className="max-w-2xl mb-4 text-6xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
+                      Cyber
+                    </h1>
+                    <h1 className="max-w-2xl mb-4 text-5xl font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
+                      Warrior
+                    </h1>
+                    <h1 className="max-w-2xl mb-4 text-5xl font-normal uppercase tracking-tight leading-none  md:text-5xl xl:text-7xl ">
+                      Hackathon
+                    </h1>
+                    <h1 className="max-w-2xl mb-0 text-6xl text-right font-normal uppercase tracking-tight leading-none md:text-5xl xl:text-8xl ">
+                      2025
+                    </h1>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="lg:mt-0 lg:col-span-6 lg:flex  md:pt-0">
-              <div className="lg:mt-0 lg:col-span-6 lg:flex">
-                <div className="flex flex-col items-center justify-end gap-4">
-                  <div className="mt-6 md:mt-0 mb-3 text-center text-white uppercase font-thai pt-4 px-10 md:px-14 py-4 border-l-2 border-r-2 border-white rounded-[26px]">
-                    <span className="md:text-[1.4rem] font-normal">
-                      <p className="text-2xl">เปิดรับสมัคร แล้ววันนี้ !</p>
-                    </span>
-                    <p className="text-[1.6rem] font-bold pt-2">
-                      12 ถึง 31 พฤษภาคม 2025
-                    </p>
-                  </div>
-
-                  <div className="grid items-center pt-2">
-                    <div className="flex items-center space-x-2 justify-start"></div>
-                    <div className="col-span-1 text-center">
-                      <span className="text-black text-xl md:text-xl font-bold font-thai">
-                        <div>
-                          <Link href="/regis">
-                            <span className="py-2 px-6 font-bold text-white border-2 border-white bg-gradient-to-r from-[#FF4C00] to-[#0032D2] rounded-3xl cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
-                              สมัครเข้าร่วมแข่งขัน
-                            </span>
-                          </Link>
-                        </div>
+              <div className="lg:mt-0 lg:col-span-6 lg:flex  md:pt-0">
+                <div className="lg:mt-0 lg:col-span-6 lg:flex">
+                  <div className="flex flex-col items-center justify-end gap-4">
+                    <div className="mt-6 md:mt-0 mb-3 text-center text-white uppercase font-thai pt-4 px-10 md:px-14 py-4 border-l-2 border-r-2 border-white rounded-[26px]">
+                      <span className="md:text-[1.4rem] font-normal">
+                        <p className="text-2xl">เปิดรับสมัคร แล้ววันนี้ !</p>
                       </span>
-                    </div>
-                    <div></div>
-                  </div>
-
-                  <div className="flex items-center pt-8 pb-4 text-xl">
-                    เหลือเวลาสมัครเข้าร่วมอีก…
-                  </div>
-
-                  {/* Time let  */}
-                  <div className="flex items-center space-x-4 text-center ">
-                    {/* Days - Only for larger screens */}
-                    <div className="flex flex-col items-center">
-                      <div className="flex space-x-1 gap-3">
-                        {String(timeLeft?.days || "00")
-                          .padStart(2, "0")
-                          .split("")
-                          .map((digit, index) => (
-                            <div
-                              key={`day-${index}`}
-                              style={{ fontFamily: "Gabarito" }}
-                              className="text-8xl  font-normal text-white border border-white rounded-lg w-16 h-24 flex items-center justify-center"
-                            >
-                              {digit}
-                            </div>
-                          ))}
-                      </div>
-                      <div className="mt-2 text-2xl font-medium uppercase text-white pt-3">
-                        Day
-                      </div>
+                      <p className="text-[1.6rem] font-bold pt-2">
+                        12 ถึง 31 พฤษภาคม 2025
+                      </p>
                     </div>
 
-                    <div className="text-8xl font-normal text-white flex flex-col items-center pb-10">
-                      <div>:</div>
-                      <div className="h-6" />
+                    <div className="grid items-center pt-2">
+                      <div className="flex items-center space-x-2 justify-start"></div>
+                      <div className="col-span-1 text-center">
+                        <span className="text-black text-xl md:text-xl font-bold font-thai">
+                          <div>
+                            <Link href="/regis">
+                              <span className="py-2 px-6 font-bold text-white border-2 border-white bg-gradient-to-r from-[#FF4C00] to-[#0032D2] rounded-3xl cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
+                                สมัครเข้าร่วมแข่งขัน
+                              </span>
+                            </Link>
+                          </div>
+                        </span>
+                      </div>
+                      <div></div>
                     </div>
 
-                    {/* Hours */}
-                    <div className="flex flex-col items-center">
-                      <div className="flex space-x-1 gap-3">
-                        {String(timeLeft?.hours || "00")
-                          .padStart(2, "0")
-                          .split("")
-                          .map((digit, index) => (
-                            <div
-                              key={`hour-${index}`}
-                              style={{ fontFamily: "Gabarito" }}
-                              className="text-8xl font-normal text-white border border-white rounded-lg w-16 h-24 flex items-center justify-center"
-                            >
-                              {digit}
-                            </div>
-                          ))}
-                      </div>
-                      <div className="mt-2 text-2xl font-medium uppercase text-white pt-3">
-                        Hour
-                      </div>
+                    <div className="flex items-center pt-8 pb-4 text-xl">
+                      เหลือเวลาสมัครเข้าร่วมอีก…
                     </div>
 
-                    {/* Colon */}
-                    {!isMobile && (
-                      <div className="text-8xl font-normal text-white flex flex-col items-center pb-10">
-                        <div>:</div>
-                        <div className="h-6" />
-                      </div>
-                    )}
-
-                    {/* Minutes */}
-                    {!isMobile && (
+                    {/* Time let  */}
+                    <div className="flex items-center space-x-4 text-center ">
+                      {/* Days - Only for larger screens */}
                       <div className="flex flex-col items-center">
                         <div className="flex space-x-1 gap-3">
-                          {String(timeLeft?.minutes || "00")
+                          {String(timeLeft?.days || "00")
                             .padStart(2, "0")
                             .split("")
                             .map((digit, index) => (
                               <div
-                                key={`minute-${index}`}
+                                key={`day-${index}`}
                                 style={{ fontFamily: "Gabarito" }}
                                 className="text-8xl  font-normal text-white border border-white rounded-lg w-16 h-24 flex items-center justify-center"
                               >
@@ -261,16 +209,95 @@ const Home: React.FC = () => {
                             ))}
                         </div>
                         <div className="mt-2 text-2xl font-medium uppercase text-white pt-3">
-                          Minute
+                          Day
                         </div>
                       </div>
-                    )}
+
+                      <div className="text-8xl font-normal text-white flex flex-col items-center pb-10">
+                        <div>:</div>
+                        <div className="h-6" />
+                      </div>
+
+                      {/* Hours */}
+                      <div className="flex flex-col items-center">
+                        <div className="flex space-x-1 gap-3">
+                          {String(timeLeft?.hours || "00")
+                            .padStart(2, "0")
+                            .split("")
+                            .map((digit, index) => (
+                              <div
+                                key={`hour-${index}`}
+                                style={{ fontFamily: "Gabarito" }}
+                                className="text-8xl font-normal text-white border border-white rounded-lg w-16 h-24 flex items-center justify-center"
+                              >
+                                {digit}
+                              </div>
+                            ))}
+                        </div>
+                        <div className="mt-2 text-2xl font-medium uppercase text-white pt-3">
+                          Hour
+                        </div>
+                      </div>
+
+                      {/* Colon */}
+                      {!isMobile && (
+                        <div className="text-8xl font-normal text-white flex flex-col items-center pb-10">
+                          <div>:</div>
+                          <div className="h-6" />
+                        </div>
+                      )}
+
+                      {/* Minutes */}
+                      {!isMobile && (
+                        <div className="flex flex-col items-center">
+                          <div className="flex space-x-1 gap-3">
+                            {String(timeLeft?.minutes || "00")
+                              .padStart(2, "0")
+                              .split("")
+                              .map((digit, index) => (
+                                <div
+                                  key={`minute-${index}`}
+                                  style={{ fontFamily: "Gabarito" }}
+                                  className="text-8xl  font-normal text-white border border-white rounded-lg w-16 h-24 flex items-center justify-center"
+                                >
+                                  {digit}
+                                </div>
+                              ))}
+                          </div>
+                          <div className="mt-2 text-2xl font-medium uppercase text-white pt-3">
+                            Minute
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : (
+          <section className="text-white py-[2rem] lg:pt-[6rem] lg:pb-[3rem]">
+            <div className="flex flex-col items-center justify-center px-4">
+              <div className="mb-8 w-full max-w-[600px] mx-auto">
+                <Image
+                  src={cyberlogo}
+                  alt="Cyber Logo"
+                  width={600}
+                  height={0} // required to avoid layout shift, even if you use auto height
+                  className="w-full h-auto"
+                />
+              </div>
+
+              <div className="text-center text-white uppercase font-thai  px-10 md:px-14  border-l-2 border-r-2 border-white rounded-[26px]">
+                <p className="text-2xl font-bold">ปิดรับสมัครแล้ว</p>
+                <p className="text-[1.4rem] font-normal pt-2">
+                  ประกาศผลผู้มีสิทธิ์เข้ารอบพร้อมกัน !
+                </p>
+                <p className="text-[1.6rem] font-bold pt-2">2 มิถุนายน 2025</p>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section>
           <div className="mx-auto max-w-screen-sm px-10 md:px-4">
@@ -365,7 +392,7 @@ const Home: React.FC = () => {
 
             <div className="inline-block bg-white rounded-3xl px-8 p-4 text-gray-500 ">
               <button
-                className="inline-flex items-center justify-center hover:text-gray-900 mr-4 "
+                className="inline-flex items-center justify-center hover:text-gray-900  "
                 style={{
                   backgroundImage: `url(${sponsorlogo.src})`, // Using sponsorlogo.src for background image
                   backgroundSize: "contain", // Ensures the image fits within the container
@@ -380,7 +407,7 @@ const Home: React.FC = () => {
                 {/* Hidden text for accessibility */}
               </button>
               <button
-                className="inline-flex items-center justify-center hover:text-gray-900 "
+                className="inline-flex items-center justify-center hover:text-gray-900 mr-4"
                 style={{
                   backgroundImage: `url(${aislogo.src})`, // Using sponsorlogo.src for background image
                   backgroundSize: "contain", // Ensures the image fits within the container
@@ -392,6 +419,21 @@ const Home: React.FC = () => {
               >
                 {/* You can keep the button content if needed, otherwise just leave the background image */}
                 <span className="sr-only">Sponsor Logo</span>{" "}
+                {/* Hidden text for accessibility */}
+              </button>
+              <button
+                className="inline-flex items-center justify-center hover:text-gray-900 "
+                style={{
+                  backgroundImage: `url(${mountainLogo.src})`, // Using sponsorlogo.src for background image
+                  backgroundSize: "contain", // Ensures the image fits within the container
+                  backgroundRepeat: "no-repeat", // Prevents image repetition
+                  backgroundPosition: "center", // Centers the image
+                  height: "140px", // Adjust the height as needed
+                  width: "140px", // Adjust the width as needed
+                }}
+              >
+                {/* You can keep the button content if needed, otherwise just leave the background image */}
+                <span className="sr-only">Mountain Joy Logo</span>{" "}
                 {/* Hidden text for accessibility */}
               </button>
             </div>
@@ -452,7 +494,6 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Repeat the same layout for the next section */}
             <div className="grid grid-cols-1 md:grid-cols-8 gap-2 lg:col-span-12 pt-0 md:mt-4 mb-4 md:mb-0">
               <div className="md:col-span-4 flex flex-col md:flex-row items-start md:items-center gap-2 font-thai">
                 <span className="text-md md:text-lg font-normal">
@@ -651,27 +692,38 @@ const Home: React.FC = () => {
                   date: "21 กรกฏาคม",
                   label: "SCBX NEXT TECH @SiamParagon",
                 },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white bg-gradient-to-b from-[#2F65AF66] to-[#0032D266] hover:from-[#FF6A1A] hover:to-[#3355FF]"
-                >
-                  <FontAwesomeIcon
-                    icon={faStar}
-                    className="text-white p-1 pr-3"
-                  />
-                  <span className="text-lg font-normal text-center">
-                    {item.title}
-                  </span>
-                  <span className="text-sm font-normal text-start">
-                    {item.date}
-                  </span>
-                  <span className="text-sm font-normal text-start">
-                    {item.label}
-                  </span>
-                </div>
-              ))}
+              ].map((item, index) => {
+                const isHighlight =
+                  item.title === "ประกาศรายชื่อผู้มีสิทธิ์เข้าแข่งขัน";
+
+                return (
+                  <div
+                    key={index}
+                    className={`relative flex flex-col justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white bg-gradient-to-b transition-all duration-300
+            ${
+              isHighlight
+                ? "from-[#FF6A1A] to-[#0032D2] shadow-[0_0_20px_rgba(255,106,26,0.7)] "
+                : "from-[#2F65AF66] to-[#0032D266] hover:from-[#FF6A1A] hover:to-[#0032D2]"
+            }`}
+                  >
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      className="text-white p-1 pr-3"
+                    />
+                    <span className="text-lg font-normal text-center">
+                      {item.title}
+                    </span>
+                    <span className="text-sm font-normal text-start">
+                      {item.date}
+                    </span>
+                    <span className="text-sm font-normal text-start">
+                      {item.label}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
+
             <div className="max-w-screen-xl px-4 pt-4 mx-auto">
               <span className="text-md md:text-lg font-normal">
                 * สถานที่อาจมีการเปลี่ยนแปลง
@@ -905,63 +957,37 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <div className="grid  items-center py-8 ">
-          <div className="flex items-center space-x-2 justify-start"></div>
-          <div className="col-span-1 text-center">
-            <span className="text-black text-xl md:text-2xl font-bold font-thai pt-[1.5rem]">
-              <div className="">
-                <Link href="/regis">
-                  <span className="py-4 px-14 font-bold text-white border-2 border-white bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
-                    สมัครเข้าร่วมแข่งขัน
-                  </span>
-                </Link>
-              </div>
-            </span>
+        {!isRegistrationClosed() ? (
+          <div className="grid  items-center py-8 ">
+            <div className="flex items-center space-x-2 justify-start"></div>
+            <div className="col-span-1 text-center">
+              <span className="text-black text-xl md:text-2xl font-bold font-thai pt-[1.5rem]">
+                <div className="">
+                  <Link href="/regis">
+                    <span className="py-4 px-14 font-bold text-white border-2 border-white bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
+                      สมัครเข้าร่วมแข่งขัน
+                    </span>
+                  </Link>
+                </div>
+              </span>
+            </div>
+            <div></div>
           </div>
-          <div></div>
-        </div>
-        {/* subscribe  */}
-        {/* <section className="text-white pt-8 md:pt-12 px-10 md:px-4">
-          <div
-            className="relative bg-cover bg-initial bg-no-repeat bg-bottom rounded-xl border-l-2 border-r-2 border-white rounded-[26px] grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-xl px-6 md:px-6 py-8 mx-auto md:gap-8"
-            style={{ backgroundImage: `url(${backgroundImg.src})` }}
-          >
-            <div className="absolute inset-0 bg-[rgba(10,29,58,0.1)]" />
-            <div className="lg:col-span-3 flex items-center justify-center z-10">
-              <h4 className="max-w-2xl text-xl font-thai text-center font-bold uppercase tracking-tight leading-none md:text-2xl">
-                สมัครรับข่าวสารการแข่งขัน
-              </h4>
+        ) : (
+          <div className="grid items-center py-8 px-4">
+            <div className="flex items-center justify-start mb-4 md:mb-0" />
+
+            <div className="col-span-1 text-center">
+              <Link href="/">
+                <span className="inline-block w-full max-w-sm sm:max-w-sm md:max-w-2xl lg:max-w-2xl text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-thai px-4 py-6 border-2 border-gray-300 rounded-3xl ]">
+                  ประกาศผลการคัดเลือกผู้มีสิทธิ์เข้าร่วม 2 มิถุนายน นี้ !
+                </span>
+              </Link>
             </div>
 
-            <div className="lg:col-span-7 flex items-center justify-center z-10">
-              <div className="w-full flex flex-col md:flex-row items-center gap-4">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="กรอกอีเมลของคุณ"
-                  className="w-full md:w-full px-4 py-2 rounded-lg bg-transparent border border-gray-300 font-thai text-white placeholder:text-gray-300 z-10"
-                />
-              </div>
-            </div>
-
-            <div className="lg:col-span-2 flex items-center justify-center z-10">
-              <button
-                onClick={handleSubscribe}
-                disabled={loading}
-                className="text-lg w-[149px] h-[45.938px] flex justify-center items-center px-6 gap-2 font-thai font-bold rounded-[12px] bg-gradient-to-r from-[#0032D2] to-[#FF4C00] hover:opacity-90 transition-all"
-              >
-                {loading ? "กำลังส่ง..." : "ติดตาม"}
-              </button>
-            </div>
-
-            {message && (
-              <div className="col-span-full text-center text-sm mt-2 z-10">
-                {message}
-              </div>
-            )}
+            <div />
           </div>
-        </section> */}
+        )}
 
         <section
           className="text-white pt-12 md:pt-16 px-10 md:px-4"
@@ -972,6 +998,15 @@ const Home: React.FC = () => {
               <div className="flex flex-col items-start justify-start gap-4">
                 <h4 className="text-md font-thai text-start font-bold uppercase tracking-tight leading-none md:text-xl">
                   ติดต่อสอบถาม
+                </h4>
+                <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
+                  Facebook :
+                  <a
+                    href="mailto:cyberwarrior2025@kmutt.ac.th"
+                    className="text-blue-400 pl-2 pt-2 underline "
+                  >
+                    https://www.facebook.com/CyberWarriorHackathon2025
+                  </a>
                 </h4>
                 <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
                   E-mail :
@@ -987,10 +1022,7 @@ const Home: React.FC = () => {
                 </h4>
                 <h4 className="text-md tracking-tight leading-none md:text-xl">
                   คุณภิรดา บินรามัน (ดา)
-                  <a
-                    href="tel:024709630"
-                    className="text-blue-400 pl-2 pt-2 hover:underline"
-                  >
+                  <a href="tel:024709630" className="text-blue-400 pl-2 pt-2 ">
                     02-470-9630 , 095-241-5393
                   </a>
                 </h4>

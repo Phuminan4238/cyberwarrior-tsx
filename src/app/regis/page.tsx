@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // App Router
 
 import backgroundImg from "../assets/background.png";
@@ -11,6 +11,7 @@ import policeLogo from "../assets/police-logo.png";
 import policeLogo2 from "../assets/police-logo-02.png";
 import sponsorlogo from "../assets/sponsor-logo.png";
 import cyberlogo from "../assets/cyber-logo.png";
+import { isRegistrationClosed } from "../utils/time";
 
 import TeamMemberForm from "../components/Form";
 
@@ -383,6 +384,12 @@ const ApplyPage: React.FC = () => {
 
   const expectationWordCount = expectation.trim().replace(/\s+/g, "").length;
   const expectationCharCount = expectation.length;
+
+  useEffect(() => {
+    if (isRegistrationClosed()) {
+      router.replace("/"); // redirect if registration is closed
+    }
+  }, []);
 
   return (
     <>

@@ -5,9 +5,11 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import backgroundImg from "../assets/background.png";
 import cyberlogo from "../assets/cyber-logo.png";
+import { isRegistrationClosed } from "../utils/time";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [regClosed, setRegClosed] = useState(false); // state for CSR-only logic
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -26,6 +28,11 @@ const NavBar = () => {
       }
     }
   }, [pathname, searchParams]);
+
+  useEffect(() => {
+    // Run only on client
+    setRegClosed(isRegistrationClosed());
+  }, []);
 
   // ✅ Click handler
   const handleScrollTo = (id) => {
@@ -107,13 +114,15 @@ const NavBar = () => {
                 ติดต่อ
               </button>
             </li>
-            <li className="border-gray-300 rounded-2xl">
-              <Link href="/regis" onClick={() => setIsOpen(false)}>
-                <span className="block py-2 px-4 border-2 border-white rounded-3xl text-lg text-white hover:text-orange-500 hover:border-orange-500">
-                  สมัครเข้าร่วม
-                </span>
-              </Link>
-            </li>
+            {!regClosed && (
+              <li className="border-gray-300 rounded-2xl">
+                <Link href="/regis" onClick={() => setIsOpen(false)}>
+                  <span className="block py-2 px-4 border-2 border-white rounded-3xl text-lg text-white hover:text-orange-500 hover:border-orange-500">
+                    สมัครเข้าร่วม
+                  </span>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
