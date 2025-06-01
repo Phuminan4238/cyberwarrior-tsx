@@ -865,7 +865,10 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-8 gap-4 lg:col-span-12 mt-4 mb-4">
               <div className="col-span-12 flex items-center gap-2 font-thai">
-                <span className="text-md md:text-lg font-normal">
+                <span
+                  className="text-md md:text-lg font-normal"
+                  style={{ textIndent: "1.5rem" }}
+                >
                   ผลงานที่พัฒนาขึ้นภายใต้โครงการ Cyber Warrior Hackathon 2025
                   จะถือเป็นทรัพย์สินทางปัญญาที่มีเจ้าของร่วมระหว่าง
                   กองบัญชาการตำรวจสืบสวนสอบสวนอาชญากรรมทางเทคโนโลยี (บช.สอท.)
@@ -1008,31 +1011,35 @@ const Home: React.FC = () => {
             </div>
 
             {/* ด้านล่าง (รับสมัคร + วันที่) */}
-            <div className="grid grid-cols-8 gap-4 lg:col-span-12 mt-4  mb-4">
-              <div className="col-span-12 flex items-center gap-2 font-thai">
-                <span className="text-md md:text-lg font-normal">
-                  1. แนวคิดและความสอดคล้องกับโจทย
+            <div className="grid grid-cols-8 gap-4 lg:col-span-12 mt-4 mb-4">
+              <div className="col-span-12 flex items-center font-thai">
+                <span className="text-md md:text-lg font-normal">1.</span>
+                <span className="text-md md:text-lg font-normal ml-5">
+                  แนวคิดและความสอดคล้องกับโจทย์
                 </span>
               </div>
-
-              <div className="col-span-12 flex items-center gap-2 font-thai">
-                <span className="text-md md:text-lg font-normal">
-                  2. ความคิดสร้างสรรค์และนวัตกรรม
+              <div className="col-span-12 flex items-center font-thai">
+                <span className="text-md md:text-lg font-normal">2.</span>
+                <span className="text-md md:text-lg font-normal ml-5">
+                  ความคิดสร้างสรรค์และนวัตกรรม
                 </span>
               </div>
-              <div className="col-span-12 flex items-center gap-2 font-thai">
-                <span className="text-md md:text-lg font-normal">
-                  3. ความเป็นไปได้ในการพัฒนาและนำไปใช้จริง
+              <div className="col-span-12 flex items-center font-thai">
+                <span className="text-md md:text-lg font-normal">3.</span>
+                <span className="text-md md:text-lg font-normal ml-5">
+                  ความเป็นไปได้ในการพัฒนาและนำไปใช้จริง
                 </span>
               </div>
-              <div className="col-span-12 flex items-center gap-2 font-thai">
-                <span className="text-md md:text-lg font-normal">
-                  4. ผลกระทบและประโยชน์ต่อกลุ่มเป้าหมาย
+              <div className="col-span-12 flex items-center font-thai">
+                <span className="text-md md:text-lg font-normal">4.</span>
+                <span className="text-md md:text-lg font-normal ml-5">
+                  ผลกระทบและประโยชน์ต่อกลุ่มเป้าหมาย
                 </span>
               </div>
-              <div className="col-span-12 flex items-center gap-2 font-thai">
-                <span className="text-md md:text-lg font-normal">
-                  5. การนำเสนอและการสื่อสาร
+              <div className="col-span-12 flex items-center font-thai">
+                <span className="text-md md:text-lg font-normal">5.</span>
+                <span className="text-md md:text-lg font-normal ml-5">
+                  การนำเสนอและการสื่อสาร
                 </span>
               </div>
               <div className="col-span-8 flex items-center justify-start font-thai">
