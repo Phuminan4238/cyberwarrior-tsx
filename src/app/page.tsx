@@ -787,7 +787,12 @@ const Home: React.FC = () => {
             Impact Exhibition Center #Phoenix 1-4 (เข้าทาง Hall 9)
             ศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี
             <br></br>
-            พิกัด Google Map : https://maps.app.goo.gl/zke3Q45gWU2GusgU9
+            <span>
+              พิกัด
+              <span className="underline ps-2">
+                Google Map : https://maps.app.goo.gl/zke3Q45gWU2GusgU9
+              </span>
+            </span>
             <br></br>
             <br></br>
             <p className="font-bold">การเดินทาง :</p>
