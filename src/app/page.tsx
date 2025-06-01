@@ -13,6 +13,7 @@ import policeLogo2 from "./assets/police-logo-02.png";
 import sponsorlogo from "./assets/sponsor-logo.png";
 import aislogo from "./assets/ais-logo.png";
 import cyberlogo from "./assets/cyber-logo.png";
+import securitylogo from "./assets/security-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrophy,
@@ -293,8 +294,23 @@ const Home: React.FC = () => {
                 <p className="text-[1.4rem] font-normal pt-2">
                   ประกาศผลผู้มีสิทธิ์เข้ารอบพร้อมกัน !
                 </p>
-                <p className="text-[1.6rem] font-bold pt-2">2 มิถุนายน 2025</p>
               </div>
+            </div>
+            <div className="h-10"></div>
+            <div className="grid items-center ">
+              <div className="flex items-center space-x-2 justify-start"></div>
+              <div className="col-span-1 text-center">
+                <span className="text-black text-xl md:text-xl font-bold font-thai">
+                  <div>
+                    <Link href="/announcement">
+                      <span className="py-2 px-6 font-bold text-white border-2 border-white bg-gradient-to-r from-[#FF4C00] to-[#0032D2] rounded-3xl cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
+                        ประกาศผลการคัดเลือกผู้มีสิทธิ์เข้าแข่งขัน
+                      </span>
+                    </Link>
+                  </div>
+                </span>
+              </div>
+              <div></div>
             </div>
           </section>
         )}
@@ -434,6 +450,22 @@ const Home: React.FC = () => {
               >
                 {/* You can keep the button content if needed, otherwise just leave the background image */}
                 <span className="sr-only">Mountain Joy Logo</span>{" "}
+                {/* Hidden text for accessibility */}
+              </button>
+
+              <button
+                className="inline-flex items-center justify-center hover:text-gray-900 "
+                style={{
+                  backgroundImage: `url(${securitylogo.src})`, // Using sponsorlogo.src for background image
+                  backgroundSize: "contain", // Ensures the image fits within the container
+                  backgroundRepeat: "no-repeat", // Prevents image repetition
+                  backgroundPosition: "center", // Centers the image
+                  height: "140px", // Adjust the height as needed
+                  width: "140px", // Adjust the width as needed
+                }}
+              >
+                {/* You can keep the button content if needed, otherwise just leave the background image */}
+                <span className="sr-only">Security Logo</span>{" "}
                 {/* Hidden text for accessibility */}
               </button>
             </div>
@@ -693,18 +725,23 @@ const Home: React.FC = () => {
                   label: "SCBX NEXT TECH @SiamParagon",
                 },
               ].map((item, index) => {
-                const isHighlight =
-                  item.title === "ประกาศรายชื่อผู้มีสิทธิ์เข้าแข่งขัน";
+                // Check if this item is "ปฐมนิเทศ และ workshop 1"
+                const isHighlight = item.title === "ปฐมนิเทศ และ workshop 1";
+                // Check if this item is "รับสมัคร"
+                const isRecruit = item.title === "รับสมัคร";
 
                 return (
                   <div
                     key={index}
-                    className={`relative flex flex-col justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white bg-gradient-to-b transition-all duration-300
-            ${
-              isHighlight
-                ? "from-[#FF6A1A] to-[#0032D2] shadow-[0_0_20px_rgba(255,106,26,0.7)] "
-                : "from-[#2F65AF66] to-[#0032D266] hover:from-[#FF6A1A] hover:to-[#0032D2]"
-            }`}
+                    className={`relative flex flex-col justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white transition-all duration-300
+          ${
+            isHighlight
+              ? "bg-gradient-to-b from-[#FF4C00] to-[#0032D2] shadow-[0_0_20px_rgba(255,106,26,0.7)]"
+              : isRecruit
+              ? "bg-gradient-to-b from-[#2F65AF66] to-[#00000040]"
+              : "bg-gradient-to-b from-[#2F65AF66] to-[#0032D266] hover:from-[#FF4C00] hover:to-[#0032D2]"
+          }
+        `}
                   >
                     <FontAwesomeIcon
                       icon={faStar}
@@ -724,13 +761,42 @@ const Home: React.FC = () => {
               })}
             </div>
 
-            <div className="max-w-screen-xl px-4 pt-4 mx-auto">
+            {/* <div className="max-w-screen-xl px-4 pt-4 mx-auto">
               <span className="text-md md:text-lg font-normal">
                 * สถานที่อาจมีการเปลี่ยนแปลง
               </span>
-            </div>
+            </div> */}
           </section>
         </div>
+
+        <section className="text-white mt-8">
+          <div
+            className="grid max-w-screen-xl w-auto md:w-300 px-6 py-6 mx-auto rounded-2xl inset-0 bg-[rgba(10,29,58,0.5)] backdrop-blur-sm z-0 border"
+            style={{ borderColor: "#FF4C00" }}
+          >
+            <h4 className="font-bold">
+              รายละเอียด กิจกรรมปฐมนิเทศและเวิร์กช็อป ครั้งที่ 1
+            </h4>
+            <br></br>
+            <p className="font-bold"> 🗓️ วันศุกร์ที่ 6 มิถุนายน 2568</p>
+            <br></br> เริ่มลงทะเบียนเวลา 08.30 น. และ เวลากิจกรรม 09.00 – 16.00
+            น.
+            <br></br>
+            <br></br>
+            <p className="font-bold"> 📍สถานที่จัดงาน :</p>
+            Impact Exhibition Center #Phoenix 1-4 (เข้าทาง Hall 9)
+            ศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี
+            <br></br>
+            พิกัด Google Map : https://maps.app.goo.gl/zke3Q45gWU2GusgU9
+            <br></br>
+            <br></br>
+            <p className="font-bold">การเดินทาง :</p>
+            🚆 รถไฟฟ้าสายสีชมพู (MRT Pink Line) สถานีทะเลสาบเมืองทองธานี (MT02)
+            ทางออก 4<br></br>
+            🚐 รถตู้สาธารณะ <br></br>
+            🚗 รถยนต์ส่วนตัว - ที่จอดรถอาคารจอดรถ P2 (อาคารอิมแพ็ค ฟอรั่ม)
+          </div>
+        </section>
 
         <section className="text-white">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto   pt-[2rem]  lg:grid-cols-12">
@@ -740,6 +806,8 @@ const Home: React.FC = () => {
                 คุณสมบัติผู้เข้าแข่งขัน
               </h4>
             </div>
+
+            <div></div>
 
             {/* ด้านล่าง (รับสมัคร + วันที่) */}
             <div className="grid grid-cols-8 gap-2 lg:col-span-12 mt-4  mb-4">
@@ -978,9 +1046,9 @@ const Home: React.FC = () => {
             <div className="flex items-center justify-start mb-4 md:mb-0" />
 
             <div className="col-span-1 text-center">
-              <Link href="/">
-                <span className="inline-block w-full max-w-sm sm:max-w-sm md:max-w-2xl lg:max-w-2xl text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-thai px-4 py-6 border-2 border-gray-300 rounded-3xl ]">
-                  ประกาศผลการคัดเลือกผู้มีสิทธิ์เข้าร่วม 2 มิถุนายน นี้ !
+              <Link href="/announcement">
+                <span className="inline-block w-full max-w-sm sm:max-w-sm md:max-w-2xl lg:max-w-2xl text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-thai px-4 py-6 border-2 bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF] ]">
+                  ประกาศผลการคัดเลือกผู้มีสิทธิ์เข้าแข่งขัน
                 </span>
               </Link>
             </div>
