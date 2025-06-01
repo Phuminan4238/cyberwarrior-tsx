@@ -686,37 +686,38 @@ const Home: React.FC = () => {
               {[
                 {
                   title: "รับสมัคร",
-                  date: "12-31 พฤษภาคม 2025",
+                  date: "12-31 พฤษภาคม ",
                   label: "online",
                 },
                 {
                   title: "ประกาศรายชื่อผู้มีสิทธิ์เข้าแข่งขัน",
-                  date: "2 มิถุนายน 2025",
+                  date: "2 มิถุนายน ",
                   label: "online",
                 },
                 {
                   title: "ปฐมนิเทศ และ workshop 1",
-                  date: "6 มิถุนายน 2025",
-                  label: "ห้องฟีนิกซ์ 1-4 IMPACT",
+                  date: "6 มิถุนายน ",
+                  label:
+                    "ห้องฟีนิกซ์ 1-4  อาคารศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี",
                 },
                 {
                   title: "กิจกรรม workshop 2",
-                  date: "28 มิถุนายน 2025",
+                  date: "28 มิถุนายน ",
                   label: "online",
                 },
                 {
                   title: "ส่งข้อเสนอโครงการ",
-                  date: "4 กรกฎาคม 2025",
+                  date: "4 กรกฎาคม ",
                   label: "online",
                 },
                 {
                   title: "ประกาศผลผู้ผ่านเข้ารอบ",
-                  date: "8 กรกฎาคม 2025",
+                  date: "8 กรกฎาคม ",
                   label: "online",
                 },
                 {
                   title: "Hackathon",
-                  date: "19 - 20 กรกฎาคม 2025",
+                  date: "19 - 20 กรกฎาคม ",
                   label: "อาคารการเรียนรู้ LX KMUTT",
                 },
                 {
@@ -733,7 +734,13 @@ const Home: React.FC = () => {
                 return (
                   <div
                     key={index}
-                    className={`relative flex flex-col justify-center font-thai gap-2 p-2 h-[180px] rounded-2xl border border-white transition-all duration-300
+                    className={`relative flex flex-col justify-center font-thai gap-2 p-2 ${
+                      item.label ===
+                      "ห้องฟีนิกซ์ 1-4  อาคารศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี"
+                        ? "h-[200px]"
+                        : "h-[180px]"
+                    } rounded-2xl border border-white transition-all duration-300
+                    
           ${
             isHighlight
               ? "bg-gradient-to-b from-[#FF4C00] to-[#0032D2] shadow-[0_0_20px_rgba(255,106,26,0.7)]"
@@ -753,7 +760,14 @@ const Home: React.FC = () => {
                     <span className="text-sm font-normal text-start">
                       {item.date}
                     </span>
-                    <span className="text-sm font-normal text-start">
+                    <span
+                      className={`font-normal text-start ${
+                        item.label ===
+                        "ห้องฟีนิกซ์ 1-4  อาคารศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี"
+                          ? "text-xs"
+                          : "text-sm"
+                      }`}
+                    >
                       {item.label}
                     </span>
                   </div>
