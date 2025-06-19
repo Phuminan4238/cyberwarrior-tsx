@@ -1096,7 +1096,7 @@ const Home: React.FC = () => {
                 <h4 className="text-md md:font-bold tracking-tight leading-none md:text-xl">
                   Facebook :
                   <a
-                    href="mailto:cyberwarrior2025@kmutt.ac.th"
+                    href=" https://www.facebook.com/CyberWarriorHackathon2025"
                     className="text-blue-400 pl-2 pt-2 underline "
                   >
                     https://www.facebook.com/CyberWarriorHackathon2025
