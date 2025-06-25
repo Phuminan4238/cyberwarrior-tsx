@@ -385,11 +385,11 @@ const ApplyPage: React.FC = () => {
   const expectationWordCount = expectation.trim().replace(/\s+/g, "").length;
   const expectationCharCount = expectation.length;
 
-  useEffect(() => {
-    if (isRegistrationClosed()) {
-      router.replace("/"); // redirect if registration is closed
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (isRegistrationClosed()) {
+  //     router.replace("/"); // redirect if registration is closed
+  //   }
+  // }, []);
 
   return (
     <>

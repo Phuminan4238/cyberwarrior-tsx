@@ -22,7 +22,7 @@ export default function TokenPage() {
         setError("ไม่พบทีมด้วย token นี้ กรุณาลองใหม่อีกครั้ง");
       } else {
         const teamId = res.data.data[0].id;
-        router.push(`/upload/${teamId}?token=${token}`);
+        router.push(`/proposal/${teamId}?token=${token}`);
       }
     } catch {
       setError("เกิดข้อผิดพลาดในการเชื่อมต่อ");
