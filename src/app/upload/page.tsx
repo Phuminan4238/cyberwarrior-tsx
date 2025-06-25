@@ -47,7 +47,7 @@ export default function TokenPage() {
           }}
         />
         <h1 className="text-xl font-bold text-center mb-4 text-gray-800">
-          กรุณากรอก Token ของทีม
+          กรุณากรอก Token ของทีม 👁️👄👁️
         </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
