@@ -913,6 +913,7 @@ const ApplyPage: React.FC = () => {
                     ตัวอักษร
                   </p>
                 </div>
+                
                 {/* Checkbox Above Submit Button */}
                 <div className="flex flex-col items-center mt-10 mb-4 space-y-4 w-full">
                   <div className="w-full ">
