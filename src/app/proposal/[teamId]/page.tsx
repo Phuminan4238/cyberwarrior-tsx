@@ -63,7 +63,7 @@ export default function UploadPage() {
     const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
 
     if (selectedFile.size > MAX_SIZE_BYTES) {
-      setMessage(`ขนาดไฟล์เกิน ${MAX_SIZE_MB}MB กรุณาเลือกไฟล์ใหม่`);
+      setMessage(`ขนาดไฟล์เกิน ${MAX_SIZE_MB}MB กรุณาเลือกไฟล์ใหม่ 👁️👄👁️`);
       setFile(null);
       e.target.value = ""; // Clear file input
       return;
@@ -81,7 +81,7 @@ export default function UploadPage() {
       return;
     }
     if (!token) {
-      setMessage("ไม่พบ token กรุณากลับไปกรอกใหม่อีกครั้ง");
+      setMessage("ไม่พบ token กรุณากลับไปกรอกใหม่อีกครั้ง 👁️👄👁️");
       return;
     }
 

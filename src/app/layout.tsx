@@ -46,7 +46,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://cyberwarrior2025.io/uploads/CYBER_WARRIOR_TYPO_02_a0373a27c2.jpeg"
+          content="https://cyberwarrior2025.io/uploads/CYBER_WARRIOR_TYPO_02_Medium_0974e80def.jpeg"
         />
 
         {/* Twitter */}
