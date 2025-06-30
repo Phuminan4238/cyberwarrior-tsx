@@ -101,7 +101,7 @@ export default function TokenPage() {
               <div className="flex justify-center mt-4">
                 <button
                   type="submit"
-                  className="cursor-pointer px-6 py-2 rounded-2xl font-bold border-2 text-orange-500"
+                  className="cursor-pointer px-6 py-2 rounded-3xl font-bold border-2 text-orange-500"
                 >
                   ตรวจสอบข้อมูลทีม
                 </button>

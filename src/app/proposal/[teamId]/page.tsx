@@ -72,7 +72,6 @@ export default function UploadPage() {
     setMessage(""); // Clear any previous error
     setFile(selectedFile);
   };
-  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -231,8 +230,8 @@ export default function UploadPage() {
                         className="block w-full text-md text-gray-900 border border-gray-300 rounded-lg bg-gray-50 px-4 py-2.5"
                       >
                         {file
-                          ? file.name.length > 20
-                            ? file.name.slice(0, 20) + "..."
+                          ? file.name.length > 40
+                            ? file.name.slice(0, 40) + "..."
                             : file.name
                           : "ยังไม่ได้เลือกไฟล์"}
                       </div>
@@ -319,7 +318,8 @@ export default function UploadPage() {
               </div>
               <div className="text-black space-y-5 pt-4">
                 <p className="text-sm-7 md:text-lg/8 mb-4">
-                  ขอบคุณที่ลงทะเบียนเข้าร่วม Cyber Warrior Hackathon 2025
+                  ขอบคุณที่ส่งข้อเสนอโครงการเข้าร่วม Cyber Warrior Hackathon
+                  2025
                   <br />
                   <span className="text-2xl font-bold">
                     ทีมของคุณ :
@@ -330,11 +330,12 @@ export default function UploadPage() {
                   <br />
                   <br />
                   ระบบได้บันทึกข้อมูลการสมัครของคุณเรียบร้อยแล้ว
-                  และจะมีอีเมลยืนยันการส่งถึงคุณ
+                  <br />
+                  {/* และจะมีอีเมลยืนยันการส่งถึงคุณ
                   <br />
                   ภายใน 24 ชั่วโมง (ในกรณีที่มีผู้ส่งจำนวนมาก
                   อาจใช้เวลาเล็กน้อยในการประมวลผล)
-                  <br />
+                  <br /> */}
                   <br />
                   📢 ประกาศรายชื่อทีมที่ผ่านเข้ารอบ Hackathon
                   จะเผยแพร่ผ่านเว็บไซต์อย่างเป็นทางการในวันที่ 10 กรกฎาคม 2025

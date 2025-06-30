@@ -277,9 +277,9 @@ const Home: React.FC = () => {
             </div>
           </section>
         ) : (
-          <section className="text-white py-[2rem] lg:pt-[6rem] lg:pb-[3rem]">
+          <section className="text-white py-[2rem] lg:pt-[5rem] lg:pb-[3rem]">
             <div className="flex flex-col items-center justify-center px-4">
-              <div className="mb-8 w-full max-w-[600px] mx-auto">
+              <div className=" w-full max-w-[600px] mx-auto">
                 <Image
                   src={cyberlogo}
                   alt="Cyber Logo"
@@ -290,21 +290,21 @@ const Home: React.FC = () => {
               </div>
 
               <div className="text-center text-white uppercase font-thai  px-10 md:px-14  border-l-2 border-r-2 border-white rounded-[26px]">
-                <p className="text-2xl font-bold">ปิดรับสมัครแล้ว</p>
-                <p className="text-[1.4rem] font-normal pt-2">
+                {/* <p className="text-2xl font-bold">ปิดรับสมัครแล้ว</p> */}
+                {/* <p className="text-[1.4rem] font-normal pt-2">
                   ประกาศผลผู้มีสิทธิ์เข้ารอบพร้อมกัน !
-                </p>
+                </p> */}
               </div>
             </div>
-            <div className="h-10"></div>
+            {/* <div className="h-10"></div> */}
             <div className="grid items-center ">
               <div className="flex items-center space-x-2 justify-start"></div>
               <div className="col-span-1 text-center">
                 <span className="text-black text-xl md:text-xl font-bold font-thai">
                   <div>
-                    <Link href="/announcement">
+                    <Link href="/proposal">
                       <span className="py-2 px-6 font-bold text-white border-2 border-white bg-gradient-to-r from-[#FF4C00] to-[#0032D2] rounded-3xl cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
-                        ประกาศผลการคัดเลือกผู้มีสิทธิ์เข้าแข่งขัน
+                        ส่งข้อเสนอโครงการ
                       </span>
                     </Link>
                   </div>
@@ -727,9 +727,19 @@ const Home: React.FC = () => {
                 },
               ].map((item, index) => {
                 // Check if this item is "ปฐมนิเทศ และ workshop 1"
-                const isHighlight = item.title === "ปฐมนิเทศ และ workshop 1";
+                const isHighlight = item.title === "กิจกรรม workshop 2";
                 // Check if this item is "รับสมัคร"
-                const isRecruit = item.title === "รับสมัคร";
+                const isRecruit =
+                  (item.title === "รับสมัคร" &&
+                    item.date === "12-31 พฤษภาคม " &&
+                    item.label === "online") ||
+                  (item.title === "ประกาศรายชื่อผู้มีสิทธิ์เข้าแข่งขัน" &&
+                    item.date === "2 มิถุนายน " &&
+                    item.label === "online") ||
+                  (item.title === "ปฐมนิเทศ และ workshop 1" &&
+                    item.date === "6 มิถุนายน " &&
+                    item.label ===
+                      "ห้องฟีนิกซ์ 1-4  อาคารศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี");
 
                 return (
                   <div
@@ -783,25 +793,23 @@ const Home: React.FC = () => {
           </section>
         </div>
 
-        <section className="text-white mt-8">
+        <section className="text-white mt-10">
           <div
             className="grid max-w-screen-xl w-auto md:w-300 px-6 py-6 mx-auto rounded-2xl inset-0 bg-[rgba(10,29,58,0.5)] backdrop-blur-sm z-0 border"
             style={{ borderColor: "#FF4C00" }}
           >
-            <h4 className="font-bold">
-              รายละเอียด กิจกรรมปฐมนิเทศและเวิร์กช็อป ครั้งที่ 1
+            <h4 className="font-bold text-xl">
+              รายละเอียด กิจกรรมปฐมนิเทศและเวิร์กช็อป ครั้งที่ 2 และ 3
             </h4>
             <br></br>
-            <p className="font-bold"> 🗓️ วันศุกร์ที่ 6 มิถุนายน 2568</p>
-            <br></br> เริ่มลงทะเบียนเวลา 08.30 น. และ เวลากิจกรรม 09.00 – 16.00
-            น.
+            <p className="font-bold text-lg">🗓️ วันเสาร์ที่ 28 มิถุนายน 2568</p>
+            เริ่มลงทะเบียนเวลา 08.30 น. และ เวลากิจกรรม 09.00 – 16.00 น.
             <br></br>
             <br></br>
-            <p className="font-bold"> 📍สถานที่จัดงาน :</p>
-            Impact Exhibition Center #Phoenix 1-4 (เข้าทาง Hall 9)
-            ศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี
+            <p className="font-bold text-lg"> 📍สถานที่จัดงาน :</p>
+            Zoom Link ซึ่งจัดส่งให้ทางอีเมล์ของสมาชิกทีมแต่ละท่าน
             <br></br>
-            <span>
+            {/* <span>
               พิกัด
               <span className="underline ps-2">
                 Google Map : https://maps.app.goo.gl/zke3Q45gWU2GusgU9
@@ -813,10 +821,11 @@ const Home: React.FC = () => {
             🚆 รถไฟฟ้าสายสีชมพู (MRT Pink Line) สถานีทะเลสาบเมืองทองธานี (MT02)
             ทางออก 4<br></br>
             🚐 รถตู้สาธารณะ <br></br>
-            🚗 รถยนต์ส่วนตัว - ที่จอดรถอาคารจอดรถ P2 (อาคารอิมแพ็ค ฟอรั่ม)
+            🚗 รถยนต์ส่วนตัว - ที่จอดรถอาคารจอดรถ P2 (อาคารอิมแพ็ค ฟอรั่ม) */}
           </div>
         </section>
 
+        <div className="h-50"></div>
         <section className="text-white">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto   pt-[2rem]  lg:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
@@ -1068,13 +1077,13 @@ const Home: React.FC = () => {
             <div></div>
           </div>
         ) : (
-          <div className="grid items-center py-8 px-4">
+          <div className="grid items-center  py-4 px-4">
             <div className="flex items-center justify-start mb-4 md:mb-0" />
 
             <div className="col-span-1 text-center">
-              <Link href="/announcement">
-                <span className="inline-block w-full max-w-sm sm:max-w-sm md:max-w-2xl lg:max-w-2xl text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-thai px-4 py-6 border-2 bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-3xl gradient-border cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF] ]">
-                  ประกาศผลการคัดเลือกผู้มีสิทธิ์เข้าแข่งขัน
+              <Link href="/proposal">
+                <span className="inline-block max-w-sm sm:max-w-sm md:max-w-2xl lg:max-w-2xl text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-thai px-8 py-6 border-2 bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-4xl gradient-border cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF] ]">
+                  ส่งข้อเสนอโครงการ
                 </span>
               </Link>
             </div>
