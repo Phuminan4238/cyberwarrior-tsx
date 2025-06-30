@@ -727,8 +727,9 @@ const Home: React.FC = () => {
                 },
               ].map((item, index) => {
                 // Check if this item is "ปฐมนิเทศ และ workshop 1"
-                const isHighlight = item.title === "กิจกรรม workshop 2";
-                // Check if this item is "รับสมัคร"
+                const isHighlight = item.title === "ส่งข้อเสนอโครงการ";
+
+                // Check if this item is "รับสมัคร" or other key events
                 const isRecruit =
                   (item.title === "รับสมัคร" &&
                     item.date === "12-31 พฤษภาคม " &&
@@ -739,7 +740,10 @@ const Home: React.FC = () => {
                   (item.title === "ปฐมนิเทศ และ workshop 1" &&
                     item.date === "6 มิถุนายน " &&
                     item.label ===
-                      "ห้องฟีนิกซ์ 1-4  อาคารศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี");
+                      "ห้องฟีนิกซ์ 1-4  อาคารศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี") ||
+                  (item.title === "กิจกรรม workshop 2" &&
+                    item.date === "28 มิถุนายน " && // added space to match
+                    item.label === "online");
 
                 return (
                   <div
