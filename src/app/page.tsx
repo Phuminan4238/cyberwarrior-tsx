@@ -707,7 +707,7 @@ const Home: React.FC = () => {
                 },
                 {
                   title: "ส่งข้อเสนอโครงการ",
-                  date: "6 กรกฎาคม ",
+                  date: "6 กรกฎาคม เวลา 23.59",
                   label: "online",
                 },
                 {
