@@ -611,7 +611,7 @@ const Home: React.FC = () => {
 
               <div className="col-span-4 flex items-center justify-start font-thai">
                 <span className="text-md md:text-lg font-normal">
-                  4 กรกฎาคม 2025
+                  6 กรกฎาคม เวลา 23.59
                 </span>
               </div>
 
@@ -707,7 +707,7 @@ const Home: React.FC = () => {
                 },
                 {
                   title: "ส่งข้อเสนอโครงการ",
-                  date: "4 กรกฎาคม ",
+                  date: "6 กรกฎาคม เวลา 23.59",
                   label: "online",
                 },
                 {
