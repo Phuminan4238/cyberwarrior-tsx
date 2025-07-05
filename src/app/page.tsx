@@ -803,16 +803,24 @@ const Home: React.FC = () => {
             style={{ borderColor: "#FF4C00" }}
           >
             <h4 className="font-bold text-xl">
-              รายละเอียด กิจกรรมปฐมนิเทศและเวิร์กช็อป ครั้งที่ 2 และ 3
+              รายละเอียดการส่งข้อเสนอโครงการ
             </h4>
             <br></br>
-            <p className="font-bold text-lg">🗓️ วันเสาร์ที่ 28 มิถุนายน 2568</p>
-            เริ่มลงทะเบียนเวลา 08.30 น. และ เวลากิจกรรม 09.00 – 16.00 น.
+            <p className="font-bold text-lg">
+              🗓️ สามารถส่งข้อเสนอได้ถึง วันอาทิตย์ที่ 6 กรกฎาคม 2025 เวลา 23.59
+              น.
+            </p>
+            โดยขั้นตอนการส่ง ได้ถูกจัดส่งไปยัง e-mail
+            ของผู้เข้าแข่งขันเรียบร้อยแล้ว กรุณาตรวจสอบ...
             <br></br>
             <br></br>
-            <p className="font-bold text-lg"> 📍สถานที่จัดงาน :</p>
-            Zoom Link ซึ่งจัดส่งให้ทางอีเมล์ของสมาชิกทีมแต่ละท่าน
+            <p className="font-bold text-lg">🗄️ Proposal Template :</p>
+            https://kmutt.me/cw25-proposal
             <br></br>
+            <br></br>
+            <p className="font-bold text-lg">
+              📣 ประกาศผลผู้เข้ารอบ Hackathon ใน วันอังคารที่ 8 กรกฎาคม 2025
+            </p>
             {/* <span>
               พิกัด
               <span className="underline ps-2">
