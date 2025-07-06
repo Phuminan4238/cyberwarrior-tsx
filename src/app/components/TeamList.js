@@ -69,7 +69,10 @@ const teams = [
     team: "Herld De Vack",
     university: "สถาบันเทคโนโลยีนานาชาติสิรินธร มหาวิทยาลัยธรรมศาสตร์",
   },
-  { team: "I'm in", university: "มหาวิทยาลัยเกษตรศาสตร์" },
+  {
+    team: "I'm in",
+    university: "กองบังคับการตำรวจสืบสวนสอบสวนอาชญากรรมทางเทคโนโลยี 1",
+  },
   {
     team: "James kap phong puean",
     university:
