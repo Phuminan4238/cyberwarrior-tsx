@@ -45,7 +45,7 @@ const Announcement: React.FC = () => {
               </div>
               <div>
                 <h4 className="max-w-2xl text-[1.4rem] mb-4 font-thai text-center font-bold uppercase tracking-tight leading-none md:text-3xl">
-                  รายชื่อผู้มีสิทธิ์เข้าแข่งขัน
+                  รายชื่อผู้เข้ารอบ Hackathon !
                 </h4>
               </div>
             </div>
@@ -54,7 +54,7 @@ const Announcement: React.FC = () => {
           {/* Team List Section */}
           <section className="text-white">
             <div className="max-w-screen-xl mx-auto p-6 bg-white text-black rounded-3xl">
-              <div className="mx-auto w-[120px] border-t-3 border-orange-500 mt-4"></div>
+              <div className="mx-auto w-[120px] border-t-3 border-orange-500 mt-4 pt-4"></div>
               <TeamList />
               <div className="mx-auto w-[120px] border-t-3 border-orange-500 mt-4"></div>
             </div>

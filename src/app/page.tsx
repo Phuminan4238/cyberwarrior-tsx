@@ -302,9 +302,9 @@ const Home: React.FC = () => {
               <div className="col-span-1 text-center">
                 <span className="text-black text-xl md:text-xl font-bold font-thai">
                   <div>
-                    <Link href="/proposal">
+                    <Link href="/announcement">
                       <span className="py-2 px-6 font-bold text-white border-2 border-white bg-gradient-to-r from-[#FF4C00] to-[#0032D2] rounded-3xl cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
-                        ส่งข้อเสนอโครงการ
+                        ประกาศผลการคัดเลือกผู้เข้ารอบ Hackathon
                       </span>
                     </Link>
                   </div>
@@ -727,7 +727,7 @@ const Home: React.FC = () => {
                 },
               ].map((item, index) => {
                 // Check if this item is "ปฐมนิเทศ และ workshop 1"
-                const isHighlight = item.title === "ส่งข้อเสนอโครงการ";
+                const isHighlight = item.title === "ประกาศผลผู้ผ่านเข้ารอบ";
 
                 // Check if this item is "รับสมัคร" or other key events
                 const isRecruit =
@@ -743,6 +743,9 @@ const Home: React.FC = () => {
                       "ห้องฟีนิกซ์ 1-4  อาคารศูนย์แสดงสินค้า อิมแพ็ค เมืองทองธานี") ||
                   (item.title === "กิจกรรม workshop 2" &&
                     item.date === "28 มิถุนายน " && // added space to match
+                    item.label === "online") ||
+                  (item.title === "ส่งข้อเสนอโครงการ" &&
+                    item.date === "6 กรกฎาคม เวลา 23.59" && // added space to match
                     item.label === "online");
 
                 return (
@@ -802,25 +805,27 @@ const Home: React.FC = () => {
             className="grid max-w-screen-xl w-auto md:w-300 px-6 py-6 mx-auto rounded-2xl inset-0 bg-[rgba(10,29,58,0.5)] backdrop-blur-sm z-0 border"
             style={{ borderColor: "#FF4C00" }}
           >
-            <h4 className="font-bold text-xl">
-              รายละเอียดการส่งข้อเสนอโครงการ
+            <h4 className="font-bold text-xl ">
+              ประกาศผลรายชื่อผู้เข้ารอบ Hackathon
             </h4>
             <br></br>
             <p className="font-bold text-lg">
-              🗓️ สามารถส่งข้อเสนอได้ถึง วันอาทิตย์ที่ 6 กรกฎาคม 2025 เวลา 23.59
-              น.
+              🗓️ วันที่ 8 กรกฎาคม 2568 18.00 น.
             </p>
-            โดยขั้นตอนการส่ง ได้ถูกจัดส่งไปยัง e-mail
-            ของผู้เข้าแข่งขันเรียบร้อยแล้ว กรุณาตรวจสอบ...
+            <br></br>
+            ทีมผู้จัดงาน Cyber Warrior Hackathon 2025
+            ขอแสดงความยินดีกับทีมที่ผ่านการคัดเลือกเข้าสู่รอบถัดไป!
+            <br></br>
+            และ
+            ขอขอบคุณผู้เข้าแข่งขันทุกทีมที่ให้ความสนใจและเข้าร่วมกิจกรรมในครั้งนี้ด้วยความตั้งใจอย่างเต็มที่
             <br></br>
             <br></br>
-            <p className="font-bold text-lg">🗄️ Proposal Template :</p>
-            https://kmutt.me/cw25-proposal
+            ทุกข้อเสนอ ทุกแนวคิดมีคุณค่า และ
+            สะท้อนศักยภาพของคนรุ่นใหม่ได้อย่างน่าประทับใจ
             <br></br>
             <br></br>
-            <p className="font-bold text-lg">
-              📣 ประกาศผลผู้เข้ารอบ Hackathon ใน วันอังคารที่ 8 กรกฎาคม 2025
-            </p>
+            พบกับทุกท่านอีกครั้งในโอกาสหน้า 🎉
+            <br></br>
             {/* <span>
               พิกัด
               <span className="underline ps-2">
@@ -837,8 +842,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <div className="h-50"></div>
-        <section className="text-white">
+        <section className="text-white pt-4">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto   pt-[2rem]  lg:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
             <div className="lg:col-span-12">
@@ -850,7 +854,7 @@ const Home: React.FC = () => {
             <div></div>
 
             {/* ด้านล่าง (รับสมัคร + วันที่) */}
-            <div className="grid grid-cols-8 gap-2 lg:col-span-12 mt-4  mb-4">
+            <div className="grid grid-cols-8 gap-2 lg:col-span-12 mt-4  mb-4 ps-8">
               <div className="col-span-12 flex items-center gap-2 font-thai">
                 <li></li>
                 <span className="text-md md:text-lg font-normal">
@@ -1093,9 +1097,9 @@ const Home: React.FC = () => {
             <div className="flex items-center justify-start mb-4 md:mb-0" />
 
             <div className="col-span-1 text-center">
-              <Link href="/proposal">
+              <Link href="/announcement">
                 <span className="inline-block max-w-sm sm:max-w-sm md:max-w-2xl lg:max-w-2xl text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-thai px-8 py-6 border-2 bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-4xl gradient-border cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF] ]">
-                  ส่งข้อเสนอโครงการ
+                  ประกาศผลการคัดเลือกผู้เข้ารอบ Hackathon
                 </span>
               </Link>
             </div>
