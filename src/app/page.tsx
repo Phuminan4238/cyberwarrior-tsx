@@ -302,7 +302,7 @@ const Home: React.FC = () => {
               <div className="col-span-1 text-center">
                 <span className="text-black text-xl md:text-xl font-bold font-thai">
                   <div>
-                    <Link href="/announcement">
+                    <Link href="/announcement-hackathon">
                       <span className="py-2 px-6 font-bold text-white border-2 border-white bg-gradient-to-r from-[#FF4C00] to-[#0032D2] rounded-3xl cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF]">
                         ประกาศผลการคัดเลือกผู้เข้ารอบ Hackathon
                       </span>
@@ -1097,7 +1097,7 @@ const Home: React.FC = () => {
             <div className="flex items-center justify-start mb-4 md:mb-0" />
 
             <div className="col-span-1 text-center">
-              <Link href="/announcement">
+              <Link href="/announcement-hackathon">
                 <span className="inline-block max-w-sm sm:max-w-sm md:max-w-2xl lg:max-w-2xl text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-thai px-8 py-6 border-2 bg-gradient-to-r to-[#0032D2] from-[#FF4C00] rounded-4xl gradient-border cursor-pointer hover:from-[#FF6A1A] hover:to-[#3355FF] ]">
                   ประกาศผลการคัดเลือกผู้เข้ารอบ Hackathon
                 </span>
