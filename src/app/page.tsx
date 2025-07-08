@@ -314,7 +314,6 @@ const Home: React.FC = () => {
             </div>
           </section>
         )}
-
         <section>
           <div className="mx-auto max-w-screen-sm px-10 md:px-4">
             <h2 className="font-thai mb-4 text-2xl font-extrabold tracking-tight leading-tight text-center text-white md:text-2xl">
@@ -399,7 +398,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         <section className="pt-10">
           <div className="mx-auto px-4 text-center">
             <h2 className="font-thai mb-4 text-2xl font-bold tracking-tight leading-tight text-white md:text-2xl">
@@ -471,7 +469,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         <section id="about" className="text-white   md:pt-0">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-8 mx-auto md:gap-8 xl:gap-0 pt-[4rem] md:pt-[6rem] md:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
@@ -492,7 +489,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         <section className="text-white">
           <div className="grid max-w-screen-xl px-10 md:px-4 md:py-2  mx-auto md:gap-8 xl:gap-0  md:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
@@ -669,7 +665,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         <div className="hidden md:block">
           <section className="text-white">
             <div className="grid max-w-screen-xl px-10 md:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 ">
@@ -799,7 +794,6 @@ const Home: React.FC = () => {
             </div> */}
           </section>
         </div>
-
         <section className="text-white mt-10">
           <div
             className="grid max-w-screen-xl w-auto md:w-300 px-6 py-6 mx-auto rounded-2xl inset-0 bg-[rgba(10,29,58,0.5)] backdrop-blur-sm z-0 border"
@@ -842,6 +836,44 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        <section className="text-white mt-10">
+          <div
+            className="grid max-w-screen-xl w-auto md:w-300 px-6 py-6 mx-auto rounded-2xl inset-0 bg-[rgba(10,29,58,0.5)] backdrop-blur-sm z-0 border"
+            style={{ borderColor: "#FF4C00" }}
+          >
+            <p className="font-bold text-lg">
+              {" "}
+              การแข่งขันรอบ hackathon จะจัดขึ้นในวันเสาร์-อาทิตย์ที่ 19 – 20
+              กรกฎาคม 2568
+              <br></br>ณ อาคารพหุวิทยาคาร ชั้น 14 - 15
+              มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+            </p>
+            <br></br>
+            <a
+              href="https://maps.app.goo.gl/i3ojqY2XTNTX8wib8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📍 maps.app.goo.gl/i3ojqY2XTNTX8wib8
+            </a>
+            <br></br>
+            📌 สมาชิกทุกคนต้องมาร่วมกิจกรรมด้วยตนเอง พร้อมแสดง
+            บัตรประชาชนตัวจริง ก่อนเข้างาน
+            <br></br>
+            <br></br>
+            📌 อุปกรณ์ติดตัวไม่จำกัด เจ้าภาพจัดเตรียมสัญญาณอินเทอร์เน็ตให้
+            แต่สามารถนำอุปกรณ์หรือสัญญาณสำรองมาเองได้
+            <br></br>
+            <br></br>
+            📌 ลงทะเบียนรายงานตัวตั้งแต่เวลา 08.00 น.
+            <br></br>
+            <br></br>
+            📌 สำหรับผู้ที่มาจากต่างจังหวัด
+            สามารถติดต่อเจ้าหน้าที่เพื่อขอคำแนะนำเรื่องโรงแรมและที่พักใกล้เคียง
+            (โครงการไม่ได้จัดที่พักให้)
+          </div>
+        </section>
+
         <section className="text-white pt-4">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto   pt-[2rem]  lg:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
@@ -879,7 +911,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         <section className="text-white">
           <div className="grid max-w-screen-xl px-10 md:px-4  mx-auto lg:gap-8 xl:gap-0  lg:grid-cols-12">
             <div className="lg:col-span-12">
@@ -907,7 +938,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         <section className="text-white" id="reward">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto lg:gap-4 lg:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
@@ -1026,7 +1056,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         <section className="text-white">
           <div className="grid max-w-screen-xl px-10 md:px-4 py-4  mx-auto lg:gap-8 xl:gap-0  md:pb-[2rem] lg:grid-cols-12">
             <div className="lg:col-span-12">
@@ -1075,7 +1104,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         {!isRegistrationClosed() ? (
           <div className="grid  items-center py-8 ">
             <div className="flex items-center space-x-2 justify-start"></div>
@@ -1107,7 +1135,6 @@ const Home: React.FC = () => {
             <div />
           </div>
         )}
-
         <section
           className="text-white pt-12 md:pt-16 px-10 md:px-4"
           id="contact"
@@ -1158,7 +1185,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
         <section className="h-40 py-20"></section>
       </div>
     </>
