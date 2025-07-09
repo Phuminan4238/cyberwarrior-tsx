@@ -14,6 +14,7 @@ import sponsorlogo from "./assets/sponsor-logo.png";
 import aislogo from "./assets/ais-logo.png";
 import cyberlogo from "./assets/cyber-logo.png";
 import securitylogo from "./assets/security-logo.png";
+import tetherlogo from "./assets/tether-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrophy,
@@ -455,6 +456,18 @@ const Home: React.FC = () => {
                 className="inline-flex items-center justify-center hover:text-gray-900 "
                 style={{
                   backgroundImage: `url(${securitylogo.src})`, // Using sponsorlogo.src for background image
+                  backgroundSize: "contain", // Ensures the image fits within the container
+                  backgroundRepeat: "no-repeat", // Prevents image repetition
+                  backgroundPosition: "center", // Centers the image
+                  height: "140px", // Adjust the height as needed
+                  width: "140px", // Adjust the width as needed
+                }}
+              ></button>
+
+              <button
+                className="inline-flex items-center justify-center hover:text-gray-900 "
+                style={{
+                  backgroundImage: `url(${tetherlogo.src})`, // Using sponsorlogo.src for background image
                   backgroundSize: "contain", // Ensures the image fits within the container
                   backgroundRepeat: "no-repeat", // Prevents image repetition
                   backgroundPosition: "center", // Centers the image
