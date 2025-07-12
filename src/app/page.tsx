@@ -15,6 +15,8 @@ import aislogo from "./assets/ais-logo.png";
 import cyberlogo from "./assets/cyber-logo.png";
 import securitylogo from "./assets/security-logo.png";
 import tetherlogo from "./assets/tether-logo.png";
+import letlogo from "./assets/let-logo.png";
+import betimelogo from "./assets/betime-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrophy,
@@ -405,96 +407,63 @@ const Home: React.FC = () => {
               ผู้สนับสนุน
             </h2>
 
-            <div className="inline-block bg-white rounded-3xl px-8 p-4 text-gray-500 ">
-              <button
-                className="inline-flex items-center justify-center hover:text-gray-900  "
-                style={{
-                  backgroundImage: `url(${sponsorlogo.src})`, // Using sponsorlogo.src for background image
-                  backgroundSize: "contain", // Ensures the image fits within the container
-                  backgroundRepeat: "no-repeat", // Prevents image repetition
-                  backgroundPosition: "center", // Centers the image
-                  height: "140px", // Adjust the height as needed
-                  width: "140px", // Adjust the width as needed
-                }}
-              >
-                {/* You can keep the button content if needed, otherwise just leave the background image */}
-                <span className="sr-only">Sponsor Logo</span>{" "}
-                {/* Hidden text for accessibility */}
-              </button>
-              <button
-                className="inline-flex items-center justify-center hover:text-gray-900 mr-4"
-                style={{
-                  backgroundImage: `url(${aislogo.src})`, // Using sponsorlogo.src for background image
-                  backgroundSize: "contain", // Ensures the image fits within the container
-                  backgroundRepeat: "no-repeat", // Prevents image repetition
-                  backgroundPosition: "center", // Centers the image
-                  height: "140px", // Adjust the height as needed
-                  width: "140px", // Adjust the width as needed
-                }}
-              >
-                {/* You can keep the button content if needed, otherwise just leave the background image */}
-                <span className="sr-only">Sponsor Logo</span>{" "}
-                {/* Hidden text for accessibility */}
-              </button>
-              <button
-                className="inline-flex items-center justify-center hover:text-gray-900 "
-                style={{
-                  backgroundImage: `url(${mountainLogo.src})`, // Using sponsorlogo.src for background image
-                  backgroundSize: "contain", // Ensures the image fits within the container
-                  backgroundRepeat: "no-repeat", // Prevents image repetition
-                  backgroundPosition: "center", // Centers the image
-                  height: "140px", // Adjust the height as needed
-                  width: "140px", // Adjust the width as needed
-                }}
-              >
-                {/* You can keep the button content if needed, otherwise just leave the background image */}
-                <span className="sr-only">Mountain Joy Logo</span>{" "}
-                {/* Hidden text for accessibility */}
-              </button>
+            <div className="inline-block bg-white rounded-3xl px-6 pt-2  text-gray-500">
+              {/* Row 1 - 4 columns */}
+              <div className="flex justify-center">
+                <div className="grid grid-cols-4 gap-4">
+                  {[sponsorlogo, aislogo, mountainLogo, securitylogo].map(
+                    (logo, i) => (
+                      <button
+                        key={i}
+                        className="inline-flex items-center justify-center hover:text-gray-900 w-[100px] h-[100px] sm:w-[90px] sm:h-[90px] md:w-[110px] md:h-[110px] lg:w-[140px] lg:h-[140px]"
+                        style={{
+                          backgroundImage: `url(${logo.src})`,
+                          backgroundSize: "contain",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "center",
+                        }}
+                      >
+                        <span className="sr-only">Logo {i + 1}</span>
+                      </button>
+                    )
+                  )}
+                </div>
+              </div>
 
-              <button
-                className="inline-flex items-center justify-center hover:text-gray-900 "
-                style={{
-                  backgroundImage: `url(${securitylogo.src})`, // Using sponsorlogo.src for background image
-                  backgroundSize: "contain", // Ensures the image fits within the container
-                  backgroundRepeat: "no-repeat", // Prevents image repetition
-                  backgroundPosition: "center", // Centers the image
-                  height: "140px", // Adjust the height as needed
-                  width: "140px", // Adjust the width as needed
-                }}
-              ></button>
-
-              <button
-                className="inline-flex items-center justify-center hover:text-gray-900 "
-                style={{
-                  backgroundImage: `url(${tetherlogo.src})`, // Using sponsorlogo.src for background image
-                  backgroundSize: "contain", // Ensures the image fits within the container
-                  backgroundRepeat: "no-repeat", // Prevents image repetition
-                  backgroundPosition: "center", // Centers the image
-                  height: "140px", // Adjust the height as needed
-                  width: "140px", // Adjust the width as needed
-                }}
-              >
-                {/* You can keep the button content if needed, otherwise just leave the background image */}
-                <span className="sr-only">Security Logo</span>{" "}
-                {/* Hidden text for accessibility */}
-              </button>
+              {/* Row 2 - 3 columns */}
+              <div className="flex justify-center">
+                <div className="grid grid-cols-3 gap-6">
+                  {[betimelogo, tetherlogo, letlogo].map((logo, i) => (
+                    <button
+                      key={i}
+                      className="inline-flex items-center justify-center hover:text-gray-900 w-[100px] h-[100px] sm:w-[90px] sm:h-[90px] md:w-[110px] md:h-[110px] lg:w-[180px] lg:h-[140px]"
+                      style={{
+                        backgroundImage: `url(${logo.src})`,
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                      }}
+                    >
+                      <span className="sr-only">Logo {i + 5}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
-        <section id="about" className="text-white   md:pt-0">
-          <div className="grid max-w-screen-xl px-10 md:px-4 py-8 mx-auto md:gap-8 xl:gap-0 pt-[4rem] md:pt-[6rem] md:grid-cols-12">
-            {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
-            <div className="lg:col-span-12">
+        <section id="about" className="text-white md:pt-0">
+          <div className="grid max-w-screen-xl px-10 md:px-4 py-8 mx-auto gap-6 md:grid-cols-12 pt-[4rem] md:pt-[4rem]">
+            <div className="col-span-12">
               <h4 className="max-w-2xl text-[1.6rem] mb-4 font-thai text-start font-bold uppercase tracking-tight leading-none md:text-3xl xl:text-3xl">
                 ข้อมูลการแข่งขัน
               </h4>
-              <h4 className="max-w-2xl text-xl font-thai text-start font-bold uppercase tracking-tight leading-none md:text-2xl ">
+              <h4 className="max-w-2xl text-xl font-thai text-start font-bold uppercase tracking-tight leading-none md:text-2xl">
                 เป้าหมายของการแข่งขัน
               </h4>
               <p className="font-thai text-md md:text-xl pt-4 md:pt-6">
                 มุ่งค้นหาองค์ความรู้และนวัตกรรมที่สามารถนำมาสนับสนุนภารกิจในการป้องกันและปราบปรามอาชญากรรมทางเทคโนโลยี
-                <br></br>
+                <br />
                 พร้อมทั้งสร้างเครือข่ายนักศึกษาที่มีศักยภาพด้านเทคโนโลยี
                 เพื่อร่วมเป็นกำลังสำคัญ ในการเสริมสร้างความมั่นคงปลอดภัย
                 ทางไซเบอร์
@@ -502,6 +471,7 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
+
         <section className="text-white">
           <div className="grid max-w-screen-xl px-10 md:px-4 md:py-2  mx-auto md:gap-8 xl:gap-0  md:grid-cols-12">
             {/* ด้านบน (ข้อมูลการแข่งขัน / เกี่ยวกับการแข่งขัน) */}
